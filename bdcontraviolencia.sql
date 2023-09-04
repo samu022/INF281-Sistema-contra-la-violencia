@@ -173,13 +173,14 @@ CREATE TABLE `informacion_educativa` (
 --
 
 CREATE TABLE `ley_normativa` (
-  `codLey` int(11) NOT NULL,
+  `codLey` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) DEFAULT NULL,
   `fecha_promulgacion` date DEFAULT NULL,
-  `tematica` varchar(20) DEFAULT NULL,
-  `ci` int(11) DEFAULT NULL
+  `tematica` varchar(300) DEFAULT NULL,
+  `informacion` varchar(300) DEFAULT NULL,
+  `ci` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codLey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- --------------------------------------------------------
 
 --

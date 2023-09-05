@@ -54,7 +54,7 @@
             </div>
             <div class="mb-3">
                 <label for="fechaPromulgacion" class="form-label">Ingrese la fecha de promulgación (YYYY-MM-DD):</label>
-                <input type="text" class="form-control" id="fechaPromulgacion" name="fechaPromulgacion" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                <input type="text" class="form-control" id="fechaPromulgacion" name="fechaPromulgacion" value="<?php echo $fecha; ?>" pattern="\d{4}-\d{2}-\d{2}" required>
             </div>
             <div class="mb-3">
                 <label for="tem" class="form-label">Escriba Temática:</label>

@@ -255,8 +255,8 @@ CREATE TABLE `ley_normativa` (
 --
 
 INSERT INTO `ley_normativa` (`codLey`, `nombre`, `fecha_promulgacion`, `tematica`, `informacion`, `ci`) VALUES
-(1, 'Ley de Protección contra la Violencia de Género', '2023-08-15', 'Violencia de Género', 'Esta ley nos brinda la proteccion contra la violencia de genero', 10001),
-(2, 'Ley de Prevención y Atención de la Violencia Familiar', '2023-07-20', 'Violencia Familiar', 'Esta ley nos brinda la proteccion contra la violencia familiar', 10002);
+(1, 'Ley 348', '2013-03-09', 'Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia', 'https://bolivia.unfpa.org/sites/default/files/pub-pdf/Ley_348_0_1.pdf', 10001),
+(2, 'Ley 243', '2012-07-20', 'Ley contra el Acoso y la Violencia Política hacia las Mujeres', 'https://www.ilo.org/dyn/natlex/docs/ELECTRONIC/90299/104007/F226460565/BOL90299.pdf', 10002);
 
 -- --------------------------------------------------------
 

@@ -76,6 +76,18 @@ CREATE TABLE `alerta` (
   `codGeo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Estructura de tabla para la tabla `alerta`
+--
+
+INSERT INTO 'alerta' ('codAlerta', 'estado', 'fecha', 'ci_usuario', 'codGeo')
+VALUES
+  (1, 'Activa', '06-09-2023', 10007, 1),
+  (2, 'Inactiva', '06-08-2023', 10008, 2),
+  (3, 'Activa', '07-10-2023', 10007, 3),
+  (4, 'Inactiva', '14-08-2023', 10007, 4),
+  (5, 'Activa', '11-10-2023', 10008, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +147,18 @@ CREATE TABLE `denuncia` (
   `fecha` date DEFAULT NULL,
   `codGeo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `denuncia`
+--
+
+INSERT INTO 'denuncia' ('codDenuncia', 'tipo', 'descripcion', 'testigo', 'seguimiento', 'fecha', 'codGeo')
+VALUES
+  (1, 'Violencia Doméstica', 'Agresión física', 'Ana Pérez', 'En proceso', '07-10-2023', 1),
+  (2, 'Acoso Sexual', 'Acoso en el trabajo', 'Luisa Rodríguez', 'En investigación', '06-12-2023', 2),
+  (3, 'Violencia de Género', 'Amenazas verbales', 'María García', 'Cerrada', '06-01-2023', 3),
+  (4, 'Violencia Doméstica', 'Violencia psicológica', 'Carlos López', 'En proceso', '12-01-2023', 4),
+  (5, 'Acoso Sexual', 'Acoso callejero', 'Pedro Martínez', 'En proceso', '18-02-2023', 5);
 
 -- --------------------------------------------------------
 
@@ -214,6 +238,17 @@ CREATE TABLE `incidente_prueba` (
   `codPrueba` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `incidente_prueba`
+--
+
+INSERT INTO incidente_prueba (codDenuncia, codPrueba)
+VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (5, 5);
 -- --------------------------------------------------------
 
 --
@@ -269,6 +304,16 @@ CREATE TABLE `llena` (
   `codFormulario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `llena`
+--
+
+INSERT INTO 'llena' ('ci_usuario', 'codFormulario')
+VALUES
+  (10007, 1),
+  (10008, 2);
+
+
 -- --------------------------------------------------------
 
 --
@@ -282,6 +327,17 @@ CREATE TABLE `mensaje` (
   `contenidoMensaje` varchar(100) DEFAULT NULL,
   `ci_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO mensaje ('codMensaje', 'fechaMesaje', 'horaMensaje', 'contenidoMensaje', 'ci_usuario')
+VALUES
+  (1, '06-09-2023', '10:15 AM', 'Hola, ¿cómo estás?', 10007),
+  (2, '06-09-2023', '11:30 AM', 'Estoy bien, gracias. ¿Y tú?', 10008),
+  (3, '06-09-2023', '12:45 PM', 'Todo va bien por aquí. Nos vemos luego.', 10007);
+
 
 -- --------------------------------------------------------
 
@@ -329,6 +385,18 @@ CREATE TABLE `prueba` (
   `descripcion` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `prueba`
+--
+
+INSERT INTO 'prueba' ('codPrueba', 'tipo', 'descripcion')
+VALUES
+  (1, 'Fotos', 'Fotos de lesiones'),
+  (2, 'Grabación', 'Grabación de audio'),
+  (3, 'Mensajes', 'Mensajes de amenazas'),
+  (4, 'Testigo', 'Declaración de testigo'),
+  (5, 'Certificado Médico', 'Certificado médico');
+
 -- --------------------------------------------------------
 
 --
@@ -342,6 +410,18 @@ CREATE TABLE `realiza` (
   `anonimo` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `realiza`
+--
+
+INSERT INTO 'realiza' ('ci_usuario', 'codDenuncia', 'ci', 'anonimo')
+VALUES
+  (10007, 1, 10020, 'No'),
+  (10007, 2, 10021, 'Sí'),
+  (10007, 3, 10022, 'No'),
+  (10008, 4, 10023, 'No'),
+  (10008, 5, 10024, 'Sí');
+
 -- --------------------------------------------------------
 
 --
@@ -352,6 +432,16 @@ CREATE TABLE `recibe` (
   `codMensaje` int(11) NOT NULL,
   `ci_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `recibe`
+--
+
+INSERT INTO 'recibe' ('codMensaje', 'ci_usuario')
+VALUES
+  (1, 10008),
+  (2, 10007),
+  (3, 10008);
 
 -- --------------------------------------------------------
 
@@ -364,6 +454,14 @@ CREATE TABLE `tiene` (
   `ci_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tiene`
+--
+
+INSERT INTO 'tiene' ('ci_contacto', 'ci_usuario')
+VALUES
+  (10009, 10007),
+  (100010, 10008);
 -- --------------------------------------------------------
 
 --
@@ -396,6 +494,20 @@ CREATE TABLE `victima` (
   `relacion_perpetrador` varchar(70) DEFAULT NULL,
   `codDenuncia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `victima`
+--
+
+INSERT INTO 'victima' ('ci', 'relacion_perpetrador', 'codDenuncia')
+VALUES
+  (10002, 'Cónyuge', 1),
+  (10004, 'Compañero de trabajo', 2),
+  (10005, 'Ex pareja', 3),
+  (10006, 'Padre', 4),
+  (10007, 'Desconocido', 5);
+
+-- #################################################
 
 --
 -- Índices para tablas volcadas

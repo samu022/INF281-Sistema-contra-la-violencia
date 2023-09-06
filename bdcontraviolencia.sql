@@ -80,7 +80,7 @@ CREATE TABLE `alerta` (
 -- Estructura de tabla para la tabla `alerta`
 --
 
-INSERT INTO 'alerta' ('codAlerta', 'estado', 'fecha', 'ci_usuario', 'codGeo')
+INSERT INTO `alerta` (`codAlerta`, `estado`, `fecha`, `ci_usuario`, `codGeo`)
 VALUES
   (1, 'Activa', '06-09-2023', 10007, 1),
   (2, 'Inactiva', '06-08-2023', 10008, 2),
@@ -152,7 +152,7 @@ CREATE TABLE `denuncia` (
 -- Volcado de datos para la tabla `denuncia`
 --
 
-INSERT INTO 'denuncia' ('codDenuncia', 'tipo', 'descripcion', 'testigo', 'seguimiento', 'fecha', 'codGeo')
+INSERT INTO `denuncia` (`codDenuncia`, `tipo`, `descripcion`, `testigo`, `seguimiento`, `fecha`, `codGeo`)
 VALUES
   (1, 'Violencia Doméstica', 'Agresión física', 'Ana Pérez', 'En proceso', '07-10-2023', 1),
   (2, 'Acoso Sexual', 'Acoso en el trabajo', 'Luisa Rodríguez', 'En investigación', '06-12-2023', 2),
@@ -308,7 +308,7 @@ CREATE TABLE `llena` (
 -- Volcado de datos para la tabla `llena`
 --
 
-INSERT INTO 'llena' ('ci_usuario', 'codFormulario')
+INSERT INTO `llena` (`ci_usuario`, `codFormulario`)
 VALUES
   (10007, 1),
   (10008, 2);
@@ -332,7 +332,7 @@ CREATE TABLE `mensaje` (
 -- Volcado de datos para la tabla `mensaje`
 --
 
-INSERT INTO mensaje ('codMensaje', 'fechaMesaje', 'horaMensaje', 'contenidoMensaje', 'ci_usuario')
+INSERT INTO mensaje (`codMensaje`, `fechaMesaje`, `horaMensaje`, `contenidoMensaje`, `ci_usuario`)
 VALUES
   (1, '06-09-2023', '10:15 AM', 'Hola, ¿cómo estás?', 10007),
   (2, '06-09-2023', '11:30 AM', 'Estoy bien, gracias. ¿Y tú?', 10008),
@@ -389,7 +389,7 @@ CREATE TABLE `prueba` (
 -- Volcado de datos para la tabla `prueba`
 --
 
-INSERT INTO 'prueba' ('codPrueba', 'tipo', 'descripcion')
+INSERT INTO `prueba` (`codPrueba`, `tipo`, `descripcion`)
 VALUES
   (1, 'Fotos', 'Fotos de lesiones'),
   (2, 'Grabación', 'Grabación de audio'),
@@ -414,7 +414,7 @@ CREATE TABLE `realiza` (
 -- Volcado de datos para la tabla `realiza`
 --
 
-INSERT INTO 'realiza' ('ci_usuario', 'codDenuncia', 'ci', 'anonimo')
+INSERT INTO `realiza` (`ci_usuario`, `codDenuncia`, `ci`, `anonimo`)
 VALUES
   (10007, 1, 10020, 'No'),
   (10007, 2, 10021, 'Sí'),
@@ -437,7 +437,7 @@ CREATE TABLE `recibe` (
 -- Volcado de datos para la tabla `recibe`
 --
 
-INSERT INTO 'recibe' ('codMensaje', 'ci_usuario')
+INSERT INTO `recibe` (`codMensaje`, `ci_usuario`)
 VALUES
   (1, 10008),
   (2, 10007),
@@ -458,7 +458,7 @@ CREATE TABLE `tiene` (
 -- Volcado de datos para la tabla `tiene`
 --
 
-INSERT INTO 'tiene' ('ci_contacto', 'ci_usuario')
+INSERT INTO `tiene` (`ci_contacto`, `ci_usuario`)
 VALUES
   (10009, 10007),
   (100010, 10008);
@@ -499,7 +499,7 @@ CREATE TABLE `victima` (
 -- Volcado de datos para la tabla `victima`
 --
 
-INSERT INTO 'victima' ('ci', 'relacion_perpetrador', 'codDenuncia')
+INSERT INTO `victima` (`ci`, `relacion_perpetrador`, `codDenuncia`)
 VALUES
   (10002, 'Cónyuge', 1),
   (10004, 'Compañero de trabajo', 2),

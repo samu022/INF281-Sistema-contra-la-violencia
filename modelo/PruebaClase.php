@@ -13,12 +13,12 @@ class Prueba{
 
     }
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM prueba");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM prueba where codPrueba=$this->codPrueba");
         return ($sql);
@@ -51,7 +51,7 @@ class Prueba{
 
     //para evitar inyecciones sql
     public function grabarPrueba() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -74,7 +74,7 @@ class Prueba{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM prueba WHERE codPrueba='$this->codPrueba'");
         return ($sql);

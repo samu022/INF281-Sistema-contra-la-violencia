@@ -10,12 +10,12 @@ class Geolocalizacion{
         $this->setLongitud($longitud);
     }
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM geolocalizacion");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM geolocalizacion where codGeo=$this->codGeo");
         return ($sql);
@@ -42,7 +42,7 @@ class Geolocalizacion{
 
     //para evitar inyecciones sql
     public function grabarGeo() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -65,7 +65,7 @@ class Geolocalizacion{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM geolocalizacion WHERE codGeo='$this->codGeo'");
         return ($sql);

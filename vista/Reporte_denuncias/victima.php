@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Datos de la Victima</title>
 </head>
 <body>
     <section class="form-register">
       <h4>Datos de la Victima</h4>
-      <form action="../../controlador/victimaRegistro.php" method="POST">
+      <form action="" method="POST">
       <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre" required>
       <input class="controls" type="text" name="apellidoP" id="apellidoP" placeholder="Ingrese apellido Paterno" required>
       <input class="controls" type="text" name="apellidoM" id="apellidoM" placeholder="Ingrese apellido Materno">

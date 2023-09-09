@@ -12,12 +12,12 @@ class Victima{
 
     }
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM victima");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM victima where ci=$this->ci");
         return ($sql);
@@ -45,7 +45,7 @@ class Victima{
 
     //para evitar inyecciones sql
     public function grabarVictima() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -68,7 +68,7 @@ class Victima{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM victima WHERE ci='$this->ci'");
         return ($sql);

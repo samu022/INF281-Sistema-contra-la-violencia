@@ -9,12 +9,12 @@ class Agresor{
         $this->setDescripcion($descripcion);
     }
     public function lista(){
-        include("conexion.php");
-        $db=new Conexion();
+        //include("conexion.php");
+        //$db=new Conexion();
         $sql=$db->query("SELECT * FROM agresor");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM agresor where ci=$this->ci");
         return ($sql);
@@ -39,7 +39,7 @@ class Agresor{
 
     //para evitar inyecciones sql
     public function grabar() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
 
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -60,7 +60,7 @@ class Agresor{
     }
 
     public function elimina() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("DELETE FROM agresor WHERE ci='$this->ci'");
         return ($sql);

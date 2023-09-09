@@ -18,7 +18,7 @@
         $est=$_POST['est'];
         $prof=$_POST['prof'];
         $ci=$_POST['carnet'];
-        $tel=$_POST['telefono'];
+        $tel=$_POST['tel'];
         $descripcion=$_POST['descripcion'];
         $agresor = array(
             'ci' => $ci,

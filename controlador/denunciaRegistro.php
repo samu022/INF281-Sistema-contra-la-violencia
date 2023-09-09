@@ -1,13 +1,12 @@
 <?php
     session_start();
-    $_SESSION['datosVictima'] = array();
-    $_SESSION['datosAgresor'] =array();
-    $_SESSION['datosPruebas'] = array();
-    $_SESSION['latitud'] = null;
-    $_SESSION['longitud'] = null;
+    
+    include("../modelo/conexion.php");
+    
     
     include("../vista/Reporte_denuncias/index.php");
     if(isset($_POST['RegistrarDenuncia'])){
+        $tes="";
         if (isset($_POST['anonima'])) {
             // La casilla 'anonima' está marcada
             $anonima = true;
@@ -19,22 +18,23 @@
         $tipo=$_POST['tipo'];
         $des=$_POST['des'];
         $fechaActual = date("Y-m-d");
-        
+       
         //Antes de registrar denuncia necesitamos datos geo
         $latitud=$_SESSION['latitud'];
         $longitud=$_SESSION['longitud'];
+
         include("../modelo/GeoClase.php");
         $cargGeo=new Geolocalizacion("", $latitud, $longitud);
         $resgGeo=$cargGeo->grabarGeo();
 
         include("../modelo/DenunciaClase.php");
         $cargDen=new Denuncia("", $tipo, $des, $fechaActual,$tes,"En investigación",$cargGeo->getCodGeo());
-        $resDen=$cargDen->grabarLey_Normativa();
+        $resDen=$cargDen->grabarDenuncia();
         //Registramos a victima
-
+        
         $datosVictima = isset($_SESSION['datosVictima']) ? $_SESSION['datosVictima'] : array();
         // Verificar si hay datos en la sesión
-        if (!empty($datosVictima)) {
+       /* if (!empty($datosVictima)) {
             // Iterar a través de cada fila
             foreach ($datosVictima as $victima) {
                 // Acceder a los valores de cada fila
@@ -109,14 +109,20 @@
                 include("../modelo/PruebaClase.php");
                 $cargPrueba=new Prueba("", $tipoArchivo, $descripcion, $rutaArchivo);
                 $resPrueba=$cargPrueba->grabarPrueba();
+                include("../modelo/Incidente_PruebaClase.php");
+                $cargIP=new Incidente_Prueba($cargDen->getCodDenuncia(),$cargPrueba->getCodPrueba());
+                $resIP=$cargIP->insertarIncidentePrueba();
             }
+            
         } else {
             echo "No hay datos de pruebas en la sesión.";
-        }
+        }*/
+        
         
          
         
     }
+    
  
        
     

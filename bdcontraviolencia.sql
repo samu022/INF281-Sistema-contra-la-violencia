@@ -125,14 +125,16 @@ CREATE TABLE `contacto_emergencia` (
 --
 
 CREATE TABLE `denuncia` (
-  `codDenuncia` int(11) NOT NULL,
+  `codDenuncia` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(80) DEFAULT NULL,
   `descripcion` varchar(80) DEFAULT NULL,
   `testigo` varchar(80) DEFAULT NULL,
   `seguimiento` varchar(80) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
-  `codGeo` int(11) DEFAULT NULL
+  `codGeo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codDenuncia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Volcado de datos para la tabla `denuncia`
@@ -465,12 +467,7 @@ ALTER TABLE `centro_local`
 ALTER TABLE `contacto_emergencia`
   ADD PRIMARY KEY (`ci_contacto`);
 
---
--- Indices de la tabla `denuncia`
---
-ALTER TABLE `denuncia`
-  ADD PRIMARY KEY (`codDenuncia`),
-  ADD KEY `R_29` (`codGeo`);
+
 
 --
 -- Indices de la tabla `evaluacion_riesgo`

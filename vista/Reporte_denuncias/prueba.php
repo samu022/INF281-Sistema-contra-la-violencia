@@ -8,7 +8,7 @@
     <title>Pruebas</title>
 </head>
 <body>
-  <form action="../../controlador/pruebaRegistro.php" method="POST" enctype="multipart/form-data">
+  <form action="" method="POST" enctype="multipart/form-data">
     <section class="form-register">
       <h4>Pruebas de la Denuncia</h4>
 

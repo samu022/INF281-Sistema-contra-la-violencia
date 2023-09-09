@@ -24,7 +24,11 @@
     <p>Latitud: <span id="latitud"></span>
     Longitud: <span id="longitud"></span></p>
 
-    <button id="guardarUbicacion">Guardar Ubicación</button> <!-- Agrega un botón -->
+    <form id="ubicacionForm" action="" method="post">
+        <input type="hidden" id="latitudInput" name="latitud">
+        <input type="hidden" id="longitudInput" name="longitud">
+        <button type="submit">Guardar Ubicación</button> <!-- Agrega un botón de envío -->
+    </form>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
@@ -49,6 +53,10 @@
                 marker.setLatLng(latlng);
                 document.getElementById('latitud').textContent = latlng.lat;
                 document.getElementById('longitud').textContent = latlng.lng;
+
+                // Actualizar los campos de formulario con las coordenadas
+                document.getElementById('latitudInput').value = latlng.lat;
+                document.getElementById('longitudInput').value = latlng.lng;
             });
         }
 
@@ -57,26 +65,11 @@
             var latlng = event.target.getLatLng();
             document.getElementById('latitud').textContent = latlng.lat;
             document.getElementById('longitud').textContent = latlng.lng;
+
+            // Actualizar los campos de formulario con las coordenadas
+            document.getElementById('latitudInput').value = latlng.lat;
+            document.getElementById('longitudInput').value = latlng.lng;
         });
-
-        document.getElementById('guardarUbicacion').addEventListener('click', function() {
-            var latitud = document.getElementById('latitud').textContent;
-            var longitud = document.getElementById('longitud').textContent;
-
-            // Crear un objeto XMLHttpRequest
-            var xhr = new XMLHttpRequest();
-
-            // Definir el método HTTP (en este caso, POST) y la URL del archivo PHP que procesará los datos
-            xhr.open('POST', '../../controlador/geoRegistro.php', true);
-
-           
-            // Crear los datos que se enviarán al servidor (en este caso, latitud y longitud)
-            var datos = 'latitud=' + encodeURIComponent(latitud) + '&longitud=' + encodeURIComponent(longitud);
-
-            // Enviar la solicitud al servidor
-            xhr.send(datos);
-        });
-
     </script>
 </body>
 </html>

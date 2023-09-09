@@ -17,12 +17,12 @@ class Denuncia{
         $this->setCodGeo($codGeo);
     }
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM denuncia");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM denuncia where codDenuncia=$this->codDenuncia");
         return ($sql);
@@ -72,15 +72,15 @@ class Denuncia{
     
     //para evitar inyecciones sql
     public function grabarDenuncia() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $stmt = $db->prepare("INSERT INTO denuncia (tipo, descripcion, fecha,testigo, seguimiento,codGeo) VALUES (?, ?, ?,?,?,?,?)");
+        $stmt = $db->prepare("INSERT INTO denuncia (tipo, descripcion, testigo, seguimiento,fecha,codGeo) VALUES (?, ?, ?,?,?,?)");
 
         
         // Vincular los parámetros
-        $stmt->bind_param("sssssi", $this->tipo, $this->descripcion, $this->fecha,$this->testigo,$this->seguimiento,$this->codGeo);
+        $stmt->bind_param("sssssi", $this->tipo, $this->descripcion,$this->testigo, $this->seguimiento,$this->fecha,$this->codGeo);
     
         // Ejecutar la sentencia
         $result = $stmt->execute();
@@ -95,7 +95,7 @@ class Denuncia{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM denuncia WHERE codDenuncia='$this->codDenuncia'");
         return ($sql);

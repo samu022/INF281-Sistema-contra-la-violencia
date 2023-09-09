@@ -15,5 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener las coordenadas de latitud y longitud desde la solicitud POST
     $_SESSION['latitud'] = $_POST['latitud'];
     $_SESSION['longitud'] = $_POST['longitud'];
+    //echo "<p>".$_POST['latitud']."</p>";
 }
 ?>

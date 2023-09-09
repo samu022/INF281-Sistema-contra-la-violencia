@@ -67,9 +67,9 @@
     </header>
 
     <nav>
-      <a href="prueba.php">Prueba</a>
-      <a href="agresor.php">Agresor</a>
-      <a href="victima.php">Victima</a>
+      <a href="#prueba">Prueba</a>
+      <a href="#agresor">Agresor</a>
+      <a href="#victima">Victima</a>
     </nav>
     <div class="container mt-5">
         <form action="" method="POST">
@@ -106,13 +106,13 @@
             </div>
             
             <h1>Datos Victima</h1>
-            <iframe src="victima.php" width="100%" height="1000px" frameborder="0"></iframe>
+            <iframe id="victima" src="../controlador/victimaRegistro.php" width="100%" height="1000px" frameborder="0"></iframe>
             <h1>Datos Agresor</h1>
-            <iframe src="agresor.php" width="100%" height="1050px" frameborder="0"></iframe>
+            <iframe id="agresor" src="../controlador/agresorRegistro.php" width="100%" height="1050px" frameborder="0"></iframe>
             <h1>Pruebas</h1>
-            <iframe src="prueba.php" width="100%" height="450px" frameborder="0"></iframe>
+            <iframe id="prueba" src="../controlador/pruebaRegistro.php" width="100%" height="450px" frameborder="0"></iframe>
             <h1>Ubicación</h1>
-            <iframe src="geolocalizacion.php" width="100%" height="680px" frameborder="0"></iframe>
+            <iframe src="../controlador/geoRegistro.php" width="100%" height="680px" frameborder="0"></iframe>
             <button type="submit" class="btn btn-primary" name="RegistrarDenuncia">Registrar Denuncia</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/leyLista.php'">Volver</button>
         </form>

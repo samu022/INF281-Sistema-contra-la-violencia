@@ -25,12 +25,12 @@ class Persona{
     }
 
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM persona");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM persona where ci=$this->ci");
         return ($sql);
@@ -118,7 +118,7 @@ class Persona{
 
     //para evitar inyecciones sql
     public function grabarPersona() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -141,13 +141,13 @@ class Persona{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM persona WHERE ci='$this->ci'");
         return ($sql);
     }
     public function modifica() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL

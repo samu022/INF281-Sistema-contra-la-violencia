@@ -102,9 +102,9 @@
                 <input type="text" class="form-control" name="tes" id="tes" placeholder="Escriba aquí el nombre del testigo">
             </div>
             <h1>Datos Victima</h1>
-            <iframe src="victima.php" width="100%" height="550px" frameborder="0"></iframe>
+            <iframe src="victima.php" width="100%" height="950px" frameborder="0"></iframe>
             <h1>Datos Agresor</h1>
-            <iframe src="agresor.php" width="100%" height="700px" frameborder="0"></iframe>
+            <iframe src="agresor.php" width="100%" height="950px" frameborder="0"></iframe>
             <h1>Pruebas</h1>
             <iframe src="prueba.php" width="100%" height="350px" frameborder="0"></iframe>
             <h1>Ubicación</h1>

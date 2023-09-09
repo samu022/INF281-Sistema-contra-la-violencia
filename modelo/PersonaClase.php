@@ -117,7 +117,7 @@ class Persona{
    
 
     //para evitar inyecciones sql
-    public function grabar() {
+    public function grabarPersona() {
         include("conexion.php");
         $db = new Conexion();
     

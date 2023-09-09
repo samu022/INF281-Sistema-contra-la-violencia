@@ -51,7 +51,7 @@ CREATE TABLE `administrador` (
 
 CREATE TABLE `agresor` (
   `ci` int(11) NOT NULL,
-  `descripcion` varchar(40) DEFAULT NULL
+  `descripcion` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

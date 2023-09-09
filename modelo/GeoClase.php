@@ -41,7 +41,7 @@ class Geolocalizacion{
    
 
     //para evitar inyecciones sql
-    public function grabarPrueba() {
+    public function grabarGeo() {
         include("conexion.php");
         $db = new Conexion();
     

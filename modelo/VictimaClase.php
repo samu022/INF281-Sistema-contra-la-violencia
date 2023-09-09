@@ -49,7 +49,7 @@ class Victima{
    
 
     //para evitar inyecciones sql
-    public function grabarPrueba() {
+    public function grabarVictima() {
         include("conexion.php");
         $db = new Conexion();
     

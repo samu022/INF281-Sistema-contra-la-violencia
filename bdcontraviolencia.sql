@@ -720,8 +720,6 @@ ALTER TABLE `usuario`
 --
 -- Filtros para la tabla `victima`
 --
-ALTER TABLE `victima`
-ADD `numero_telefono` VARCHAR(8); -- Puedes ajustar el tipo de datos y la longitud según tus necesidades
 
 ALTER TABLE `victima`
   ADD CONSTRAINT `R_25` FOREIGN KEY (`codDenuncia`) REFERENCES `denuncia` (`codDenuncia`),

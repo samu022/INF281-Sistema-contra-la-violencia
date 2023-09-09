@@ -10,7 +10,7 @@
 <body>
     <section class="form-register">
       <h4>Datos de la Victima</h4>
-      <form action="" method="POST">
+      <form action="../../controlador/victimaRegistro.php" method="POST">
       <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre" required>
       <input class="controls" type="text" name="apellidoP" id="apellidoP" placeholder="Ingrese apellido Paterno" required>
       <input class="controls" type="text" name="apellidoM" id="apellidoM" placeholder="Ingrese apellido Materno">
@@ -25,9 +25,10 @@
       <input class="controls" type="text" name="est" id="est" placeholder="Ingrese estado civil victima">
       <input class="controls" type="text" name="prof" id="prof" placeholder="Ingrese profesion victima">
       <input class="controls" type="text" name="carnet" id="carnet" placeholder="Ingrese su carnet de identidad" required>
+      <input class="controls" type="text" name="rel" id="rel" placeholder="Relacion Perpetruador" required>
       <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su numero telefonico">
       <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-      <input class="btn btn-primary" type="submit" value="Registrar Víctima">
+      <input class="btn btn-primary" type="submit" value="Registrar Víctima" name="registraVictima">
 
     </form>
     </section>  

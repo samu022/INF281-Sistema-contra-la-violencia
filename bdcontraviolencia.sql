@@ -322,11 +322,13 @@ CREATE TABLE `persona` (
 --
 
 CREATE TABLE `prueba` (
-  `codPrueba` int(11) NOT NULL,
+  `codPrueba` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(40) DEFAULT NULL,
   `descripcion` varchar(500) DEFAULT NULL,
-  `ruta` varchar(100) DEFAULT NULL
+  `ruta` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`codPrueba`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Volcado de datos para la tabla `prueba`
@@ -531,8 +533,7 @@ ALTER TABLE `persona`
 --
 -- Indices de la tabla `prueba`
 --
-ALTER TABLE `prueba`
-  ADD PRIMARY KEY (`codPrueba`);
+
 
 --
 -- Indices de la tabla `realiza`

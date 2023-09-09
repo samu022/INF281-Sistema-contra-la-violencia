@@ -76,7 +76,8 @@
             <h1 class="mb-4">Bienvenido al Registro de Denuncias</h1>
             <label for="anonima" class="form-label">¿La denuncia será anónima?</label>
             <input type="checkbox" class="form-check-input" name="anonima" id="anonima">
-            <label class="form-check-label" for="anonima">Sí, será anónima</label> <p><i>No se registrará sus datos si la denuncia es anónima</i></p>
+            <label class="form-check-label" for="anonima">Sí, será anónima</label>
+
             <div class="mb-3">
                 <label for="tipo" class="form-label">Seleccione el tipo de denuncia:</label>
                 <select class="form-select" name="tipo" id="tipo" required>
@@ -98,25 +99,38 @@
                 <textarea class="form-control" name="des" id="des" rows="4" placeholder="Escriba aquí su descripción" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="tes" class="form-label">Ingrese nombre del testigo (Opcional):</label>
-                <input type="text" class="form-control" name="tes" id="tes" placeholder="Escriba aquí el nombre del testigo">
+            <div class="mb-3">
+                <label for="tes" class="form-label">Ingrese nombre del testigo:</label>
+                <input type="text" class="form-control" name="tes" id="tes" placeholder="Escriba aquí el nombre del testigo" disabled>
             </div>
+            </div>
+            
             <h1>Datos Victima</h1>
             <iframe src="victima.php" width="100%" height="950px" frameborder="0"></iframe>
             <h1>Datos Agresor</h1>
             <iframe src="agresor.php" width="100%" height="950px" frameborder="0"></iframe>
             <h1>Pruebas</h1>
-            <iframe src="prueba.php" width="100%" height="350px" frameborder="0"></iframe>
+            <iframe src="prueba.php" width="100%" height="450px" frameborder="0"></iframe>
             <h1>Ubicación</h1>
             <iframe src="geolocalizacion.php" width="100%" height="680px" frameborder="0"></iframe>
-            <button type="submit" class="btn btn-primary" name="RegistrarLey">Registrar Ley</button>
+            <button type="submit" class="btn btn-primary" name="RegistrarLey">Registrar Denuncia</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/leyLista.php'">Volver</button>
         </form>
     </div>
     <div class="container">
         
     </div>
+    <script>
+    // Obtener referencias a los elementos del DOM
+    const checkboxAnonima = document.getElementById('anonima');
+    const campoTestigo = document.getElementById('tes');
 
+    // Agregar un evento change al checkbox
+    checkboxAnonima.addEventListener('change', function () {
+        // Habilitar o deshabilitar el campo de testigo según si el checkbox está marcado o no
+        campoTestigo.disabled = this.checked;
+    });
+</script>
     <footer>
         © 2023 Mi Página Web de Denuncias
     </footer>

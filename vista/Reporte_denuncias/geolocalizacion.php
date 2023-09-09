@@ -21,8 +21,10 @@
     <div id="map-container">
         <div id="map"></div>
     </div>
-    <p>Latitud: <span id="latitud"></span></p>
-    <p>Longitud: <span id="longitud"></span></p>
+    <p>Latitud: <span id="latitud"></span>
+    Longitud: <span id="longitud"></span></p>
+
+    <button id="guardarUbicacion">Guardar Ubicación</button> <!-- Agrega un botón -->
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
@@ -56,6 +58,25 @@
             document.getElementById('latitud').textContent = latlng.lat;
             document.getElementById('longitud').textContent = latlng.lng;
         });
+
+        document.getElementById('guardarUbicacion').addEventListener('click', function() {
+            var latitud = document.getElementById('latitud').textContent;
+            var longitud = document.getElementById('longitud').textContent;
+
+            // Crear un objeto XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Definir el método HTTP (en este caso, POST) y la URL del archivo PHP que procesará los datos
+            xhr.open('POST', '../../controlador/geoRegistro.php', true);
+
+           
+            // Crear los datos que se enviarán al servidor (en este caso, latitud y longitud)
+            var datos = 'latitud=' + encodeURIComponent(latitud) + '&longitud=' + encodeURIComponent(longitud);
+
+            // Enviar la solicitud al servidor
+            xhr.send(datos);
+        });
+
     </script>
 </body>
 </html>

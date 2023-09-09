@@ -324,7 +324,7 @@ CREATE TABLE `persona` (
 CREATE TABLE `prueba` (
   `codPrueba` int(11) NOT NULL,
   `tipo` varchar(40) DEFAULT NULL,
-  `descripcion` varchar(40) DEFAULT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
   `ruta` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

@@ -1,6 +1,6 @@
 <?php
     include("../vista/Reporte_denuncias/agresor.php");
-    
+    session_start();
     // Definir un array multidimensional para almacenar los valores de todas las subidas
     if (!isset($_SESSION['datosAgresor'])) {
         $_SESSION['datosAgresor'] = array(); // Inicializa como un arreglo si no existe

@@ -186,10 +186,12 @@ CREATE TABLE `evento` (
 --
 
 CREATE TABLE `geolocalizacion` (
-  `codGeo` int(11) NOT NULL,
+  `codGeo` int(11) NOT NULL AUTO_INCREMENT,
   `latitud` varchar(20) DEFAULT NULL,
-  `longitud` varchar(20) DEFAULT NULL
+  `longitud` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`codGeo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Volcado de datos para la tabla `geolocalizacion`
@@ -484,11 +486,8 @@ ALTER TABLE `evento`
   ADD PRIMARY KEY (`codEvento`),
   ADD KEY `R_33` (`ci`);
 
---
--- Indices de la tabla `geolocalizacion`
---
-ALTER TABLE `geolocalizacion`
-  ADD PRIMARY KEY (`codGeo`);
+
+
 
 --
 -- Indices de la tabla `incidente_prueba`

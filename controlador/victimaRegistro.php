@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("../vista/Reporte_denuncias/victima.php");
     if (!isset($_SESSION['datosVictima'])) {
         $_SESSION['datosVictima'] = array(); // Inicializa como un arreglo si no existe

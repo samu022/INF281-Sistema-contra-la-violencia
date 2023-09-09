@@ -1,8 +1,12 @@
 <?php
+    session_start();
     include("../vista/Reporte_denuncias/prueba.php");
     
     // Definir un array multidimensional para almacenar los valores de todas las subidas
-    $datosPrueba = array();
+    if (!isset($_SESSION['datosPruebas'])) {
+        $_SESSION['datosPruebas'] = array(); // Inicializa como un arreglo si no existe
+    }
+    
 
     if(isset($_POST['subePrueba'])){
         // Carpeta donde deseas almacenar los archivos subidos
@@ -37,7 +41,7 @@
                 );
                 
                 // Agregar los datos de esta subida al conjunto de datos principal
-                $datosPrueba[] = $datosSubida;
+                $_SESSION['datosPruebas'][] = $datosSubida;
                 
                 // Aquí puedes realizar cualquier otra operación con los datos antes de registrarlos en la base de datos
             } else {

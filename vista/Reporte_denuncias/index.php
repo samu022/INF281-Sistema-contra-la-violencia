@@ -106,14 +106,14 @@
             </div>
             
             <h1>Datos Victima</h1>
-            <iframe src="victima.php" width="100%" height="950px" frameborder="0"></iframe>
+            <iframe src="victima.php" width="100%" height="1000px" frameborder="0"></iframe>
             <h1>Datos Agresor</h1>
-            <iframe src="agresor.php" width="100%" height="950px" frameborder="0"></iframe>
+            <iframe src="agresor.php" width="100%" height="1050px" frameborder="0"></iframe>
             <h1>Pruebas</h1>
             <iframe src="prueba.php" width="100%" height="450px" frameborder="0"></iframe>
             <h1>Ubicación</h1>
             <iframe src="geolocalizacion.php" width="100%" height="680px" frameborder="0"></iframe>
-            <button type="submit" class="btn btn-primary" name="RegistrarLey">Registrar Denuncia</button>
+            <button type="submit" class="btn btn-primary" name="RegistrarDenuncia">Registrar Denuncia</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/leyLista.php'">Volver</button>
         </form>
     </div>

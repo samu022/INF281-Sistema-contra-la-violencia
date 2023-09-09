@@ -2,7 +2,9 @@
     include("../vista/Reporte_denuncias/agresor.php");
     
     // Definir un array multidimensional para almacenar los valores de todas las subidas
-    $datosAgresores = array();
+    if (!isset($_SESSION['datosAgresor'])) {
+        $_SESSION['datosAgresor'] = array(); // Inicializa como un arreglo si no existe
+    }
 
     if(isset($_POST['registrarAgresor'])){
         $nom=$_POST['nombres'];
@@ -33,7 +35,7 @@
         );
 
         // Agregar el array de la víctima actual al array principal
-        $datosAgresores[] = $agresor;
+        $_SESSION['datosAgresor'][] = $agresor;
         /*include("../modelo/PersonaClase.php");
         $carg1=new Victima($ci, $nom, $apeP, $apeM, $fechanac, $sexo, $dir, $est, $prof);
         $res1=$carg1->grabarPersona();

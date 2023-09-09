@@ -1,8 +1,10 @@
 <?php
     include("../vista/Reporte_denuncias/victima.php");
-    
+    if (!isset($_SESSION['datosVictima'])) {
+        $_SESSION['datosVictima'] = array(); // Inicializa como un arreglo si no existe
+    }
     // Definir un array multidimensional para almacenar los valores de todas las subidas
-    $datosVictimas = array();
+
 
     if(isset($_POST['registraVictima'])){
         $nom=$_POST['nombres'];
@@ -33,7 +35,7 @@
         );
 
         // Agregar el array de la víctima actual al array principal
-        $datosVictimas[] = $victima;
+        $_SESSION['datosVictimas'][] = $victima;
         /*include("../modelo/PersonaClase.php");
         $carg1=new Victima($ci, $nom, $apeP, $apeM, $fechanac, $sexo, $dir, $est, $prof);
         $res1=$carg1->grabarPersona();

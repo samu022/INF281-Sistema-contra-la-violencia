@@ -61,7 +61,7 @@
                 $cargPersona=new Persona($ci, $nombres, $apellidoP, $apellidoM, $fechaNacimiento, $sexo, $direccion, $estadoCivil, $profesion,$telefono);
                 $resPersona=$cargPersona->grabarPersona();
                 
-                echo "<p>".$cargDen->getCodDenuncia()."</p>";
+                //echo "<p>".$cargDen->getCodDenuncia()."</p>";
                 $cargVictima=new Victima($ci, $relacion, $cargDen->getCodDenuncia());
                 $resVictima=$cargVictima->grabarVictima();
             }

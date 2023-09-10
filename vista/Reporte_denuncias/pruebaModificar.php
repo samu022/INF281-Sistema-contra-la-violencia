@@ -8,16 +8,20 @@
     <title>Pruebas</title>
 </head>
 <body>
-  <form action="" method="POST" enctype="multipart/form-data">
+  <form action="" method="POST" >
     <section class="form-register">
       <h4>Pruebas de la Denuncia</h4>
 
-      <input type="file" name="form_fields[field_3fc0355]" id="form-field-field_3fc0355" class="archivo" data-maxsize="2" data-maxsize-message="This file exceeds the maximum allowed size.">
-      <textarea class="descripcion" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Describa las pruebas aquí." required="required" aria-required="true"></textarea>
+     
+      <textarea class="descripcion" name="descripcion" id="descripcion" rows="4" placeholder="Describa la prueba aquí." aria-required="true"><?php echo $descripcion; ?></textarea>
 
-      <input class="botons" type="submit" value="Subir Prueba" name="subePrueba">
+
+      <input class="botons" type="submit" value="Modificar descripción" name="modificaPrueba">
+      <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='../controlador/denunciaModificar.php?cod=<?php echo $codDenunciante; ?>'">Volver</button>
     </section>
   </form>
+  
+
   <!--<footer>
         <center>© 2023 Mi Página Web de Denuncias</center>
     </footer>-->

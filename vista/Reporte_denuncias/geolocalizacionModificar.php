@@ -27,7 +27,7 @@
     <form id="ubicacionForm" action="" method="post">
         <input type="hidden" id="latitudInput" name="latitud">
         <input type="hidden" id="longitudInput" name="longitud">
-        <button type="submit">Guardar Ubicación</button> <!-- Agrega un botón de envío -->
+        <button type="submit">Modificar Ubicación</button> <!-- Agrega un botón de envío -->
     </form>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>

@@ -22,6 +22,12 @@ class Victima{
         $sql=$db->query("SELECT * FROM victima where ci=$this->ci");
         return ($sql);
     }
+    public function lista_especifica_denuncia(){
+        //include("conexion.php");
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM victima where codDenuncia=$this->codDenuncia");
+        return ($sql);
+    }
     public function setCi($ci){
         $this->ci=$ci;
     }

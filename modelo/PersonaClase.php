@@ -35,6 +35,7 @@ class Persona{
         $sql=$db->query("SELECT * FROM persona where ci=$this->ci");
         return ($sql);
     }
+    
     public function setCi($ci) {
         $this->ci = $ci;
     }

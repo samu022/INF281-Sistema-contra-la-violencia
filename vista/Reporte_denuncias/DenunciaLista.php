@@ -32,7 +32,7 @@
                 echo "<td>".$reg['fecha']."</td>";
                 echo "<td><a href='../controlador/denunciaInformacion.php?cod=".$reg['codDenuncia']."' btn='btn-danger' class='btn btn-danger'>Más Inf.</a></td>";
                 echo "<td><a href='../controlador/victimaInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Victimas</a></td>";
-                echo "<td><a href='../controlador/agresoresInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Agresores</a></td>";
+                echo "<td><a href='../controlador/agresorInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Agresores</a></td>";
                 echo "<td><a href='../controlador/pruebasInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Pruebas</a></td>";
                 echo "<td><a href='../controlador/geoInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Ubicación</a></td>";
                 echo "<td><a href='../controlador/denunciaElimina.php?cod=".$reg['codDenuncia']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";

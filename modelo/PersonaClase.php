@@ -159,7 +159,7 @@ class Persona{
         $sql = $db->prepare("UPDATE persona SET nombre = ?, apePaterno = ?, apeMaterno = ?, fechaNaci = ?, sexo = ?, direccion = ?, estado_civil = ?, profesion = ?, numero_telefono = ? WHERE ci = ?");
     
         // Vincular los parámetros
-        $sql->bind_param("sssssssssi", $this->nombre, $this->apePaterno, $this->apeMaterno, $this->fechaNaci, $this->sexo, $this->direccion, $this->estado_civil, $this->profesion, $this->numero_telefono, $this->ci);
+        $sql->bind_param("sssssssss", $this->nombre, $this->apePaterno, $this->apeMaterno, $this->fechaNaci, $this->sexo, $this->direccion, $this->estado_civil, $this->profesion, $this->numero_telefono, $this->ci);
     
         // Ejecutar la sentencia
         $result = $sql->execute();

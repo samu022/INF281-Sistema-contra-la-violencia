@@ -66,6 +66,8 @@ class Prueba{
     
         // Verificar si la consulta se realizó con éxito
         if ($result) {
+            $codPruebaGenerado = $db->insert_id;
+            $this->codPrueba = $codPruebaGenerado;
             return true; // Éxito
         } else {
             return false; // Fallo al insertar

@@ -87,8 +87,11 @@ class Denuncia{
     
         // Verificar si la consulta se realizó con éxito
         if ($result) {
+            $codDenGenerado = $db->insert_id;
+            $this->codDenuncia = $codDenGenerado;
             return true; // Éxito
         } else {
+            echo "Error al registrar la denuncia: " . $stmt->error;
             return false; // Fallo al insertar
         }
     }

@@ -122,18 +122,22 @@ class Persona{
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $stmt = $db->prepare("INSERT INTO persona (ci, nombre, apePaterno, apeMaterno, fechaNaci, sexo, direccion, estado_civil, profesion, numero_telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    
+        $stmt = $db->prepare("INSERT INTO persona (ci, nombre, apePaterno, apeMaterno, fechaNaci, sexo, direccion, estado_civil, profesion, telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        
         // Vincular los parámetros
         $stmt->bind_param("isssssssss", $this->ci, $this->nombre, $this->apePaterno, $this->apeMaterno, $this->fechaNaci, $this->sexo, $this->direccion, $this->estado_civil, $this->profesion, $this->numero_telefono);
     
         // Ejecutar la sentencia
         $result = $stmt->execute();
-    
+        if (!$stmt) {
+            die("Error al preparar la consulta: " . $db->error);
+        }
+        
         // Verificar si la consulta se realizó con éxito
         if ($result) {
             return true; // Éxito
         } else {
+            echo "Error al registrar la denuncia: " . $stmt->error;
             return false; // Fallo al insertar
         }
     }

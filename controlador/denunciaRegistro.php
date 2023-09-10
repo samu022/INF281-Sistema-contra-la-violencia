@@ -5,6 +5,10 @@
     
     
     include("../vista/Reporte_denuncias/index.php");
+    include("../modelo/PersonaClase.php");
+    include("../modelo/AgresorClase.php");
+    include("../modelo/VictimaClase.php");
+    include("../modelo/PruebaClase.php");
     if(isset($_POST['RegistrarDenuncia'])){
         $tes="";
         if (isset($_POST['anonima'])) {
@@ -28,13 +32,15 @@
         $resgGeo=$cargGeo->grabarGeo();
 
         include("../modelo/DenunciaClase.php");
+        //echo "Código de Geolocalización: " . $cargGeo->getCodGeo() . "<br>";
         $cargDen=new Denuncia("", $tipo, $des, $fechaActual,$tes,"En investigación",$cargGeo->getCodGeo());
         $resDen=$cargDen->grabarDenuncia();
+        
         //Registramos a victima
         
-        $datosVictima = isset($_SESSION['datosVictima']) ? $_SESSION['datosVictima'] : array();
+        $datosVictima = isset($_SESSION['datosVictimas']) ? $_SESSION['datosVictimas'] : array();
         // Verificar si hay datos en la sesión
-       /* if (!empty($datosVictima)) {
+       if (!empty($datosVictima)) {
             // Iterar a través de cada fila
             foreach ($datosVictima as $victima) {
                 // Acceder a los valores de cada fila
@@ -51,10 +57,11 @@
                 $relacion = $victima['relacion'];
 
                 //Registramos en persona y victima
-                include("../modelo/PersonaClase.php");
+                //include("../modelo/PersonaClase.php");
                 $cargPersona=new Persona($ci, $nombres, $apellidoP, $apellidoM, $fechaNacimiento, $sexo, $direccion, $estadoCivil, $profesion,$telefono);
                 $resPersona=$cargPersona->grabarPersona();
-                include("../modelo/VictimaClase.php");
+                
+                echo "<p>".$cargDen->getCodDenuncia()."</p>";
                 $cargVictima=new Victima($ci, $relacion, $cargDen->getCodDenuncia());
                 $resVictima=$cargVictima->grabarVictima();
             }
@@ -82,10 +89,11 @@
                 $descripcion = $agresor['descripcion'];
         
                  //Registramos en persona y agresor
-                 include("../modelo/PersonaClase.php");
+                 //include("../modelo/PersonaClase.php");
                  $cargPersona=new Persona($ci, $nombres, $apellidoP, $apellidoM, $fechaNacimiento, $sexo, $direccion, $estadoCivil, $profesion,$telefono);
                  $resPersona=$cargPersona->grabarPersona();
-                 include("../modelo/AgresorClase.php");
+                 
+                 
                  $cargAgresor=new Agresor($ci, $descripcion);
                  $resAgresor=$cargAgresor->grabarAgresor();
             }
@@ -93,8 +101,8 @@
             echo "No hay datos de agresores en la sesión.";
         }
         
-        $datosPrueba = isset($_SESSION['datosPrueba']) ? $_SESSION['datosPrueba'] : array();
-        $datosPrueba = isset($_SESSION['datosPrueba']) ? $_SESSION['datosPrueba'] : array();
+        $datosPrueba = isset($_SESSION['datosPruebas']) ? $_SESSION['datosPruebas'] : array();
+        //$datosPrueba = isset($_SESSION['datosPrueba']) ? $_SESSION['datosPrueba'] : array();
 
         // Verificar si hay datos en la sesión
         if (!empty($datosPrueba)) {
@@ -106,7 +114,7 @@
                 $tipoArchivo = $prueba['tipoArchivo'];
         
                 //cargamos pruebas a bd
-                include("../modelo/PruebaClase.php");
+                
                 $cargPrueba=new Prueba("", $tipoArchivo, $descripcion, $rutaArchivo);
                 $resPrueba=$cargPrueba->grabarPrueba();
                 include("../modelo/Incidente_PruebaClase.php");
@@ -116,7 +124,7 @@
             
         } else {
             echo "No hay datos de pruebas en la sesión.";
-        }*/
+        }
         
         
          
@@ -124,6 +132,11 @@
     }
     
  
-       
+    $_SESSION['datosPruebas']=array();  
+    $_SESSION['datosVictimas']=array();  
+    $_SESSION['datosAgresor']=array();  
+    $_SESSION['latitud']=null;  
+    $_SESSION['longitud']=null;  
+
     
 ?>

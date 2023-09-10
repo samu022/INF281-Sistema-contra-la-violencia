@@ -38,7 +38,7 @@ class Agresor{
    
 
     //para evitar inyecciones sql
-    public function grabar() {
+    public function grabarAgresor() {
         //include("conexion.php");
         $db = new Conexion();
 

@@ -43,5 +43,9 @@
         $carg2=new Victima($ci, $rel, $codDenuncia);
         $res1=$carg2->grabarVictima();*/
         
+        
     }
 ?>
+<?php
+//session_start();
+

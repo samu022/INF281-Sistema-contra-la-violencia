@@ -42,26 +42,31 @@ class Geolocalizacion{
 
     //para evitar inyecciones sql
     public function grabarGeo() {
-        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $stmt = $db->prepare("INSERT INTO geolocalizacion (codGeo, latitud, longitud) VALUES (?, ?, ?)");
-
-        
+        $stmt = $db->prepare("INSERT INTO geolocalizacion (latitud, longitud) VALUES (?, ?)");
+    
         // Vincular los parámetros
-        $stmt->bind_param("iss", $this->codGeo, $this->latitud, $this->longitud);
+        $stmt->bind_param("ss", $this->latitud, $this->longitud);
     
         // Ejecutar la sentencia
         $result = $stmt->execute();
     
         // Verificar si la consulta se realizó con éxito
         if ($result) {
+            // Obtener el código correlativo (ID) generado
+            $codGeoGenerado = $db->insert_id;
+    
+            // Asignar el código generado a la propiedad $codGeo
+            $this->codGeo = $codGeoGenerado;
+    
             return true; // Éxito
         } else {
             return false; // Fallo al insertar
         }
     }
+    
     
         
     public function elimina(){

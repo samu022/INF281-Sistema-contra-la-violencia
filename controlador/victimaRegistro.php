@@ -37,6 +37,7 @@
 
         // Agregar el array de la víctima actual al array principal
         $_SESSION['datosVictimas'][] = $victima;
+        
         /*include("../modelo/PersonaClase.php");
         $carg1=new Victima($ci, $nom, $apeP, $apeM, $fechanac, $sexo, $dir, $est, $prof);
         $res1=$carg1->grabarPersona();

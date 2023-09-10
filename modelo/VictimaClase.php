@@ -79,6 +79,50 @@ class Victima{
         $sql=$db->query("DELETE FROM victima WHERE ci='$this->ci'");
         return ($sql);
     }
+    public function elimina_denuncia(){
+        //include("conexion.php");
+        $db=new Conexion();
+        $sql=$db->query("DELETE FROM victima WHERE codDenuncia='$this->codDenuncia'");
+        return ($sql);
+    }
+    public function elimina_victima_con_persona(){
+        $db = new Conexion();
+        
+        // Iniciar una transacción
+        $db->begin_transaction();
+    
+        // Obtener los CI de las víctimas para la denuncia
+        $sql_get_ci = "SELECT ci FROM victima WHERE codDenuncia='$this->codDenuncia'";
+        $result = $db->query($sql_get_ci);
+        
+        // Almacenar los CI en un array
+        $ci_array = [];
+        while ($row = $result->fetch_assoc()) {
+            $ci_array[] = $row['ci'];
+        }
+        
+        // Eliminar registros de la tabla 'victima' para la denuncia
+        $sql_victima = "DELETE FROM victima WHERE codDenuncia='$this->codDenuncia'";
+        if ($db->query($sql_victima)) {
+            // Eliminar registros de la tabla 'persona' donde 'ci' coincide con los CI de las víctimas
+            $ci_list = implode(',', $ci_array); // Convertir el array de CI en una lista separada por comas
+            $sql_persona = "DELETE FROM persona WHERE ci IN ($ci_list)";
+            if ($db->query($sql_persona)) {
+                // Si ambas eliminaciones son exitosas, confirmar la transacción
+                $db->commit();
+                return true;
+            } else {
+                // Si falla la eliminación de 'persona', revertir la transacción
+                $db->rollback();
+                return false;
+            }
+        } else {
+            // Si falla la eliminación de 'victima', revertir la transacción
+            $db->rollback();
+            return false;
+        }
+    }
+    
     public function modifica(){
         //include("conexion.php");
         $db = new Conexion();

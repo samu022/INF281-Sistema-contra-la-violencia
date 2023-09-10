@@ -64,7 +64,31 @@ class Incidente_Prueba{
         $sql=$db->query("DELETE FROM incidente_prueba WHERE codDenuncia='$this->codDenuncia' AND codPrueba='$this->codPrueba'");
         return ($sql);
     }
-
+    public function eliminarIncidentePrueba_Prueba(){
+        $db = new Conexion();
+    
+        // Obtener codPrueba de incidente_prueba para la denuncia y codPrueba específicos
+        $codPruebaArray = [];
+        $sql_get_codPrueba = "SELECT codPrueba FROM incidente_prueba WHERE codDenuncia='$this->codDenuncia'";
+        $result = $db->query($sql_get_codPrueba);
+    
+        while ($row = $result->fetch_assoc()) {
+            $codPruebaArray[] = $row['codPrueba'];
+        }
+    
+        // Eliminar registros de incidente_prueba
+        $sql_delete_incidente_prueba = "DELETE FROM incidente_prueba WHERE codDenuncia='$this->codDenuncia'";
+        $db->query($sql_delete_incidente_prueba);
+    
+        // Eliminar registros de pruebas utilizando los valores de codPrueba en el array
+        foreach ($codPruebaArray as $codPrueba) {
+            $sql_delete_pruebas = "DELETE FROM pruebas WHERE codPrueba='$codPrueba'";
+            $db->query($sql_delete_pruebas);
+        }
+    
+        return true;
+    }
+    
     public function modificarIncidentePrueba(){
         //include("conexion.php");
         $db = new Conexion();

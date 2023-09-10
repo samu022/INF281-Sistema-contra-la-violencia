@@ -46,6 +46,36 @@ class Realiza {
         $result = $stmt->execute();
         return $result;
     }
+    public function eliminarRealizaAgresoresYPersonas(){
+        $db = new Conexion();
+    
+        // Obtener los CI de los agresores asociados con el codDenuncia
+        $ciAgresorArray = [];
+        $sql_get_ci_agresor = "SELECT ci FROM realiza WHERE codDenuncia='$this->codDenuncia'";
+        $result = $db->query($sql_get_ci_agresor);
+    
+        while ($row = $result->fetch_assoc()) {
+            $ciAgresorArray[] = $row['ci'];
+        }
+        //eliminar realiza
+        $stmt = $db->prepare("DELETE FROM realiza WHERE codDenuncia = ?");
+        $stmt->bind_param("i", $this->codDenuncia);
+        $result = $stmt->execute();
+        // Eliminar registros de agresor utilizando los CI
+        foreach ($ciAgresorArray as $ciAgresor) {
+            $sql_delete_agresor = "DELETE FROM agresor WHERE ci='$ciAgresor'";
+            $db->query($sql_delete_agresor);
+        }
+    
+        // Eliminar registros de persona utilizando los CI
+        foreach ($ciAgresorArray as $ciAgresor) {
+            $sql_delete_persona = "DELETE FROM persona WHERE ci='$ciAgresor'";
+            $db->query($sql_delete_persona);
+        }
+    
+        return true;
+    }
+    
 
     public function modificarRealiza() {
         $db = new Conexion();

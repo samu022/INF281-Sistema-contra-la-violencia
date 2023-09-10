@@ -114,7 +114,7 @@
             <h1>Ubicación</h1>
             <iframe src="../controlador/geoRegistro.php" width="100%" height="680px" frameborder="0"></iframe>
             <button type="submit" class="btn btn-primary" name="RegistrarDenuncia">Registrar Denuncia</button>
-            <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/leyLista.php'">Volver</button>
+            <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/denunciaLista.php'">Volver</button>
         </form>
     </div>
     <div class="container">

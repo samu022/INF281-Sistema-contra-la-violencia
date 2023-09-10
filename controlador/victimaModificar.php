@@ -53,7 +53,7 @@
         if ($res) {
             echo "<script>
                     alert('se Modifico correctamente');
-                    location.href='denunciaModificar.php';
+                    location.href='denunciaModificar.php?cod=$codDenunciante';
                     </script>";
         } else {
             echo "No se registró";

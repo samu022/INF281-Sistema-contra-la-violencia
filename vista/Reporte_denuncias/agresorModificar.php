@@ -28,8 +28,9 @@
         <input class="controls" type="text" name="tel" id="tel" placeholder="Telefono" >
         <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese una descripcion fisica" required>
         <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-        <input class="botons" type="submit" value="Registrar Agresor" name="registrarAgresor">
+        <input class="btn btn-primary" type="submit" value="Modificar Agresor" name="modificarAgresor">
     </form>
+    <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='../controlador/denunciaModificar.php?cod=<?php echo $codDenunciante; ?>'">Volver</button>
     </section>  
     <!--<footer>
         © 2023 Mi Página Web de Denuncias

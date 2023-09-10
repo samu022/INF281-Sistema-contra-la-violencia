@@ -1,54 +1,63 @@
 <?php
-// Verificar si se ha pasado el CI como parámetro GET
-if (isset($_GET['ci'])) {
-    // Obtener el CI desde el parámetro GET
+    include("../modelo/conexion.php");
     $ci = $_GET['ci'];
-
-    // Realizar la consulta SQL para obtener los datos del agresor
-    include("../modelo/conexion.php"); // Asegúrate de incluir el archivo de conexión
-
-    // Query para obtener los datos del agresor según el CI
-    $query = "SELECT * FROM agresor WHERE ci = ?";
-
-    // Utilizar sentencias preparadas para evitar inyección SQL
-    $stmt = $db->prepare($query);
-
-    // Vincular el parámetro CI
-    $stmt->bind_param("s", $ci);
-
-    // Ejecutar la consulta
-    $stmt->execute();
-
-    // Obtener el resultado de la consulta
-    $result = $stmt->get_result();
-
-    // Verificar si se encontraron datos del agresor
-    if ($result->num_rows === 1) {
-        // Obtener los datos del agresor
-        $agresor = $result->fetch_assoc();
-
-        // Llenar los campos del formulario con los datos del agresor
-        $nombres = $agresor['nombres'];
-        $apellidoP = $agresor['apellidoP'];
-        $apellidoM = $agresor['apellidoM'];
-        $fechaNacimiento = $agresor['fechaNacimiento'];
-        $sexo = $agresor['sexo'];
-        $dir = $agresor['direccion'];
-        $est = $agresor['estado_civil'];
-        $prof = $agresor['profesion'];
-        $tel = $agresor['telefono'];
-        $descripcion = $agresor['descripcion'];
-    } else {
-        // No se encontraron datos para el CI proporcionado
-        echo "No se encontraron datos para el CI: $ci";
+    $codDenunciante = $_GET['cod'];
+    include("../modelo/AgresorClase.php");
+    include("../modelo/PersonaClase.php");
+    $carAgresor=new Agresor($ci,"","");
+    $resAgresor = $carAgresor->lista_especifica();
+    $reg = $resAgresor->fetch_assoc();
+    $ci = $reg['ci'];
+    $carPer = new Persona($ci, "", "", "", "","","","","","");
+    $resPer = $carPer->lista_especifica();
+    $regPer = $resPer->fetch_assoc();
+    $nombres = $regPer['nombre'];
+    $apellidoP = $regPer['apePaterno'];
+    $apellidoM = $regPer['apeMaterno'];
+    $fechaNacimiento = $regPer['fechaNaci'];
+    $sexo = $regPer['sexo'];
+    $direccion = $regPer['direccion'];
+    $estadoCivil = $regPer['estado_civil'];
+    $profesion = $regPer['profesion'];
+    $telefono = $regPer['telefono'];
+    $descripcion = $reg['descripcion'];
+    include("../vista/Reporte_denuncias/agresorModificar.php");
+    if (isset($_POST['modificarAgresor'])) {
+        $nombres = $_POST['nombres'];
+        $apellidoP = $_POST['apellidoP'];
+        $apellidoM = $_POST['apellidoM'];
+        $fechaNacimiento = $_POST['fechaNacimiento'];
+        $fechaNacimiento = date("Y-m-d", strtotime($fechaNacimiento));
+        $sexo = $_POST['sexo'];
+        $direccion = $_POST['dir'];
+        $estadoCivil = $_POST['est'];
+        $profesion = $_POST['prof'];
+        $telefono = $_POST['tel'];
+        $descripcion = $_POST['descripcion'];
+        
+        
+        // $carg=new Ley_Normativa($cod,$nom,$fecha_prom,$tem,$inf);
+        $carPer->setNombre($nombres);
+        $carPer->setApePaterno($apellidoP);
+        $carPer->setApeMaterno($apellidoM);
+        $carPer->setFechaNaci($fechaNacimiento);
+        $carPer->setSexo($sexo);
+        $carPer->setDireccion($direccion);
+        $carPer->setEstadoCivil($estadoCivil);
+        $carPer->setProfesion($profesion);
+        $carPer->setNumeroTelefono($telefono);
+        $carAgresor->setDescripcion($descripcion);
+    
+        $res = $carPer->modifica();
+        $res = $carAgresor->modifica();
+        if ($res) {
+            echo "<script>
+                    alert('se Modifico correctamente');
+                    location.href='denunciaModificar.php?cod=$codDenunciante';
+                    </script>";
+        } else {
+            echo "No se registró";
+        }
     }
-
-    // Cerrar la conexión a la base de datos
-    $stmt->close();
-    $db->close();
-} else {
-    // No se ha proporcionado el CI en la variable GET
-    echo "No se ha proporcionado el CI.";
-}
-include ("../vista/Reporte_denuncias/agresorModificar.php");
+    ?>
 ?>

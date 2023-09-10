@@ -68,7 +68,7 @@ if ($resVictima->num_rows > 0) {
         echo '<td>' . $telefono . '</td>';
         echo '<td>' . $relacion . '</td>';
         // Agregar un botón "Modificar" que redirija a la página de modificación
-        echo '<td><a href="modificar_victima.php?ci=' . $ci . '" class="btn btn-primary">Modificar</a></td>';
+        echo '<td><a href="victimaModificar.php?ci=' . $ci . '&cod=' . $cod . '" class="btn btn-primary">Modificar</a></td>';
     
         echo '</tr>';
     }
@@ -137,7 +137,7 @@ if ($resRealiza->num_rows > 0) {
         echo '<td>' . $profesion . '</td>';
         echo '<td>' . $telefono . '</td>';
         echo '<td>' . $descripcion . '</td>';
-        echo '<td><a href="agresorModificar.php?ci=' . $ci . '" class="btn btn-primary">Cambiar</a></td>';
+        echo '<td><a href="agresorModificar.php?ci=' . $ci . '&cod=' . $cod . '" class="btn btn-primary">Cambiar</a></td>';
         echo '</tr>';
     }
 
@@ -181,7 +181,7 @@ if ($resIP->num_rows > 0) {
         echo '<td>' . $tipo . '</td>';
         echo '<td>' . $descripcion . '</td>';
         echo '<td><a href="' . $ruta . '" target="_blank">Abrir</a></td>';
-        echo '<td><a href="pruebaModificar.php?ci=' . $codPrueba . '" class="btn btn-primary">Cambiar</a></td>';
+        echo '<td><a href="pruebaModificar.php?codPrueba=' . $codPrueba . '&cod=' . $cod . '" class="btn btn-primary">Cambiar</a></td>';
         echo '</tr>';
         
         // Determinar el tipo de archivo en función de la extensión
@@ -214,21 +214,25 @@ if ($resIP->num_rows > 0) {
 //Geolocalizacion
 include("geoCambiar.php");
 
-if (isset($_POST['ModificarLey'])) {
-    $nom = $_POST['nom'];
-    $fecha_prom = $_POST['fechaPromulgacion'];
-    $tem = $_POST['tem'];
-    $inf = $_POST['ref'];
+if (isset($_POST['ModificarDenuncia'])) {
+    $tipo = $_POST['tipo'];
+    $descripcion = $_POST['descripcion'];
+    $testigo = $_POST['testigo'];
+    $seguimiento = $_POST['seguimiento'];
+    $fecha = $_POST['fecha']; // Supongamos que la fecha está en formato dd-mm-yyyy
+    $fecha = date("Y-m-d", strtotime($fecha));
+    
     // $carg=new Ley_Normativa($cod,$nom,$fecha_prom,$tem,$inf);
-    $car->setNombre($nom);
-    $car->setFecha_Promulgacion($fecha);
-    $car->setTematica($tem);
-    $car->setInformacion($inf);
+    $car->setTipo($tipo);
+    $car->setDescripcion($descripcion);
+    $car->setTestigo($testigo);
+    $car->setSeguimiento($seguimiento);
+    $car->setFecha($fecha);
     $res = $car->modifica();
     if ($res) {
         echo "<script>
                 alert('se Modifico correctamente');
-                location.href='leyLista.php';
+                location.href='denunciaLista.php';
                 </script>";
     } else {
         echo "No se registró";

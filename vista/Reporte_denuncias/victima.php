@@ -16,7 +16,7 @@
       <input class="controls" type="text" name="apellidoM" id="apellidoM" placeholder="Ingrese apellido Materno">
       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
       <input class="controls" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-      <label for="sexo">Sexo del agresor:</label>
+      <label for="sexo">Sexo de la victima:</label>
             <select class="controls" name="sexo" id="sexo" required>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>

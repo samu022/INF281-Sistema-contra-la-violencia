@@ -65,7 +65,8 @@
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo '<p class="mt-4">No se encontraron víctimas.</p>';
+        echo "<div style='text-align: center;' class='alert alert-danger' role='alert'>";
+        echo "<h3>No se encontraron victimas</h3></div>";
     }
     ?>
 

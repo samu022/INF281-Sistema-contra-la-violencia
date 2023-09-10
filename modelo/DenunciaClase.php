@@ -108,11 +108,11 @@ class Denuncia{
         
         // Obtener los codGeo asociados con las denuncias
         $codGeoArray = [];
-        $sql_get_codGeo = "SELECT codGeo FROM denuncia codDenuncia='$this->codDenuncia'"; // Agrega aquí tus criterios para seleccionar las denuncias específicas
+        $sql_get_codGeo = "SELECT codGeo FROM denuncia WHERE codDenuncia=?";
         
         // Preparar la consulta
         $stmt = $db->prepare($sql_get_codGeo);
-        // Asignar los valores de los criterios, por ejemplo: $stmt->bind_param("tipo", $valor);
+        $stmt->bind_param("i", $this->codDenuncia); // Vincular el valor de codDenuncia
         $stmt->execute();
         $result = $stmt->get_result();
         
@@ -120,23 +120,24 @@ class Denuncia{
             $codGeoArray[] = $row['codGeo'];
         }
         
-        // Eliminar registros de la tabla 'denuncias' utilizando consultas preparadas
+        // Eliminar registros de la tabla 'denuncia' utilizando consultas preparadas
         $stmt->close();
-        $stmt = $db->prepare("DELETE FROM denuncia WHERE codDenuncia='$this->codDenuncia'"); // Agrega aquí tus criterios para seleccionar las denuncias específicas
-        // Asignar los valores de los criterios, por ejemplo: $stmt->bind_param("tipo", $valor);
+        $stmt = $db->prepare("DELETE FROM denuncia WHERE codDenuncia=?");
+        $stmt->bind_param("i", $this->codDenuncia); // Vincular el valor de codDenuncia
         $stmt->execute();
         $stmt->close();
         
         // Eliminar registros de la tabla 'geolocalizacion' utilizando los 'codGeo' guardados en el array
         foreach ($codGeoArray as $codGeo) {
             $stmt = $db->prepare("DELETE FROM geolocalizacion WHERE codGeo = ?");
-            $stmt->bind_param("i", $codGeo);
+            $stmt->bind_param("i", $codGeo); // Vincular el valor de codGeo
             $stmt->execute();
             $stmt->close();
         }
         
         return true;
     }
+    
     
     public function modifica(){
         //include("conexion.php");

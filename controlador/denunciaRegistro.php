@@ -96,6 +96,7 @@
                  
                  $cargAgresor=new Agresor($ci, $descripcion);
                  $resAgresor=$cargAgresor->grabarAgresor();
+                 //AQUI TABLA REALIZA
             }
         } else {
             echo "No hay datos de agresores en la sesión.";

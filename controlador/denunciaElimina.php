@@ -14,11 +14,12 @@
     $resIP = $carIP->eliminarIncidentePrueba_Prueba();
     //Agresor borramos
     include("../modelo/RealizaClase.php");
-    $carRealiza=new Realiza($cod,"");
+    $carRealiza=new Realiza("", $cod, "", "");
     $resRealiza = $carRealiza->eliminarRealizaAgresoresYPersonas();
     //Eliminamos denuncia y geo
     include("../modelo/DenunciaClase.php");
     $carDenuncia=new Denuncia($cod,"","","","","","");
     $resDenuncia = $carDenuncia->eliminaDenunciasYGeolocalizacion();
     echo "<script>alert('Se elimino correctamente');</script>"
+    echo "<script>window.location.href='denunciaLista.php';</script>";
 ?>

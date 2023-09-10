@@ -26,7 +26,7 @@
         echo '<th scope="col">Estado Civil</th>';
         echo '<th scope="col">Profesión</th>';
         echo '<th scope="col">Teléfono</th>';
-        echo '<th scope="col">Relación Perpetrador</th>';
+        echo '<th scope="col">Descripcion</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';

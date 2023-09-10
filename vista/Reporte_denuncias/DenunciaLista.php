@@ -36,7 +36,7 @@
                 echo "<td><a href='../controlador/pruebasInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Pruebas</a></td>";
                 echo "<td><a href='../controlador/geoInformacion.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Ubicación</a></td>";
                 echo "<td><a href='../controlador/denunciaElimina.php?cod=".$reg['codDenuncia']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";
-                echo "<td><a href='../controlador/denunciaModifica.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Modificar</a></td>";
+                echo "<td><a href='../controlador/denunciaModificar.php?cod=".$reg['codDenuncia']."'  class='btn btn-success'>Modificar</a></td>";
                 echo "</tr>";
                 
             }

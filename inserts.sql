@@ -15,12 +15,12 @@ INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, 
 
 
 INSERT INTO `administrador` (`ci`, `nombre_usuario`, `contrasenia`, `correo`, `privilegios`) VALUES
-(10001, 'pedro', '123456', 'pedro@gmail.com', 'escritura'),
-(10002, 'maria', '123456', 'maria@gmail.com', 'escritura');
+(10001, 'pedro', '482c811da5d5b4bc6d497ffa98491e38', 'pedro@gmail.com', 'escritura'),
+(10002, 'maria', '482c811da5d5b4bc6d497ffa98491e38', 'maria@gmail.com', 'escritura');
 
 INSERT INTO `usuario` (`ci_usuario`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
-(10007, 'isabel', '123456', 'isabel@gmail.com'),
-(10008, 'carolina', '123456', 'carolina@gmail.com');
+(10007, 'isabel', '482c811da5d5b4bc6d497ffa98491e38', 'isabel@gmail.com'),
+(10008, 'carolina', '482c811da5d5b4bc6d497ffa98491e38', 'carolina@gmail.com');
 
 INSERT INTO `geolocalizacion` (`codGeo`, `latitud`, `longitud`) VALUES
 (1, '-16.5000', '-68.1500'),

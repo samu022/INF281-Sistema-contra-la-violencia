@@ -1,16 +1,16 @@
 
 use bdcontraviolencia;
-INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, `sexo`, `direccion`, `estado_civil`, `profesion`) VALUES
-(10001, 'Pedro', 'García', 'Lopez', '1985-05-20', 'Masculino', 'Calle 1 de Mayo #123', 'Casado', 'Ingeniero Civil'),
-(10002, 'María', 'Rodríguez', 'Sánchez', '1990-09-15', 'Femenino', 'Avenida Murillo #456', 'Soltera', 'Médica'),
-(10003, 'Javier', 'Pérez', 'Martínez', '1988-03-10', 'Masculino', 'Calle Sagárnaga #789', 'Soltero', 'Abogado'),
-(10004, 'Luis', 'Fernández', 'Gutierrez', '1980-12-18', 'Masculino', 'Calle Illampu #567', 'Divorciado', 'Profesor'),
-(10005, 'Laura', 'Chávez', 'Vargas', '1995-07-02', 'Femenino', 'Avenida Camacho #321', 'Casada', 'Contadora'),
-(10006, 'Sofía', 'Morales', 'García', '1992-04-30', 'Femenino', 'Avenida 16 de Julio #890', 'Soltera', 'Ingeniera de Sistemas'),
-(10007, 'Isabel', 'Gómez', 'Fernández', '1990-11-12', 'Femenino', 'Calle Bolívar #234', 'Soltera', 'Ingeniera de Software'),
-(10008, 'Carolina', 'Pérez', 'López', '1988-07-05', 'Femenino', 'Avenida Sucre #789', 'Casada', 'Médica'),
-(10009, 'Luis', 'Mendoza', 'Vargas', '1993-06-25', 'Masculino', 'Calle Murillo #789', 'Soltero', 'Ingeniero Electrónico'),
-(10010, 'Ana', 'Fernández', 'Gómez', '1995-03-15', 'Femenino', 'Avenida Illimani #456', 'Soltera', 'Psicóloga');
+INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, `sexo`, `direccion`, `estado_civil`, `profesion`, `telefono`) VALUES
+(10001, 'Pedro', 'García', 'Lopez', '1985-05-20', 'Masculino', 'Calle 1 de Mayo #123', 'Casado', 'Ingeniero Civil', '+591 75749393'),
+(10002, 'María', 'Rodríguez', 'Sánchez', '1990-09-15', 'Femenino', 'Avenida Murillo #456', 'Soltera', 'Médica', '+591 73446291'),
+(10003, 'Javier', 'Pérez', 'Martínez', '1988-03-10', 'Masculino', 'Calle Sagárnaga #789', 'Soltero', 'Abogado', '+591 75749393'),
+(10004, 'Luis', 'Fernández', 'Gutierrez', '1980-12-18', 'Masculino', 'Calle Illampu #567', 'Divorciado', 'Profesor', '+591 75749393'),
+(10005, 'Laura', 'Chávez', 'Vargas', '1995-07-02', 'Femenino', 'Avenida Camacho #321', 'Casada', 'Contadora', '+591 75749393'),
+(10006, 'Sofía', 'Morales', 'García', '1992-04-30', 'Femenino', 'Avenida 16 de Julio #890', 'Soltera', 'Ingeniera de Sistemas', '+591 75749393'),
+(10007, 'Isabel', 'Gómez', 'Fernández', '1990-11-12', 'Femenino', 'Calle Bolívar #234', 'Soltera', 'Ingeniera de Software', '+591 75749393'),
+(10008, 'Carolina', 'Pérez', 'López', '1988-07-05', 'Femenino', 'Avenida Sucre #789', 'Casada', 'Médica', '+591 75749393'),
+(10009, 'Luis', 'Mendoza', 'Vargas', '1993-06-25', 'Masculino', 'Calle Murillo #789', 'Soltero', 'Ingeniero Electrónico', '+591 75749393'),
+(10010, 'Ana', 'Fernández', 'Gómez', '1995-03-15', 'Femenino', 'Avenida Illimani #456', 'Soltera', 'Psicóloga', '+591 75749393');
 
 
 

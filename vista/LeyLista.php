@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Leyes Normativas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</head>
-<body>
+<!-- Begin Page Content -->
+<div class="container-fluid">
     <h2>Lista de Leyes contra la violencia</h2>
     <table  class="table table-dark table-sm">
         
@@ -43,5 +37,5 @@
         }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/leyRegistro.php'">Ingresar nueva ley</button>
-</body>
-</html>
+
+</div>

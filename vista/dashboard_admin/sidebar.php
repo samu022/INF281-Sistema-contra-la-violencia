@@ -32,7 +32,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+    <a class="nav-link collapsed" href="../controlador/usuarioLista.php" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
         <span>Usuarios</span>
@@ -47,7 +47,7 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+    <a class="nav-link collapsed" href="../controlador/administradorListar.php" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
         <span>Administradores</span>
@@ -87,6 +87,12 @@
 
 </ul>
 <!-- End of Sidebar -->
+
+            
+
+           
+
+
 
             
 

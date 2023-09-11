@@ -50,7 +50,7 @@
     
         $res = $carPer->modifica();
         $res = $carVictima->modifica();
-        if ($res) {
+        if (!$res) {
             echo "<script>
                     alert('se Modifico correctamente');
                     location.href='denunciaModificar.php?cod=$codDenunciante';

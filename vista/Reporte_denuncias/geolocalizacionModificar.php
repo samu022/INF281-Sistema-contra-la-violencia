@@ -23,7 +23,7 @@
     </div>
     <p>Latitud: <span id="latitud"></span> Longitud: <span id="longitud"></span></p>
 
-    <form id="ubicacionForm" action="" method="post">
+    <form id="ubicacionForm" action="" method="POST">
         <input type="hidden" id="latitudInput" name="latitud">
         <input type="hidden" id="longitudInput" name="longitud">
         <button type="submit">Modificar Ubicación</button>
@@ -31,62 +31,57 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([0, 0], 2);
+        // Latitud y longitud iniciales (puedes establecerlas en las coordenadas que desees)
+        var latitud = <?php echo $latitud; ?>;
+        var longitud = <?php echo $longitud; ?>;
+
+        var map = L.map('map').setView([latitud, longitud], 15);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var marker = L.marker([0, 0], {
-            draggable: true
+        var marker = L.marker([latitud, longitud], {
+            draggable: true // Permite que el marcador sea arrastrable
         }).addTo(map);
 
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var latlng = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                map.setView(latlng, 15);
-                marker.setLatLng(latlng);
-                document.getElementById('latitud').textContent = latlng.lat;
-                document.getElementById('longitud').textContent = latlng.lng;
+        // Función para actualizar el formulario con las coordenadas del marcador
+        function updateForm(lat, lng) {
+            document.getElementById('latitud').textContent = lat;
+            document.getElementById('longitud').textContent = lng;
 
-                document.getElementById('latitudInput').value = latlng.lat;
-                document.getElementById('longitudInput').value = latlng.lng;
-            });
+            document.getElementById('latitudInput').value = lat;
+            document.getElementById('longitudInput').value = lng;
         }
 
-        marker.on('dragend', function(event) {
-            var latlng = event.target.getLatLng();
-            document.getElementById('latitud').textContent = latlng.lat;
-            document.getElementById('longitud').textContent = latlng.lng;
-
-            document.getElementById('latitudInput').value = latlng.lat;
-            document.getElementById('longitudInput').value = latlng.lng;
+        // Evento que se activa cuando el marcador se arrastra
+        marker.on('dragend', function (event) {
+            var newLatLng = event.target.getLatLng();
+            updateForm(newLatLng.lat, newLatLng.lng);
         });
     </script>
 </body>
 </html>
+
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["latitud"]) && isset($_POST["longitud"])) {
     //include("../modelo/conexion.php");
-    $cod = $_GET['cod'];
-    $codDenunciante = $_GET['cod'];
+    
     //include("../modelo/DenunciaClase.php");
-    include("../modelo/GeoClase.php");
+    //include("../modelo/GeoClase.php");
 
     $latitud = $_POST["latitud"];
     $longitud = $_POST["longitud"];
     $carDen=new Denuncia($cod,"","","","","","");
     $resDen = $carDen->lista_especifica();
-    $carGeo=new Geolocalizacion($carDen->getCodGeo(),"","");
+    $reg = $resDen->fetch_assoc();
+    $codGeo=$reg['codGeo'];
+    $carGeo=new Geolocalizacion($codGeo,"","");
     $resGeo = $carGeo->lista_especifica();
     $carGeo->setLatitud($latitud);
     $carGeo->setLongitud($longitud);
     $res = $carGeo->modifica();
-    
-} else {
-    echo "El formulario no se ha enviado correctamente.";
-}
+} 
+
 ?>

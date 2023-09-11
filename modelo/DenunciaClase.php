@@ -142,15 +142,16 @@ class Denuncia{
     public function modifica(){
         //include("conexion.php");
         $db = new Conexion();
-        $sql = $db->prepare("UPDATE denuncia SET tipo = ?, descripcion = ?, fecha = ?, testigo = ?,seguimiento = ?,codGeo = ? WHERE codDenuncia = ?"); 
+        $sql = $db->prepare("UPDATE denuncia SET tipo = ?, descripcion = ?, fecha = ?, testigo = ?,seguimiento = ? WHERE codDenuncia = ?"); 
         // Vincular los parámetros
-        $sql->bind_param("sssssii", $this->tipo, $this->descripcion, $this->fecha, $this->testigo,$this->seguimiento, $this->codGeo,$this->codDenuncia);
+        $sql->bind_param("sssssi", $this->tipo, $this->descripcion, $this->fecha, $this->testigo, $this->seguimiento, $this->codDenuncia);
         $result = $sql->execute();
         
         // Verificar si la actualización fue exitosa
         if ($result) {
             return true; // Éxito
         } else {
+            echo "SQL Error: " . $sql->error;
             return false; // Fallo al actualizar
         }
     }

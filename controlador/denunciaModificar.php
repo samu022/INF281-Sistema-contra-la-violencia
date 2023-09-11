@@ -7,12 +7,44 @@ $res = $car->lista_especifica();
 $reg = $res->fetch_assoc();
 $tipo = $reg['tipo'];
 $descripcion = $reg['descripcion'];
-$testigo = $reg['testigo'];
+// Check if 'testigo' is set in the $_POST array before accessing it
+$testigo = isset($_POST['testigo']) ? $_POST['testigo'] : null;
+
+
 $seguimiento = $reg['seguimiento'];
 $fecha = $reg['fecha'];
 
 
 include("../vista/Reporte_denuncias/denunciaModificar.php");
+
+if (isset($_POST['ModificarDenuncia'])) {
+    $tipo = $_POST['tipo'];
+    $descripcion = $_POST['descripcion'];
+    $seguimiento = $_POST['seguimiento'];
+    $fecha = $_POST['fecha']; // Supongamos que la fecha está en formato dd-mm-yyyy
+    $fecha = date("Y-m-d", strtotime($fecha));
+
+    // Check if 'testigo' is set in the $_POST array before accessing it
+    $testigo = isset($_POST['testigo']) ? $_POST['testigo'] : null;
+
+    // $carg=new Ley_Normativa($cod,$nom,$fecha_prom,$tem,$inf);
+    $car->setTipo($tipo);
+    $car->setDescripcion($descripcion);
+    $car->setTestigo($testigo);
+    $car->setSeguimiento($seguimiento);
+    $car->setFecha($fecha);
+    $res = $car->modifica();
+
+    if ($res) {
+        echo "<script>
+                alert('se Modifico correctamente');
+                location.href='denunciaLista.php';
+                </script>";
+    } else {
+        echo "No se registró";
+    }
+}
+
 //datos victimas
 include("../modelo/VictimaClase.php");
 include("../modelo/PersonaClase.php");
@@ -212,32 +244,9 @@ if ($resIP->num_rows > 0) {
 }
 
 //Geolocalizacion
-include("geoCambiar.php");
+include("geoModificar.php");
 
-if (isset($_POST['ModificarDenuncia'])) {
-    $tipo = $_POST['tipo'];
-    $descripcion = $_POST['descripcion'];
-    $testigo = $_POST['testigo'];
-    $seguimiento = $_POST['seguimiento'];
-    $fecha = $_POST['fecha']; // Supongamos que la fecha está en formato dd-mm-yyyy
-    $fecha = date("Y-m-d", strtotime($fecha));
-    
-    // $carg=new Ley_Normativa($cod,$nom,$fecha_prom,$tem,$inf);
-    $car->setTipo($tipo);
-    $car->setDescripcion($descripcion);
-    $car->setTestigo($testigo);
-    $car->setSeguimiento($seguimiento);
-    $car->setFecha($fecha);
-    $res = $car->modifica();
-    if ($res) {
-        echo "<script>
-                alert('se Modifico correctamente');
-                location.href='denunciaLista.php';
-                </script>";
-    } else {
-        echo "No se registró";
-    }
-}
 ?>
+<button type="button" class="btn btn-primary mt-3" onclick="window.location.href='../controlador/denunciaLista.php'">Volver</button>
 </body>
 </html>

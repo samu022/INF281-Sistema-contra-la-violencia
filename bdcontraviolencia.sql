@@ -32,7 +32,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `administrador` (
   `ci` int(11) NOT NULL,
   `nombre_usuario` varchar(20) DEFAULT NULL,
-  `contrasenia` varchar(20) DEFAULT NULL,
+  `contrasenia` varchar(150) DEFAULT NULL,
   `correo` varchar(20) DEFAULT NULL,
   `privilegios` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -400,7 +400,7 @@ CREATE TABLE `tiene` (
 CREATE TABLE `usuario` (
   `ci_usuario` int(11) NOT NULL,
   `nombre_usuario` varchar(20) DEFAULT NULL,
-  `contrasenia` varchar(20) DEFAULT NULL,
+  `contrasenia` varchar(150) DEFAULT NULL,
   `correo` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

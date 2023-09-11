@@ -36,7 +36,7 @@ class Administrador
 
     public function setContrasenia($contrasenia)
     {
-        $this->contrasenia = $contrasenia;
+        $this->contrasenia = md5($contrasenia);
     }
 
     public function setCorreo($correo)
@@ -49,13 +49,14 @@ class Administrador
         $this->privilegios = $privilegios;
     }
     
+    
     public function grabarAdministrador()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
-
+        
         $sql = $db->prepare("INSERT INTO administrador VALUES (?, ?, ?, ?, ?)"); 
-
+        
         $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->privilegios);
 
         $result = $sql->execute();
@@ -85,6 +86,28 @@ class Administrador
             return true;
         else
             return false;
+    }
+
+    public function lista_especifica(){
+        include("conexion.php");
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM administrador where ci='$this->ci'");
+        return ($sql);
+    }
+
+    public function check_exists(){
+        
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM administrador where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
+        return $sql->num_rows != 0;
+    }
+
+    public function getPrivilegios()
+    {
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM administrador where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
+        //quiero la posicion primera de fetch assoc
+        return $sql->fetch_assoc()['privilegios'];
     }
 
 }

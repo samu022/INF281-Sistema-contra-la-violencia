@@ -119,7 +119,7 @@ class Persona{
 
     //para evitar inyecciones sql
     public function grabarPersona() {
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL

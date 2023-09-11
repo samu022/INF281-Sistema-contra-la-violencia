@@ -16,7 +16,7 @@ class Usuario
 
     public function lista()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM usuario");
         return ($sql);
@@ -41,6 +41,24 @@ class Usuario
     {
         $this->correo = $correo;
     }
+    public function obtenerCI(){
+        $db = new Conexion();
+        
+        $sql = $db->prepare("SELECT ci_usuario FROM usuario WHERE nombre_usuario = ?");
+        
+        if ($sql) {
+            $sql->bind_param("s", $this->nombre_usuario);
+            if ($sql->execute()) {
+                $resultado = $sql->get_result();
+                if ($resultado->num_rows === 1) {
+                    $row = $resultado->fetch_assoc();
+                    return $row['ci_usuario']; // Devuelve el valor de 'ci_usuario'
+                }
+            }
+        }
+        
+        return null; // Retorna null si no se encontraron resultados o hubo un error
+    }
     
     public function grabarAdministrador()
     {
@@ -61,7 +79,7 @@ class Usuario
 
     public function elimina()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("DELETE FROM usuario WHERE ci_usuario='$this->ci'");
         return ($sql);
@@ -81,7 +99,7 @@ class Usuario
     }
 
     public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM usuario where ci='$this->ci'");
         return ($sql);
@@ -90,7 +108,7 @@ class Usuario
     public function check_exists(){
         //print($this->nombre_usuario);
         //print($this->contrasenia);
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM usuario where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
         return $sql->num_rows != 0;

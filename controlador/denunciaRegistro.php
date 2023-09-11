@@ -9,6 +9,7 @@
     include("../modelo/AgresorClase.php");
     include("../modelo/VictimaClase.php");
     include("../modelo/PruebaClase.php");
+    include("../modelo/RealizaClase.php");
     if(isset($_POST['RegistrarDenuncia'])){
         $tes="";
         if (isset($_POST['anonima'])) {
@@ -35,12 +36,12 @@
         //echo "Código de Geolocalización: " . $cargGeo->getCodGeo() . "<br>";
         $cargDen=new Denuncia("", $tipo, $des, $fechaActual,$tes,"En investigación",$cargGeo->getCodGeo());
         $resDen=$cargDen->grabarDenuncia();
-        
         //Registramos a victima
         
         $datosVictima = isset($_SESSION['datosVictimas']) ? $_SESSION['datosVictimas'] : array();
         // Verificar si hay datos en la sesión
        if (!empty($datosVictima)) {
+        
             // Iterar a través de cada fila
             foreach ($datosVictima as $victima) {
                 // Acceder a los valores de cada fila
@@ -55,12 +56,11 @@
                 $profesion = $victima['profesion'];
                 $telefono = $victima['telefono'];
                 $relacion = $victima['relacion'];
-
+                
                 //Registramos en persona y victima
                 //include("../modelo/PersonaClase.php");
                 $cargPersona=new Persona($ci, $nombres, $apellidoP, $apellidoM, $fechaNacimiento, $sexo, $direccion, $estadoCivil, $profesion,$telefono);
                 $resPersona=$cargPersona->grabarPersona();
-                
                 //echo "<p>".$cargDen->getCodDenuncia()."</p>";
                 $cargVictima=new Victima($ci, $relacion, $cargDen->getCodDenuncia());
                 $resVictima=$cargVictima->grabarVictima();
@@ -68,6 +68,7 @@
         } else {
             echo "No hay datos de víctimas en la sesión.";
         }
+        
         $datosAgresor = isset($_SESSION['datosAgresor']) ? $_SESSION['datosAgresor'] : array();
         //DATOS DEL AGRESOR CARGA
 
@@ -97,6 +98,16 @@
                  $cargAgresor=new Agresor($ci, $descripcion);
                  $resAgresor=$cargAgresor->grabarAgresor();
                  //AQUI TABLA REALIZA
+                 //REGISTRAMOS REALIZA
+                 $valor="si";
+                 if($anonima){
+                    $valor="si";
+                 }else{
+                    $valor="no";
+                 }
+                 $cargRealiza=new Realiza($_SESSION['ci'],$cargDen->getCodDenuncia(),$ci, $valor);
+                 $resRealiza=$cargRealiza->insertarRealiza();
+                //*************************************************** */
             }
         } else {
             echo "No hay datos de agresores en la sesión.";

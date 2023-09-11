@@ -2,7 +2,7 @@
     include("../modelo/usuarioClase.php");
     include("../modelo/administrador.php");
     include("../vista/login.php");
-
+    include("../modelo/conexion.php");
     session_start();
 
     if(isset($_POST['login'])){    
@@ -17,16 +17,18 @@
         if($user->check_exists())
         {
             $_SESSION['usuario'] = $usuario;
+            $_SESSION['ci']=$user->obtenerCI();
             $_SESSION['privilegio'] = "usuario";
-            header("Location: ../controlador/index.php");
+            header("Location: ../controlador/denunciaRegistro.php");
         }
         else if($admin->check_exists())
         {
             $_SESSION['usuario'] = $usuario;
             $_SESSION['privilegio'] = $admin->getPrivilegios();
+            $_SESSION['ci']=$admin->obtenerCI();
             header("Location: ../controlador/dashboard.php");
         }
-        
+         
         else
         {
             header("Location: ../controlador/login.php");

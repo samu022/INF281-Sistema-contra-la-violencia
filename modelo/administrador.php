@@ -18,7 +18,7 @@ class Administrador
 
     public function lista()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM administrador");
         return ($sql);
@@ -66,10 +66,27 @@ class Administrador
         else
             return false;
     }
-
+    public function obtenerCI(){
+        $db = new Conexion();
+        
+        $sql = $db->prepare("SELECT ci FROM administrador WHERE nombre_usuario = ?");
+        
+        if ($sql) {
+            $sql->bind_param("s", $this->nombre_usuario);
+            if ($sql->execute()) {
+                $resultado = $sql->get_result();
+                if ($resultado->num_rows === 1) {
+                    $row = $resultado->fetch_assoc();
+                    return $row['ci']; // Devuelve el valor de 'ci_usuario'
+                }
+            }
+        }
+        
+        return null; // Retorna null si no se encontraron resultados o hubo un error
+    }
     public function elimina()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("DELETE FROM administrador WHERE ci='$this->ci'");
         return ($sql);
@@ -89,7 +106,7 @@ class Administrador
     }
 
     public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM administrador where ci='$this->ci'");
         return ($sql);

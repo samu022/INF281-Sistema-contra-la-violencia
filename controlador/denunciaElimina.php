@@ -20,6 +20,7 @@
     include("../modelo/DenunciaClase.php");
     $carDenuncia=new Denuncia($cod,"","","","","","");
     $resDenuncia = $carDenuncia->eliminaDenunciasYGeolocalizacion();
-    echo "<script>alert('Se elimino correctamente');</script>"
+    echo "<script>alert('Se elimino correctamente');</script>";
     echo "<script>window.location.href='denunciaLista.php';</script>";
+
 ?>

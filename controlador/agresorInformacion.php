@@ -6,6 +6,8 @@ include("../modelo/PersonaClase.php");
 include("../modelo/RealizaClase.php");
 $carRealiza=new Realiza("",$cod,"","");
 $resRealiza = $carRealiza->listaEspecifica();
+//$regRealiza=$resRealiza->fetch_assoc();
+//echo $regRealiza['codDenuncia'];
 include("../vista/Reporte_denuncias/AgresorInformacion.php");
 
 ?>

@@ -11,22 +11,22 @@
     <section class="form-register">
       <h4>Datos del Agresor</h4>
       <form action="" method="POST">
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre agresor" required>
-        <input class="controls" type="text" name="apellidoP" id="apellidoP" placeholder="Ingrese apellido Paterno" required>
-        <input class="controls" type="text" name="apellidoM" id="apellidoM" placeholder="Ingrese apellido Materno">
+        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese nombre agresor" value="<?php echo $nombres; ?>" required>
+        <input class="controls" type="text" name="apellidoP" id="apellidoP" placeholder="Ingrese apellido Paterno" value="<?php echo $apellidoP; ?>" required>
+        <input class="controls" type="text" name="apellidoM" id="apellidoM" placeholder="Ingrese apellido Materno" value="<?php echo $apellidoM; ?>">
         <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-        <input class="controls" type="date" name="fechaNacimiento" id="fechaNacimiento Agresor" required>
+        <input class="controls" type="date" name="fechaNacimiento" id="fechaNacimiento Agresor" value="<?php echo $fechaNacimiento; ?>" required>
         <label for="sexo">Sexo del agresor:</label>
             <select class="controls" name="sexo" id="sexo" required>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
+                <option value="Masculino" <?php if ($sexo == "Masculino") echo "selected"; ?>>Masculino</option>
+                <option value="Femenino" <?php if ($sexo == "Femenino") echo "selected"; ?>>Femenino</option>
             </select>
-        <input class="controls" type="text" name="dir" id="dir" placeholder="Ingrese domicilio agresor" required>
-        <input class="controls" type="text" name="est" id="est" placeholder="Ingrese estado civil agresor">
-        <input class="controls" type="text" name="prof" id="prof" placeholder="Ingrese profesion agresor">
-        <input class="controls" type="text" name="carnet" id="carnet" placeholder="Ingrese su carnet de identidad" required>
-        <input class="controls" type="text" name="tel" id="tel" placeholder="Telefono" >
-        <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese una descripcion fisica" required>
+        <input class="controls" type="text" name="dir" id="dir" placeholder="Ingrese domicilio agresor" value="<?php echo $direccion; ?>" required>
+        <input class="controls" type="text" name="est" id="est" placeholder="Ingrese estado civil agresor" value="<?php echo $estadoCivil; ?>">
+        <input class="controls" type="text" name="prof" id="prof" placeholder="Ingrese profesion agresor" value="<?php echo $profesion; ?>">
+        <input class="controls" type="text" name="carnet" id="carnet" placeholder="Ingrese su carnet de identidad" value="<?php echo $ci; ?>" required>
+        <input class="controls" type="text" name="tel" id="tel" placeholder="Telefono" value="<?php echo $telefono; ?>">
+        <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese una descripcion fisica" value="<?php echo $descripcion; ?>" required>
         <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
         <input class="btn btn-primary" type="submit" value="Modificar Agresor" name="modificarAgresor">
     </form>

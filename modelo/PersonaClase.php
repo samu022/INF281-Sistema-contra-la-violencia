@@ -9,6 +9,7 @@ class Persona{
     private $direccion;
     private $estado_civil;
     private $profesion;
+    private $numero_telefono;
 
 
     public function __construct($ci, $nombre, $apePaterno, $apeMaterno, $fechaNaci, $sexo, $direccion, $estado_civil, $profesion, $numero_telefono) {
@@ -165,20 +166,24 @@ class Persona{
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $sql = $db->prepare("UPDATE persona SET nombre = ?, apePaterno = ?, apeMaterno = ?, fechaNaci = ?, sexo = ?, direccion = ?, estado_civil = ?, profesion = ?, numero_telefono = ? WHERE ci = ?");
-    
-        // Vincular los parámetros
-        $sql->bind_param("sssssssss", $this->nombre, $this->apePaterno, $this->apeMaterno, $this->fechaNaci, $this->sexo, $this->direccion, $this->estado_civil, $this->profesion, $this->numero_telefono, $this->ci);
-    
-        // Ejecutar la sentencia
+        $sql = $db->prepare("UPDATE persona SET nombre = ?, apePaterno = ?, apeMaterno = ?, fechaNaci = ?, sexo = ?, direccion = ?, estado_civil = ?, profesion = ?, telefono = ? WHERE ci = ?");
+
+        if (!$sql) {
+            echo "Error en la consulta: " . $db->error;
+            return false;
+        }
+        
+        $sql->bind_param("ssssssssss", $this->nombre, $this->apePaterno, $this->apeMaterno, $this->fechaNaci, $this->sexo, $this->direccion, $this->estado_civil, $this->profesion, $this->numero_telefono, $this->ci);
+        
         $result = $sql->execute();
-    
-        // Verificar si la actualización fue exitosa
+        
         if ($result) {
             return true; // Éxito
         } else {
+            echo "Error al ejecutar la consulta: " . $sql->error;
             return false; // Fallo al actualizar
         }
+        
     }
     
     

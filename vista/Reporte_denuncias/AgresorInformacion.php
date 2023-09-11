@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-5">Información de las victimas de la denuncia (Código: <?php echo $cod; ?>)</h1>
+    <h1 class="mt-5">Información de los agresores de la denuncia (Código: <?php echo $cod; ?>)</h1>
 
     <?php
     // Comprobar si se encontraron víctimas
@@ -33,7 +33,7 @@
 
         while ($rowRealiza = $resRealiza->fetch_assoc()) {
             $ci = $rowRealiza['ci'];
-            $carPer = new Agresor($ci, "");
+            $carAg = new Agresor($ci, "");
             $resAg = $carAg->lista_especifica();
             $regAg = $resAg->fetch_assoc();
             

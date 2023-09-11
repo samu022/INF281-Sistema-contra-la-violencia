@@ -139,7 +139,7 @@ if ($resRealiza->num_rows > 0) {
 
     while ($rowRealiza = $resRealiza->fetch_assoc()) {
         $ci = $rowRealiza['ci'];
-        $carPer = new Agresor($ci, "");
+        $carAg = new Agresor($ci, "");
         $resAg = $carAg->lista_especifica();
         $regAg = $resAg->fetch_assoc();
         

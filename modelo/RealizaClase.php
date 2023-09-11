@@ -3,7 +3,7 @@ class Realiza {
     private $ciUsuario;
     private $codDenuncia;
     private $ci;
-    private $anonimo;
+    private $anonimo; 
 
     public function __construct($ciUsuario, $codDenuncia, $ci, $anonimo) {
         $this->setCiUsuario($ciUsuario);
@@ -23,8 +23,20 @@ class Realiza {
         $sql = $db->prepare("SELECT * FROM realiza WHERE codDenuncia = ?");
         $sql->bind_param("i", $this->codDenuncia);
         $sql->execute();
-        return $sql;
+    
+        // Verificar si ocurrió un error
+        if ($sql->error) {
+            echo "Error en la consulta: " . $sql->error;
+            return null; // Puedes devolver null u otro valor que indique un error
+        }
+    
+        // Obtener el resultado como un objeto mysqli_result
+        $result = $sql->get_result();
+    
+        return $result;
     }
+    
+    
 
     public function insertarRealiza() {
         $db = new Conexion();

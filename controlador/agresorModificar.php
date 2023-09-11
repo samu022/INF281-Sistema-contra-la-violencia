@@ -21,6 +21,8 @@
     $profesion = $regPer['profesion'];
     $telefono = $regPer['telefono'];
     $descripcion = $reg['descripcion'];
+    
+    //echo "pasaaaaa";
     include("../vista/Reporte_denuncias/agresorModificar.php");
     if (isset($_POST['modificarAgresor'])) {
         $nombres = $_POST['nombres'];
@@ -47,10 +49,10 @@
         $carPer->setProfesion($profesion);
         $carPer->setNumeroTelefono($telefono);
         $carAgresor->setDescripcion($descripcion);
-    
-        $res = $carPer->modifica();
-        $res = $carAgresor->modifica();
-        if ($res) {
+        
+        $res1 = $carPer->modifica();
+        $res2 = $carAgresor->modifica();
+        if ($res1) {
             echo "<script>
                     alert('se Modifico correctamente');
                     location.href='denunciaModificar.php?cod=$codDenunciante';

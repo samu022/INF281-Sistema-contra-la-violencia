@@ -67,9 +67,9 @@ INSERT INTO `evaluacion_riesgo` (`codFormulario`, `url_cuestionario`, `consejo`,
 (2, 'https://forms.gle/iUH5exDGVoR5huoMA', 'Es mejor ver señales', 10002);
 
 
-INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `duracion`, `ci`) VALUES
-(1, 'Seminario', '2023-09-09', 'Seminario sobre Violencia de Género', '2 horas', 10001),
-(2, 'Charla', '2023-09-10', 'Charla de Prevención de Abuso', '3 horas', 10001);
+INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `duracion`, `rutaDirectorio`,`ci`) VALUES
+(1, 'Seminario', '2023-09-09', 'Seminario sobre Violencia de Género', '2 horas', 'imagen1.jpg',10001),
+(2, 'Charla', '2023-09-10', 'Charla de Prevención de Abuso', '3 horas', 'imagen2.png',10001),
 
 
 INSERT INTO `prueba` (`codPrueba`, `tipo`, `descripcion`)

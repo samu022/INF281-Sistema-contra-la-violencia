@@ -172,8 +172,8 @@ CREATE TABLE `evento` (
   `fecha` date DEFAULT NULL,
   `titulo` varchar(100) DEFAULT NULL,
   `duracion` varchar(20) DEFAULT NULL,
-  `rutaDirectorio` varchar(120) DEFAULT NULL
-  `ci` int(11) DEFAULT NULL,
+  `rutaDirectorio` varchar(120) DEFAULT NULL,
+  `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

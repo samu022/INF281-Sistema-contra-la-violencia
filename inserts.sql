@@ -90,8 +90,8 @@ VALUES
 
 
 INSERT INTO `informacion_educativa` (`codInformacion`, `rutaDirectorio`, `tipo`, `ci`) VALUES
-(1, 'https://youtu.be/YeVZNBHNO4I', 'Video Informativo', 10001),
-(2, 'https://youtu.be/nFUBZXXjr3A', 'Video Informativo', 10001);
+(1, 'imagen1.png', 'Video Informativo', 10001),
+(2, 'afiche1.pdf', 'Video Informativo', 10001);
 
 INSERT INTO `ley_normativa` (`codLey`, `nombre`, `fecha_promulgacion`, `tematica`, `informacion`, `ci`) VALUES
 (1, 'Ley 348', '2013-03-09', 'Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia', 'https://bolivia.unfpa.org/sites/default/files/pub-pdf/Ley_348_0_1.pdf', 10001),

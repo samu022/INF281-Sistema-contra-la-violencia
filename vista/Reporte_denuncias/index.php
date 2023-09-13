@@ -74,9 +74,9 @@
     <div class="container mt-5">
         <form action="" method="POST">
             <h1 class="mb-4">Bienvenido al Registro de Denuncias</h1>
-            <label for="anonima" class="form-label">¿La denuncia será anónima?</label>
+            <label for="anonima" class="form-label">¿La denuncia no será anónima?</label>
             <input type="checkbox" class="form-check-input" name="anonima" id="anonima">
-            <label class="form-check-label" for="anonima">Anónima</label>
+            <label class="form-check-label" for="anonima">No Anónima</label>
 
             <div class="mb-3">
                 <label for="tipo" class="form-label">Seleccione el tipo de denuncia:</label>

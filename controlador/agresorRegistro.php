@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+    if($_SESSION['privilegio'] == "lectura")
+    {
+        header("Location: ../controlador/dashboard.php");
+    }
+    else if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
+    {
+        header("Location: ../controlador/login.php");
+    }
     include("../vista/Reporte_denuncias/agresor.php");
     session_start();
     // Definir un array multidimensional para almacenar los valores de todas las subidas

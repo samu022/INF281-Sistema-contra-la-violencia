@@ -100,7 +100,7 @@
                  //AQUI TABLA REALIZA
                  //REGISTRAMOS REALIZA
                  $valor="si";
-                 if($anonima){
+                 if(!$anonima){
                     $valor="si";
                  }else{
                     $valor="no";

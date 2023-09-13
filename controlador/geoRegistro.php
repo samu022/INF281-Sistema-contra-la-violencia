@@ -10,7 +10,7 @@
         header("Location: ../controlador/login.php");
     }
 
-session_start();
+//session_start();
 include("../vista/Reporte_denuncias/geolocalizacion.php");
 
 // Definir variables para almacenar las coordenadas de latitud y longitud

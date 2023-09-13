@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    
+    if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
+    {
+        header("Location: ../controlador/login.php");
+    }
+
     $codEvento=$_GET['cod'];
     //$tipo=$_POST['tipo'];
     //$fecha=$_POST['fecha'];

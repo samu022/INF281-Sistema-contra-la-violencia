@@ -1,4 +1,15 @@
 <?php
+    session_start();
+
+    if($_SESSION['privilegio'] == "lectura")
+    {
+        header("Location: ../controlador/dashboard.php");
+    }
+    else if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
+    {
+        header("Location: ../controlador/login.php");
+    }
+
 include("../vista/Eventos/EventoRegistro.php");
 
 if (isset($_POST['registrarEvento'])) {

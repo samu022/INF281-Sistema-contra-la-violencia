@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Seleccionar la Ubicación del Incidente en el Mapa</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         #map-container {
-            width: 500px; /* Ancho del contenedor del mapa */
+            width: 700px; /* Ancho del contenedor del mapa */
             height: 500px; /* Alto del contenedor del mapa */
             margin: 0 auto; /* Centrar el contenedor horizontalmente */
         }
@@ -17,17 +18,18 @@
     </style>
 </head>
 <body>
-    <h1>Seleccionar la Ubicación del Incidente en el Mapa</h1>
+<section class="form-register">
+    <h4>Seleccionar la Ubicación del Incidente en el Mapa</h4>
     <div id="map-container">
         <div id="map"></div>
     </div>
-    <p>Latitud: <span id="latitud"></span>
-    Longitud: <span id="longitud"></span></p>
+    <p><font size=6>Latitud: </font><span id="latitud"></span></p>
+    <p><font size=6>Longitud: </font><span id="longitud"></span></p>
 
     <form id="ubicacionForm" action="" method="post">
         <input type="hidden" id="latitudInput" name="latitud">
         <input type="hidden" id="longitudInput" name="longitud">
-        <button type="submit">Guardar Ubicación</button> <!-- Agrega un botón de envío -->
+        <button class="botons" type="submit">Guardar Ubicación</button> <!-- Agrega un botón de envío -->
     </form>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -71,5 +73,6 @@
             document.getElementById('longitudInput').value = latlng.lng;
         });
     </script>
+</section> 
 </body>
 </html>

@@ -18,7 +18,7 @@ class Administrador
 
     public function lista()
     {
-        //include("conexion.php");
+        include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM administrador");
         return ($sql);

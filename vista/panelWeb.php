@@ -20,7 +20,7 @@
     <!-- Menu delgado -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="logo.png" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="logos/logo.png" alt="logo"></a>
             <p style="color:white;">Sistema contra la violencia</p>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

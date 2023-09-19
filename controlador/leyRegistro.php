@@ -1,14 +1,5 @@
 <?php
-    session_start();
-
-    if($_SESSION['privilegio'] == "lectura")
-    {
-        header("Location: ../controlador/dashboard.php");
-    }
-    else if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
-    {
-        header("Location: ../controlador/login.php");
-    }
+   
     include("../vista/leyRegistro.php");
     if(isset($_POST['RegistrarLey'])){
         $nom=$_POST['nom'];

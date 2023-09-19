@@ -58,10 +58,11 @@
             <label for="telefono">Telefono:</label>
             <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su numero telefonico">
         </div>
-      
-    </form>
         <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
         <input class="botons" type="submit" value="Registrar Víctima" name="registraVictima">
+    </form>
+       
+        
     </section>  
 </body>
 </html>

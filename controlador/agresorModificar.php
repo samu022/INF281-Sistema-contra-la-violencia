@@ -1,14 +1,5 @@
 <?php
-session_start();
 
-    if($_SESSION['privilegio'] == "lectura")
-    {
-        header("Location: ../controlador/dashboard.php");
-    }
-    else if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
-    {
-        header("Location: ../controlador/login.php");
-    }
     include("../modelo/conexion.php");
     $ci = $_GET['ci'];
     $codDenunciante = $_GET['cod'];

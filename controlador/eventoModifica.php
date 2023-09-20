@@ -1,11 +1,10 @@
 <?php
-
-
 $codEvento = $_GET['cod'];
 
 // Incluye la clase de Evento
+include ("../modelo/conexion.php");
 include("../modelo/EventoClase.php");
-$evento = new Evento($codEvento, "", "", "", "", "");
+$evento = new Evento($codEvento,"","","","","","","","","","","","");
 
 // Obtén la información actual del evento
 $res = $evento->lista_especifica();
@@ -13,15 +12,33 @@ $reg = $res->fetch_assoc();
 $tipo = $reg['tipo'];
 $fecha = $reg['fecha'];
 $titulo = $reg['titulo'];
-$duracion = $reg['duracion'];
-$rutaDirectorio = $reg['rutaDirectorio']; // Agrega esta línea para obtener la ruta actual del archivo
+$descripcion = $reg['descripcion'];
+$tipoViolencia = $reg['tipoViolencia'];
+$horaInicio = $reg['horaInicio'];
+$horaFinal = $reg['horaFinal'];
+$modalidad = $reg['modalidad'];
+$detalleEvento = $reg['detalleEvento'];
+$expositor = $reg['expositor'];
+
+date_default_timezone_set('America/La_Paz');
+$fechaSubida = date("Y-m-d");
+
+$rutaDirectorio = $reg['rutaDirectorio'];
 
 // Guarda los valores actuales en variables temporales
-$tipoActual = $tipo;
-$fechaActual = $fecha;
-$tituloActual = $titulo;
-$duracionActual = $duracion;
-$rutaDirectorioActual = $rutaDirectorio; // Agrega esta línea para guardar la ruta actual del archivo
+$tipoActual = $reg['tipo'];
+$fechaActual = $reg['fecha'];
+$tituloActual = $reg['titulo'];
+$descripcionActual = $reg['descripcion'];
+$tipoViolenciaActual = $reg['tipoViolencia'];
+$horaInicioActual = $reg['horaInicio'];
+$horaFinalActual = $reg['horaFinal'];
+$modalidadActual = $reg['modalidad'];
+$detalleEventoActual = $reg['detalleEvento'];
+$expositorActual = $reg['expositor'];
+
+// Agrega estas líneas para guardar la duración y la ruta actual del archivo
+$rutaDirectorioActual = $reg['rutaDirectorio'];
 
 include("../vista/Eventos/EventoModifica.php");
 
@@ -29,7 +46,13 @@ if (isset($_POST['ModificarEvento'])) {
     $tipo = $_POST['tipo'];
     $fecha = $_POST['fecha'];
     $titulo = $_POST['titulo'];
-    $duracion = $_POST['duracion'];
+    $descripcion = $_POST['descripcion'];
+    $tipoViolencia = $_POST['tipoViolencia'];
+    $horaInicio = $_POST['horaInicio'];
+    $horaFinal = $_POST['horaFinal'];
+    $modalidad = $_POST['modalidad'];
+    $detalleEvento = $_POST['detalleEvento'];
+    $expositor = $_POST['expositor'];
 
     // Verifica si se seleccionó un nuevo archivo
     if ($_FILES['rutaDirectorio']['error'] === 0) {
@@ -58,7 +81,13 @@ if (isset($_POST['ModificarEvento'])) {
     $evento->setTipo($tipo);
     $evento->setFecha($fecha);
     $evento->setTitulo($titulo);
-    $evento->setDuracion($duracion);
+    $evento->setDescripcion($descripcion);
+    $evento->setTipoViolencia($tipoViolencia);
+    $evento->setHoraInicio($horaInicio);
+    $evento->setHoraFinal($horaFinal);
+    $evento->setModalidad($modalidad);
+    $evento->setDetalleEvento($detalleEvento);
+    $evento->setExpositor($expositor);
 
     // Realiza la modificación en la base de datos
     $res = $evento->modifica();
@@ -73,4 +102,3 @@ if (isset($_POST['ModificarEvento'])) {
     }
 }
 ?>
-

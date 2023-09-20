@@ -12,6 +12,30 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <h1 class="mb-4">Registro de Información Educativa</h1>
             <div class="mb-3">
+                <label for="titulo" class="form-label">Título:</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="tipoViolencia" class="form-label">Seleccione el tipo de violencia:</label>
+                <select class="form-select" name="tipoViolencia" id="tipoViolencia" required>
+                    <option value="Violencia física">Violencia física</option>
+                    <option value="Violencia psicológica o emocional">Violencia psicológica o emocional</option>
+                    <option value="Violencia verbal">Violencia verbal</option>
+                    <option value="Violencia sexual">Violencia sexual</option>
+                    <option value="Violencia doméstica o de pareja">Violencia doméstica o de pareja</option>
+                    <option value="Violencia escolar o bullying">Violencia escolar o bullying</option>
+                    <option value="Violencia racial o xenofobia">Violencia racial o xenofobia</option>
+                    <option value="Violencia económica">Violencia económica</option>
+                    <option value="Violencia política">Violencia política</option>
+                    <option value="Violencia en línea o ciberacoso">Violencia en línea o ciberacoso</option>
+                    <option value="Violencia de género">Violencia de género</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="tipo" class="form-label">Seleccione el Tipo de Información:</label>
                 <select class="form-select" id="tipo" name="tipo">
                     <option value="PDF">PDF</option>
@@ -30,3 +54,4 @@
     </div>
 </body>
 </html>
+

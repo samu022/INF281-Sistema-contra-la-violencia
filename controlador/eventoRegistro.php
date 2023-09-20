@@ -1,13 +1,22 @@
 <?php
- 
-
+include ("../modelo/conexion.php");
 include("../vista/Eventos/EventoRegistro.php");
 
 if (isset($_POST['registrarEvento'])) {
     $tipo = $_POST['tipo'];
     $fecha = $_POST['fecha'];
     $titulo = $_POST['titulo'];
-    $duracion = $_POST['duracion'];
+    $descripcion = $_POST['descripcion'];
+    $tipoViolencia = $_POST['tipoViolencia'];
+    $horaInicio = $_POST['horaInicio'];
+    $horaFinal = $_POST['horaFinal'];
+    $modalidad = $_POST['modalidad'];
+    $detalleEvento = $_POST['detalleEvento'];
+    $expositor = $_POST['expositor'];
+    date_default_timezone_set('America/La_Paz');
+    $fechaSubida = date("Y-m-d");
+    $rutaDirectorio = $_POST['rutaDirectorio'];
+
 
     // Obtener la información del archivo cargado
     $archivoNombre = $_FILES['rutaDirectorio']['name'];
@@ -30,7 +39,7 @@ if (isset($_POST['registrarEvento'])) {
 
         // Ahora puedes registrar el evento en la base de datos
         include("../modelo/eventoClase.php");
-        $carg = new Evento("", $tipo, $fecha, $titulo, $duracion, $rutaArchivoDestino); // Pasa la ruta al constructor
+        $carg = new Evento("", $tipo, $fecha, $titulo, $descripcion, $tipoViolencia, $horaInicio, $horaFinal, $modalidad, $detalleEvento, $expositor, $fechaSubida, $rutaArchivoDestino); // Pasa la ruta al constructor
 
         $res = $carg->grabarEvento();
 

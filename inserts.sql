@@ -159,7 +159,7 @@ INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `ci`
 INSERT INTO `informacion_educativa` (`codInformacion`, `titulo`, `descripcion`, `tipoViolencia`, `rutaDirectorio`, `tipo`, `fechaSubida`, `ci`) VALUES
 (3, 'Ley para garantizar a las mujeres una vida libre de violencia nro 348', '43 preguntas y respuestas acerca de la ley en favor de los derechos humanos', 'Todas', 'cartilla', 'PDF', '2023-09-17', 10002),
 (4, 'Circulo de la violencia', 'Patrón de comportamiento que a menudo se repite en relaciones de pareja caracterizadas por la violencia', 'Violencia de genero', 'imagen2.png', 'Imagen', '2023-09-18', 10002),
-(5, 'Prevención de la violencia contra la mujer', 'Explicacion de los tipos de violencias para niños que cursan 6to de Primaria', 'Violencia en la familia', 'video1.png', 'Video', '2023-09-19', 10002);
+(5, 'Prevención de la violencia contra la mujer', 'Explicacion de los tipos de violencias para niños que cursan 6to de Primaria', 'Violencia en la familia', 'video1.mp4', 'Video', '2023-09-19', 10002);
 
 
 INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `descripcion`, `tipoViolencia`, `modalidad`, `horaInicio`, `horaFinal`, `detalleEvento`, `expositor`, `fechaSubida`, `rutaDirectorio`, `ci`) VALUES

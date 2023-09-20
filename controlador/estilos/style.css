@@ -1,0 +1,121 @@
+/* Fondo principal */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el encabezado de la página */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Estilo para el logo y el título del encabezado */
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilo para la barra de navegación principal */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+/* Estilo para los enlaces de navegación */
+.navbar-nav .nav-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ccffcc;
+}
+
+/* Estilo para la línea divisoria */
+hr.bg-white {
+    margin: 0;
+}
+
+/* Estilo para las tarjetas de contenido */
+.card {
+    background-color: white;
+    border: none;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Estilo para los botones de descarga */
+.btn-primary {
+    background-color: #333;
+    border: none;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ccffcc;
+    color: #333;
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Estilo para los iconos de redes sociales en el pie de página */
+.social-icons {
+    font-size: 24px;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons:hover {
+    color: #ccffcc;
+}

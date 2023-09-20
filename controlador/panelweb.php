@@ -10,7 +10,15 @@
     $centro=new CentroLocal("","","","","");
     $leyNormativa = new Ley_Normativa("","","","","");
     $res=$eventos->lista();
-    $res2 = $informacion->lista();
+    if (isset($_POST['filtrarInformacion'])) {
+        echo "estoy aqui";
+        $tipoViolencia = $_POST['tipoViolencia'];
+        echo $tipoViolencia;
+        $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
+    }
+    else{
+        $res2 = $informacion->lista();
+    }
     $res3 = $leyNormativa->lista();
     $res4 = $centro->lista();
     include("../vista/panelWeb.php");

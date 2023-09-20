@@ -134,6 +134,15 @@ class InformacionEducativa {
             return false; // Fallo al actualizar
         }
     }
+    public function filtrarTipoViolencia($tipoViolencia){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM informacion_educativa WHERE tipoViolencia LIKE ?");
+        $param = "%$tipoViolencia%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
     
     
 

@@ -323,7 +323,7 @@ CREATE TABLE `persona` (
   `direccion` varchar(90) DEFAULT NULL,
   `estado_civil` varchar(20) DEFAULT NULL,
   `profesion` varchar(40) DEFAULT NULL,
-  `telefono` varchar(40) DEFAULT NULL,
+  `telefono` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -734,7 +734,6 @@ ALTER TABLE `victima`
   ADD CONSTRAINT `R_25` FOREIGN KEY (`codDenuncia`) REFERENCES `denuncia` (`codDenuncia`),
   ADD CONSTRAINT `victima_ibfk_1` FOREIGN KEY (`ci`) REFERENCES `persona` (`ci`) ON DELETE CASCADE;
 COMMIT;
-ALTER TABLE `persona` ADD `telefono` VARCHAR(20) NOT NULL AFTER `profesion`;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

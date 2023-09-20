@@ -1,7 +1,7 @@
 <?php
-
 $cod = $_GET['cod'];
 include("../modelo/CentroLocalClase.php");
+include("../modelo/conexion.php");
 $car = new CentroLocal($cod, "", "", "", "");
 $res = $car->listaEspecifica();
 $reg = $res->fetch_assoc();

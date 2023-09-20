@@ -13,12 +13,12 @@ class Ley_Normativa{
         $this->setInformacion($informacion);
     }
     public function lista(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM ley_normativa");
         return ($sql);
     }public function lista_especifica(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM ley_normativa where codLey=$this->codLey");
         return ($sql);
@@ -84,7 +84,7 @@ class Ley_Normativa{
     
         
     public function elimina(){
-        include("conexion.php");
+        //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("DELETE FROM ley_normativa WHERE codLey='$this->codLey'");
         return ($sql);

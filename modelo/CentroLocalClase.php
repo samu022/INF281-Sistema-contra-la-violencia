@@ -55,21 +55,21 @@ class CentroLocal {
     }
     
     public function lista() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM centro_local");
         return ($sql);
     }
     
     public function listaEspecifica() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM centro_local WHERE codCentro = $this->codCentro");
         return ($sql);
     }
     
     public function insertar() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
@@ -90,7 +90,7 @@ class CentroLocal {
     }
 
     public function eliminar() {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("DELETE FROM centro_local WHERE codCentro = '$this->codCentro'");
         return ($sql);

@@ -322,7 +322,8 @@ CREATE TABLE `persona` (
   `sexo` varchar(20) DEFAULT NULL,
   `direccion` varchar(90) DEFAULT NULL,
   `estado_civil` varchar(20) DEFAULT NULL,
-  `profesion` varchar(40) DEFAULT NULL
+  `profesion` varchar(40) DEFAULT NULL,
+  `telefono` varchar(40) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

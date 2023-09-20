@@ -2,13 +2,20 @@
 <div class="container">
     <h2 style="color: #343a40; text-align: center; margin-top: 20px; font-size: 70px; font-weight: bold;">Lista de eventos</h2>
         <table  class="table table-dark table-sm" >
-            
+ 
             <tr>
                 <td>codigo evento</td>
                 <td>tipo</td>
                 <td>Fecha del evento</td>
                 <td>titulo</td>
-                <td>duracion</td>
+                <td>descripcion</td>
+                <td>tipo de violencia</td>
+                <td>Hora Inicio</td>
+                <td>Hora Final</td>
+                <td>Modalidad</td>
+                <td>Detalle</td>
+                <td>Expositor</td>
+                <td>Fecha subida</td>
                 <td>archivo</td>
                 <td>Eliminar</td>
                 <td>Modificar</td>
@@ -22,7 +29,14 @@
                     echo "<td>".$reg['tipo']."</td>";
                     echo "<td>".$reg['fecha']."</td>";
                     echo "<td>".$reg['titulo']."</td>";
-                    echo "<td>".$reg['duracion']."</td>";
+                    echo "<td>".$reg['descripcion']."</td>";
+                    echo "<td>".$reg['tipoViolencia']."</td>";
+                    echo "<td>".$reg['horaInicio']."</td>";
+                    echo "<td>".$reg['horaFinal']."</td>";
+                    echo "<td>".$reg['modalidad']."</td>";
+                    echo "<td>".$reg['detalleEvento']."</td>";
+                    echo "<td>".$reg['expositor']."</td>";
+                    echo "<td>".$reg['fechaSubida']."</td>";
                     $rutaDirectorio = $reg['rutaDirectorio'];
                     $extension = pathinfo($rutaDirectorio, PATHINFO_EXTENSION);
 

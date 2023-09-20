@@ -24,17 +24,57 @@
                 <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Seminario para Garantizar a las Mujeres una Vida libre de Violencia">
             </div>
             <div class="mb-3">
-                <label for="duracion" class="form-label">Ingresa la duración del evento:</label>
-                <input type="text" class="form-control" name="duracion" id="duracion" placeholder="3 horas">
+                <label for="descripcion" class="form-label">Descripción del evento:</label>
+                <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción del evento"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="tipoViolencia" class="form-label">Seleccione el tipo de violencia:</label>
+                <select class="form-select" name="tipoViolencia" id="tipoViolencia" required>
+                    <option value="Violencia física">Violencia física</option>
+                    <option value="Violencia psicológica o emocional">Violencia psicológica o emocional</option>
+                    <option value="Violencia verbal">Violencia verbal</option>
+                    <option value="Violencia sexual">Violencia sexual</option>
+                    <option value="Violencia doméstica o de pareja">Violencia doméstica o de pareja</option>
+                    <option value="Violencia escolar o bullying">Violencia escolar o bullying</option>
+                    <option value="Violencia racial o xenofobia">Violencia racial o xenofobia</option>
+                    <option value="Violencia económica">Violencia económica</option>
+                    <option value="Violencia política">Violencia política</option>
+                    <option value="Violencia en línea o ciberacoso">Violencia en línea o ciberacoso</option>
+                    <option value="Violencia de género">Violencia de género</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="horaInicio" class="form-label">Hora de Inicio:</label>
+                <input type="text" class="form-control" name="horaInicio" id="horaInicio" placeholder="Hora de Inicio">
+            </div>
+            <div class="mb-3">
+                <label for="horaFinal" class="form-label">Hora de Finalización:</label>
+                <input type="text" class="form-control" name="horaFinal" id="horaFinal" placeholder="Hora de Finalización">
+            </div>
+            <div class="mb-3">
+                <label for="modalidad" class="form-label">Modalidad:</label>
+                <select class="form-select" name="modalidad" id="modalidad" required>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="detalleEvento" class="form-label">Detalles del evento:</label>
+                <textarea class="form-control" name="detalleEvento" id="detalleEvento" placeholder="Detalles del evento Link en caso de virtual y direccion en caso de presencial"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="expositor" class="form-label">Expositor:</label>
+                <input type="text" class="form-control" name="expositor" id="expositor" placeholder="Expositor del evento">
             </div>
             <div class="mb-3">
                 <label for="rutaDirectorio" class="form-label">Cargar Archivo (rutaDirectorio):</label>
                 <input type="file" class="form-control" name="rutaDirectorio" id="rutaDirectorio" required>
             </div>
+
             <button type="submit" class="btn btn-primary" name="registrarEvento">Registrar Evento</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/eventoLista.php'">Volver</button>
         </form>
     </div>
-    
 </body>
 </html>
+

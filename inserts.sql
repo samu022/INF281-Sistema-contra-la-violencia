@@ -67,9 +67,10 @@ INSERT INTO `evaluacion_riesgo` (`codFormulario`, `url_cuestionario`, `consejo`,
 (2, 'https://forms.gle/iUH5exDGVoR5huoMA', 'Es mejor ver señales', 10002);
 
 
-INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `duracion`, `rutaDirectorio`,`ci`) VALUES
-(1, 'Seminario', '2023-09-09', 'Seminario sobre Violencia de Género', '2 horas', 'imagen1.jpg',10001),
-(2, 'Charla', '2023-09-10', 'Charla de Prevención de Abuso', '3 horas', 'imagen2.png',10001);
+INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `descripcion`, `tipoViolencia`, `modalidad`, `horaInicio`, `horaFinal`, `detalleEvento`, `expositor`, `fechaSubida`, `rutaDirectorio`, `ci`) VALUES
+(1, 'Seminario', '2023-09-09', 'Seminario sobre Violencia de Género', 'Este seminario nos informa sobre la violencia de genero esto con el fin de prevenirlo', 'Violencia Fisica','Presencial', '09:00 AM', '11:00 AM', 'Paraninfo UMSA', 'Pedro Mamani', '2023-09-08', 'imagen1.jpg', 10001),
+(2, 'Charla', '2023-09-10', 'Charla de Prevención de Abuso', 'Esta charla es para la prevenciond del abuso', 'Violencia de genero', 'Virtual', '15:00 PM', '18:00 PM', 'https://meet.google.com/mpk-hmxx-tah?hs=187&authuser=0&ijlm=1694969969410&adhoc=1', 'Maria de los Angeles', '2023-09-08', 'imagen2.png', 10001);
+
 
 
 INSERT INTO `prueba` (`codPrueba`, `tipo`, `descripcion`)
@@ -89,9 +90,10 @@ VALUES
   (5, 5);
 
 
-INSERT INTO `informacion_educativa` (`codInformacion`, `rutaDirectorio`, `tipo`, `ci`) VALUES
-(1, 'imagen1.png', 'Video Informativo', 10001),
-(2, 'afiche1.pdf', 'Video Informativo', 10001);
+INSERT INTO `informacion_educativa` (`codInformacion`, `titulo`, `descripcion`, `tipoViolencia`, `rutaDirectorio`, `tipo`, `fechaSubida`, `ci`) VALUES
+(1, 'Post informativo para prevenir la violencia', 'Has oido o visto una persona que sufre violencia ayudalo informando sobre el mismo', 'Violencia de genero', 'imagen1.png', 'Imagen', '2023-09-15', 10001),
+(2, 'No toleres mas la violencia!', 'Informate sobre los tipos de violencia que existen en el documento veras que no solo es la violencia fisica hay mas tipos de violencia como violencia psicologica entre otros', 'Violencia Fisica', 'afiche1.pdf', 'PDF', '2023-09-16', 10001);
+
 
 INSERT INTO `ley_normativa` (`codLey`, `nombre`, `fecha_promulgacion`, `tematica`, `informacion`, `ci`) VALUES
 (1, 'Ley 348', '2013-03-09', 'Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia', 'https://bolivia.unfpa.org/sites/default/files/pub-pdf/Ley_348_0_1.pdf', 10001),

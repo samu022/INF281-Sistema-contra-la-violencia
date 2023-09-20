@@ -156,6 +156,9 @@
                         <a class="nav-link text-white" href="#">Sistema contra violencia</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="#">Eventos</a>
                     </li>
                     <li class="nav-item">

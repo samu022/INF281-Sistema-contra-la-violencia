@@ -1,7 +1,6 @@
 <?php
     include("../vista/dashboard_admin/head.php");
     include("../vista/dashboard_admin/sidebar.php");
-    include("../modelo/conexion.php");
     //incluimos modelo
     include("../modelo/EventoClase.php");
     $car=new Evento("","","","","","","","","","","","","");
@@ -9,4 +8,3 @@
     include("../vista/Eventos/EventoLista.php");
     include("../vista/dashboard_admin/footer.php");
 ?>
-

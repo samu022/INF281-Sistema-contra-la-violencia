@@ -159,16 +159,16 @@
                         <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Eventos</a>
+                        <a class="nav-link text-white" href="#eventos">Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Información Educativa</a>
+                        <a class="nav-link text-white" href="#informacion-educativa">Información Educativa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Leyes Normativas</a>
+                        <a class="nav-link text-white" href="#leyes">Leyes Normativas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Centros Locales</a>
+                        <a class="nav-link text-white" href="#centroLocal">Centros Locales</a>
                     </li>
                 </ul>
             </div>

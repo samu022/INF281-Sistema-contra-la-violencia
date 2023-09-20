@@ -1,5 +1,4 @@
 <?php
-   
     include("../vista/leyRegistro.php");
     if(isset($_POST['RegistrarLey'])){
         $nom=$_POST['nom'];
@@ -12,7 +11,7 @@
         if($res){
             echo "<script>
                     alert('se Registro correctamente');
-                    
+                    location.href = 'leyLista.php';
                     </script>";
         }else{
             echo "No se registro";

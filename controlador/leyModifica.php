@@ -1,8 +1,7 @@
 <?php
-   
-
 $cod = $_GET['cod'];
 include("../modelo/Ley_NormativaClase.php");
+include("../modelo/conexion.php");
 $car = new Ley_Normativa($cod, "", "", "", "");
 $res = $car->lista_especifica();
 $reg = $res->fetch_assoc();

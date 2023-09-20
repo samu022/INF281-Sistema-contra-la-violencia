@@ -1,11 +1,7 @@
 <?php
-    
     $cod=$_GET['cod'];
-    $nom=$_POST['nom'];
-    $fecha_prom=$_POST['fechaPromulgacion'];
-    $tem=$_POST['tem'];
-    $inf=$_POST['ref'];
     include("../modelo/Ley_NormativaClase.php");
+    include("../modelo/conexion.php");
     $carg=new Ley_Normativa($cod,"","","","");
     $res=$carg->elimina();
     if($res){
@@ -16,5 +12,4 @@
     }else{
         echo "No se elimino";
     }
-
 ?>

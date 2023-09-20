@@ -202,6 +202,8 @@
         </div>
         <button type="submit" class="btn btn-primary" name="filtrarInformacion">Buscar</button>
     </form>
+    
+
     <div class="row">
         <?php
         $count = 0;

@@ -48,7 +48,7 @@
     <div class="container">
         <div class="about-content">
             <h2>Our Story</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ultricies nunc. Phasellus vel ante id purus bibendum semper a vel odio.</p>
+            <p>We are people that we suffered violence in our relationships. And we want to help you to avoid violence in your life</p>
             <h2>Our Team</h2>
             <p>We are a dedicated team of professionals working together to achieve our goals. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <h2>Our Mission</h2>

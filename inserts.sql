@@ -145,6 +145,26 @@ VALUES
 
 
 
+INSERT INTO `ley_normativa` (`codLey`, `nombre`, `fecha_promulgacion`, `tematica`, `informacion`, `ci`) VALUES
+(3, 'Ley 263', '2012-07-31', 'Ley Integral contra la trata y tráfico de
+personas', 'https://tsj.bo/wp-content/uploads/2019/11/ley-263-integral-contra-la-trata-y-tra%CC%81fico-de-personas.pdf', 10001),
+(4, 'Ley 1443', '2022-07-04', 'Ley de protección a las víctimas de feminicidio, infanticidio y violación de infante, niña, niño o adolescente', 'https://www.ilo.org/dyn/natlex/docs/ELECTRONIC/90299/104007/F226460565/BOL90299.pdf', 10002),
+(5, 'Ley 2033', '1999-10-29', 'Ley de proteccion a las victimas de delitos contra la libertad sexual', 'http://www.silep.gob.bo/norma/3936/ley_actualizada', 10001);
 
+INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `ci`) VALUES
+(5, 'Fuerza Especial de Lucha Contra la Violencia', '2285495', 'Av. Sucre Nro 1122, Zona Centro, La Paz', 10001),
+(6, 'Fuerza Especial de Lucha Contra la Violencia', '800142031', 'Av. Fuerza Aerea Esq. Km 7 Nro 100, El Alto', 10002),
+(7, 'Fuerza de Lucha Contra el Crimen', '2285776', 'Av. Sucre esquina Bolivar Nro 1122, Zona Centro,La Paz', 10001);
+
+INSERT INTO `informacion_educativa` (`codInformacion`, `titulo`, `descripcion`, `tipoViolencia`, `rutaDirectorio`, `tipo`, `fechaSubida`, `ci`) VALUES
+(3, 'Ley para garantizar a las mujeres una vida libre de violencia nro 348', '43 preguntas y respuestas acerca de la ley en favor de los derechos humanos', 'Todas', 'cartilla', 'PDF', '2023-09-17', 10002),
+(4, 'Circulo de la violencia', 'Patrón de comportamiento que a menudo se repite en relaciones de pareja caracterizadas por la violencia', 'Violencia de genero', 'imagen2.png', 'Imagen', '2023-09-18', 10002),
+(5, 'Prevención de la violencia contra la mujer', 'Explicacion de los tipos de violencias para niños que cursan 6to de Primaria', 'Violencia en la familia', 'video1.png', 'Video', '2023-09-19', 10002);
+
+
+INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `descripcion`, `tipoViolencia`, `modalidad`, `horaInicio`, `horaFinal`, `detalleEvento`, `expositor`, `fechaSubida`, `rutaDirectorio`, `ci`) VALUES
+(3, 'Seminario', '2023-09-20', 'Empresa comprometida con una vida libre de violencia contra las mujeres en el Estado Plurinacional de Bolivia', 'Herramientas de prevención en las empresas','Violencia laboral','Presencial', '09:00 AM', '11:00 AM', 'Calle 9 de Calacoto. Edificio Cámara Nacional de Industrias No. 7898, piso 8', 'Laura Gonzalez', '2023-09-09', 'evento1.jpg', 10002),
+(4, 'Conversatorio', '2022-10-11', 'Avanzamos hacia la educación despatriarcalizadora, prevención de violencia', 'Este seminario nos informa sobre la igualdad de género y la conciencia sobre la importancia de eliminar estereotipos', 'Violencia en la familia','Virtual', '18:00 PM', '19:00 PM', 'https://www.youtube.com/watch?v=WHq8rww-TeQ', 'Paola Ajnota', '2023-09-09', 'evento2.jpg', 10002),
+(5, 'Seminario', '2022-11-25', 'Prevención de la violencia y discriminación en el ámbito de educación especial', 'Seminario sobre prevención de violencia y discriminación en educación especial', 'Violencia en el sistema educativo','Virtual', '14:00 PM', '15:45 PM', 'https://www.youtube.com/watch?v=qhlmZAYKwGw', 'Ingrid Cosio', '2023-09-09', 'evento3.jpg', 10002);
 
 

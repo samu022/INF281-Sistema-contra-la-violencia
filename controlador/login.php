@@ -19,7 +19,7 @@
             $_SESSION['usuario'] = $usuario;
             $_SESSION['ci']=$user->obtenerCI();
             $_SESSION['privilegio'] = "usuario";
-            header("Location: ../controlador/denunciaRegistro.php");
+            header("Location: ../controlador/panelweb.php");
         }
         else if($admin->check_exists())
         {

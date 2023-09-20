@@ -1,10 +1,14 @@
 <?php
-
-
+include ("../modelo/conexion.php");
 include("../vista/InformacionEducativaRegistro.php");
 
 if (isset($_POST['registrarInformacion'])) {
+    $titulo = $_POST['titulo'];
+    $descripcion = $_POST['descripcion'];
+    $tipoViolencia = $_POST['tipoViolencia'];
     $tipo = $_POST['tipo'];
+    date_default_timezone_set('America/La_Paz');
+    $fechaSubida = date("Y-m-d");
 
     // Obtener la información del archivo cargado
     $archivoNombre = $_FILES['archivo']['name'];
@@ -27,7 +31,7 @@ if (isset($_POST['registrarInformacion'])) {
 
         // Ahora puedes registrar la información en la base de datos
         include("../modelo/InformacionEducativaClase.php");
-        $carg = new InformacionEducativa("", $rutaArchivoDestino, $tipo);
+        $carg = new InformacionEducativa("", $titulo, $descripcion, $tipoViolencia, $rutaArchivoDestino, $tipo, $fechaSubida);
 
         $res = $carg->grabarInformacion();
 
@@ -44,4 +48,3 @@ if (isset($_POST['registrarInformacion'])) {
     }
 }
 ?>
-

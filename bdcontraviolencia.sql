@@ -171,7 +171,14 @@ CREATE TABLE `evento` (
   `tipo` varchar(90) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `titulo` varchar(100) DEFAULT NULL,
-  `duracion` varchar(20) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `tipoViolencia` varchar(120) DEFAULT NULL,
+  `horaInicio` varchar(20) DEFAULT NULL,
+  `horaFinal` varchar(20) DEFAULT NULL,
+  `modalidad` varchar(20) DEFAULT NULL,
+  `detalleEvento` varchar(120) DEFAULT NULL,
+  `expositor` varchar(120) DEFAULT NULL,
+  `fechaSubida` date DEFAULT NULL,
   `rutaDirectorio` varchar(120) DEFAULT NULL,
   `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -226,8 +233,12 @@ CREATE TABLE `incidente_prueba` (
 
 CREATE TABLE `informacion_educativa` (
   `codInformacion` int(11) NOT NULL,
+  `titulo` varchar(90) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `tipoViolencia` varchar(90) DEFAULT NULL,
   `rutaDirectorio` varchar(90) DEFAULT NULL,
   `tipo` varchar(90) DEFAULT NULL,
+  `fechaSubida` date DEFAULT NULL,
   `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

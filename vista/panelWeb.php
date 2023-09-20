@@ -173,7 +173,7 @@
     </nav>
     <!-- Slider -->
     <div class="container mt-4" id="slider-inicial">
-        <h1>SLIDER</h1>
+        <?php include("slide.php"); ?>
         <!-- Agrega el contenido del slider aquí -->
     </div>
 

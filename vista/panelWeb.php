@@ -132,7 +132,7 @@
                     <a class="nav-link text-white" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Contactos</a>
+                    <a class="nav-link text-white" href="../controlador/contactosLista.php">Contactos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Acerca de nosotros</a>

@@ -33,8 +33,7 @@ CREATE TABLE `administrador` (
   `ci` int(11) NOT NULL,
   `nombre_usuario` varchar(20) DEFAULT NULL,
   `contrasenia` varchar(150) DEFAULT NULL,
-  `correo` varchar(20) DEFAULT NULL,
-  `privilegios` varchar(20) DEFAULT NULL
+  `correo` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -439,6 +438,11 @@ CREATE TABLE `victima` (
 -- Volcado de datos para la tabla `victima`
 --
 
+
+CREATE TABLE `rol` (
+  `ci` int(11) NOT NULL,
+  `tipoRol` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 -- #################################################

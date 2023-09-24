@@ -7,7 +7,7 @@
             <td>ci</td>
             <td>Nombre de Usuario</td>
             <td>Correo</td>
-            <td>Privilegios</td>
+            <td>roles</td>
 
         </tr>
         <?php
@@ -18,7 +18,6 @@
                 echo "<td>".$reg['ci']."</td>";
                 echo "<td>".$reg['nombre_usuario']."</td>";
                 echo "<td>".$reg['correo']."</td>";
-                echo "<td>".$reg['privilegios']."</td>";
 
                 echo "<td><a href='../controlador/administradorElimina.php?ci=".$reg['ci']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";
                 echo "<td><a href='../controlador/administradorModifica.php?ci=".$reg['ci']."'  class='btn btn-success'>Modificar</a></td>";

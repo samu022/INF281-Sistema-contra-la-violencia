@@ -1,6 +1,4 @@
--- xd
 
---funciona xd
 use bdcontraviolencia;
 INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, `sexo`, `direccion`, `estado_civil`, `profesion`, `telefono`) VALUES
 (10001, 'Pedro', 'García', 'Lopez', '1985-05-20', 'Masculino', 'Calle 1 de Mayo #123', 'Casado', 'Ingeniero Civil', '+591 75749393'),
@@ -16,9 +14,16 @@ INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, 
 
 
 
-INSERT INTO `administrador` (`ci`, `nombre_usuario`, `contrasenia`, `correo`, `privilegios`) VALUES
-(10001, 'pedro', '482c811da5d5b4bc6d497ffa98491e38', 'pedro@gmail.com', 'escritura'),
-(10002, 'maria', '482c811da5d5b4bc6d497ffa98491e38', 'maria@gmail.com', 'escritura');
+INSERT INTO `administrador` (`ci`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
+(10001, 'pedro', '482c811da5d5b4bc6d497ffa98491e38', 'pedro@gmail.com'),
+(10002, 'maria', '482c811da5d5b4bc6d497ffa98491e38', 'maria@gmail.com');
+
+INSERT INTO `rol` (`ci`, `tipoRol`) VALUES (10001, 'Denuncia'),
+                                           (10001, 'CentroLocal'),
+                                           (10001, 'LeyNormativa'),
+                                           (10001, 'Evento'),
+                                           (10001, 'InformacionEducativa'),
+                                           (10002, 'LeyNormativa');
 
 INSERT INTO `usuario` (`ci_usuario`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
 (10007, 'isabel', '482c811da5d5b4bc6d497ffa98491e38', 'isabel@gmail.com'),

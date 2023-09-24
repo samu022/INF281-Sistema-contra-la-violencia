@@ -22,7 +22,7 @@
     $nombre_usuario = $reg['nombre_usuario'];
     $contrasenia = $reg['contrasenia'];
     $correo = $reg['correo'];
-    $privilegios = $reg['privilegios'];
+    $rol = $reg['rol'];
 
     include("../vista/administradorModifica.php");
 
@@ -31,12 +31,12 @@
         $nombre_usuario = $_POST['nombre_usuario'];
         $contrasenia = $_POST['contrasenia'];
         $correo = $_POST['correo'];
-        $privilegios = $_POST['privilegios'];
+        $rol = $_POST['rol'];
 
         $car->setNombreUsuario($nombre_usuario);
         $car->setContrasenia($contrasenia);
         $car->setCorreo($correo);
-        $car->setPrivilegios($privilegios);
+        $car->setrol($rol);
         $res = $car->modifica();
 
         if ($res) {

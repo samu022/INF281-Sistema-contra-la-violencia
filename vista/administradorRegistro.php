@@ -77,8 +77,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="nom" class="form-label">Escriba Privilegios:</label>
-                <input type="text" class="form-control" name="privilegios" id="nom" placeholder="Ej: escritura/lectura">
+                <label for="nom" class="form-label">Escriba rol:</label>
+                <input type="text" class="form-control" name="rol" id="nom" placeholder="Ej: escritura/lectura">
             </div>
 
             <button type="submit" class="btn btn-primary" name="RegistrarAdministrador">Registrar Adminisrador</button>

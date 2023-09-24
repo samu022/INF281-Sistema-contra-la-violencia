@@ -87,8 +87,8 @@ def generate_administrador():
     nombre_usuario = fake.user_name()
     contrasenia = hashlib.md5(fake.password().encode('utf-8')).hexdigest()
     correo = fake.email()
-    privilegios = random.choice(['lectura', 'escritura'])
-    mycursor.execute(f"INSERT INTO administrador (ci, nombre_usuario, contrasenia, correo, privilegios) VALUES ({ci_administrador}, '{nombre_usuario}', '{contrasenia}', '{correo}', '{privilegios}');")
+    rol = random.choice(['lectura', 'escritura'])
+    mycursor.execute(f"INSERT INTO administrador (ci, nombre_usuario, contrasenia, correo, rol) VALUES ({ci_administrador}, '{nombre_usuario}', '{contrasenia}', '{correo}', '{rol}');")
     mydb.commit()
 # Función para generar INSERT para la tabla 'usuario'
 def generate_usuario():

@@ -5,15 +5,15 @@ class Administrador
     private $nombre_usuario;
     private $contrasenia;
     private $correo;
-    private $privilegios;
+    private $rol;
 
-    public function __construct($ci, $nombre_usuario, $contrasenia, $correo, $privilegios)
+    public function __construct($ci, $nombre_usuario, $contrasenia, $correo, $rol)
     {
         $this->setCi($ci);   
         $this->setNombreUsuario($nombre_usuario);
         $this->setContrasenia($contrasenia);
         $this->setCorreo($correo);
-        $this->setPrivilegios($privilegios);
+        $this->setrol($rol);
     }
 
     public function lista()
@@ -44,9 +44,9 @@ class Administrador
         $this->correo = $correo;
     }
 
-    public function setPrivilegios($privilegios)
+    public function setrol($rol)
     {
-        $this->privilegios = $privilegios;
+        $this->rol = $rol;
     }
     
     
@@ -57,7 +57,7 @@ class Administrador
         
         $sql = $db->prepare("INSERT INTO administrador VALUES (?, ?, ?, ?, ?)"); 
         
-        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->privilegios);
+        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->rol);
 
         $result = $sql->execute();
 
@@ -95,8 +95,8 @@ class Administrador
     public function modifica()
     {
         $db = new Conexion();
-        $sql = $db->prepare("UPDATE administrador SET nombre_usuario = ?, contrasenia = ?, correo = ?, privilegios = ? WHERE ci = ?");
-        $sql->bind_param("ssssi", $this->nombre_usuario, $this->contrasenia, $this->correo, $this->privilegios, $this->ci);
+        $sql = $db->prepare("UPDATE administrador SET nombre_usuario = ?, contrasenia = ?, correo = ?, rol = ? WHERE ci = ?");
+        $sql->bind_param("ssssi", $this->nombre_usuario, $this->contrasenia, $this->correo, $this->rol, $this->ci);
         $result = $sql->execute();
 
         if($result)
@@ -119,12 +119,12 @@ class Administrador
         return $sql->num_rows != 0;
     }
 
-    public function getPrivilegios()
+    public function getroles()
     {
         $db=new Conexion();
-        $sql=$db->query("SELECT * FROM administrador where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
+        $sql=$db->query("SELECT tipoRol FROM rol where ci='$this->ci'");
         //quiero la posicion primera de fetch assoc
-        return $sql->fetch_assoc()['privilegios'];
+        return $sql->fetch_assoc()['tipoRol'];
     }
 
 }

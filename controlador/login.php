@@ -10,7 +10,7 @@
         $contrasenia = $_POST['contrasenia'];
 
         $user = new Usuario("", $usuario, $contrasenia, "");
-        // Hay privilegios de lectura y escritura, un usuario solo sera direccionado al index, en cambio un amdinistrador al dashboard
+        // Hay rol de lectura y escritura, un usuario solo sera direccionado al index, en cambio un amdinistrador al dashboard
         // Definimos 3 permisos: lectura/escritura/usuario
         // El hecho de que ya el usuario tenga permiso de lectura y escritura ya lo hace "administrador"
         $admin = new Administrador("", $usuario, $contrasenia, "", "");
@@ -24,7 +24,7 @@
         else if($admin->check_exists())
         {
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['privilegio'] = $admin->getPrivilegios();
+            $_SESSION['privilegio'] = $admin->getrol();
             $_SESSION['ci']=$admin->obtenerCI();
             header("Location: ../controlador/dashboard.php");
         }

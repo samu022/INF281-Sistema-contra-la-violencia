@@ -26,7 +26,7 @@
             <td>Nombre de Usuario</td>
             <td>Contrasenia</td>
             <td>Correo</td>
-            <td>Privilegios</td>
+            <td>rol</td>
         </tr>
         <?php
                 echo "<tr>";
@@ -34,7 +34,7 @@
                 echo "<td>".$nombre_usuario."</td>";
                 echo "<td>".$contrasenia."</td>";
                 echo "<td>".$correo."</td>";
-                echo "<td>".$privilegios."</td>";
+                echo "<td>".$rol."</td>";
                 echo "</tr>";
         ?>
     </table>
@@ -59,8 +59,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="nom" class="form-label">Escriba Privilegios:</label>
-                <input type="text" class="form-control" name="privilegios" id="nom" value="<?php echo $privilegios; ?>">
+                <label for="nom" class="form-label">Escriba rol:</label>
+                <input type="text" class="form-control" name="rol" id="nom" value="<?php echo $rol; ?>">
             </div>
 
             <button type="submit" class="btn btn-primary" name="ModificarAdministrador">Modificar Administrador</button>

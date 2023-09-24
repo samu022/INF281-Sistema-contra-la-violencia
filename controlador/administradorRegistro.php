@@ -17,7 +17,7 @@
         $nombre_usuario = $_POST['nombre_usuario'];
         $contrasenia = $_POST['contrasenia'];
         $correo = $_POST['correo'];
-        $privilegios = $_POST['privilegios'];
+        $rol = $_POST['rol'];
 
         // Datos de la Persona
 
@@ -32,7 +32,7 @@
         $numero_telefono = $_POST['numero_telefono'];
         include("../modelo/administrador.php");
         include("../modelo/PersonaClase.php");
-        $carg=new Administrador($ci, $nombre_usuario, $contrasenia, $correo, $privilegios);
+        $carg=new Administrador($ci, $nombre_usuario, $contrasenia, $correo, $rol);
         $persona = new Persona($ci, $nombre_completo, $apePaterno, $apeMaterno, $fechaNaci,
             $sexo, $direccion, $estado_civil, $profesion, $numero_telefono);
         //public function __construct($ci, $nombre, $apePaterno, $apeMaterno, $fechaNaci,

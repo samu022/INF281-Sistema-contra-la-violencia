@@ -1,4 +1,4 @@
-
+-- xd
 use bdcontraviolencia;
 INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, `sexo`, `direccion`, `estado_civil`, `profesion`, `telefono`) VALUES
 (10001, 'Pedro', 'García', 'Lopez', '1985-05-20', 'Masculino', 'Calle 1 de Mayo #123', 'Casado', 'Ingeniero Civil', '+591 75749393'),

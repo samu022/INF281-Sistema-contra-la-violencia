@@ -60,14 +60,14 @@ class Usuario
         return null; // Retorna null si no se encontraron resultados o hubo un error
     }
     
-    public function grabarAdministrador()
+    public function grabarUsuario()
     {
         //include("conexion.php");
         $db = new Conexion();
         
         $sql = $db->prepare("INSERT INTO usuario VALUES (?, ?, ?, ?)"); 
         
-        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo);
+        $sql->bind_param("ssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo);
 
         $result = $sql->execute();
 

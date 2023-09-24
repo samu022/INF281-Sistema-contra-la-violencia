@@ -171,6 +171,13 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#centroLocal">Centros Locales</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="usuarioRegistro.php">Registro</a>
+                    </li>
+
                 </ul>
             </div>
         </div>

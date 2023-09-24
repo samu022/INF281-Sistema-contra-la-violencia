@@ -1,6 +1,6 @@
 <?php
-  ader("Location: ../controlador/login.php");
-    }
+ 
+    
     //include("../modelo/conexion.php");
     $cod = $_GET['cod'];
     $codDenunciante = $_GET['cod'];

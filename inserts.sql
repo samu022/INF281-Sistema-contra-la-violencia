@@ -1,5 +1,6 @@
 
 use bdcontraviolencia;
+
 INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, `sexo`, `direccion`, `estado_civil`, `profesion`, `telefono`) VALUES
 (10001, 'Pedro', 'García', 'Lopez', '1985-05-20', 'Masculino', 'Calle 1 de Mayo #123', 'Casado', 'Ingeniero Civil', '+591 75749393'),
 (10002, 'María', 'Rodríguez', 'Sánchez', '1990-09-15', 'Femenino', 'Avenida Murillo #456', 'Soltera', 'Médica', '+591 73446291'),

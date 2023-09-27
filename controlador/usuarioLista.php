@@ -2,7 +2,7 @@
 
     session_start();
     
-    if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
+    if($_SESSION['privilegio'] == "administrador" || $_SESSION['privilegio'] == "")
     {
         header("Location: ../controlador/login.php");
     }

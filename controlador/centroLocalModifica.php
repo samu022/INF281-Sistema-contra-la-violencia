@@ -1,7 +1,10 @@
 <?php
+include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
 $cod = $_GET['cod'];
 include("../modelo/CentroLocalClase.php");
-include("../modelo/conexion.php");
+//include("../modelo/conexion.php");
 $car = new CentroLocal($cod, "", "", "", "");
 $res = $car->listaEspecifica();
 $reg = $res->fetch_assoc();

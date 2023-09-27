@@ -4,7 +4,7 @@
     
     include("../modelo/conexion.php");
     include("../modelo/administrador.php");
-
+    include("control_cookies.php");
 
     $tmp_admin = new Administrador("", "", "", "");
     

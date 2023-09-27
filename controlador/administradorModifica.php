@@ -2,9 +2,11 @@
 
 
     include("../modelo/conexion.php");
-
-    $ci = $_GET['ci'];
     include("../modelo/administrador.php");
+    include("control_cookies.php");
+    
+    $ci = $_GET['ci'];
+    //include("../modelo/administrador.php");
     $car = new Administrador($ci, "", "", "", "");
 
     $res = $car->lista_especifica();

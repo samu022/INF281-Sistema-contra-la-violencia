@@ -2,11 +2,12 @@
 
  
     include("../modelo/conexion.php");
-
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
 
     $ci = $_GET['ci'];
     
-    include("../modelo/administrador.php");
+    
     $carg = new Administrador($ci,"","","","");
     try{
         $res = $carg->elimina();

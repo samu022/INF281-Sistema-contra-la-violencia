@@ -1,6 +1,9 @@
 <?php
 
     include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+    
     $codPrueba = $_GET['codPrueba'];
     $codDenunciante = $_GET['cod'];
     include("../modelo/PruebaClase.php");

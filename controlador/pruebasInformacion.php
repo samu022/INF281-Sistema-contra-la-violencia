@@ -2,6 +2,10 @@
 
 
 include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
+
 $cod = $_GET['cod'];
 include("../modelo/PruebaClase.php");
 include("../modelo/Incidente_PruebaClase.php");

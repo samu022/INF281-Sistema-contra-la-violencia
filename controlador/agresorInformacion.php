@@ -1,6 +1,9 @@
 <?php
 
-include("../modelo/conexion.php");
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
 $cod = $_GET['cod'];
 include("../modelo/AgresorClase.php");
 include("../modelo/PersonaClase.php");

@@ -1,4 +1,9 @@
 <?php
+
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
     include("../vista/leyRegistro.php");
     if(isset($_POST['RegistrarLey'])){
         $nom=$_POST['nom'];

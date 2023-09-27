@@ -1,8 +1,12 @@
 <?php
+include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
+
 $codEvento = $_GET['cod'];
 
 // Incluye la clase de Evento
-include ("../modelo/conexion.php");
+//include ("../modelo/conexion.php");
 include("../modelo/EventoClase.php");
 $evento = new Evento($codEvento,"","","","","","","","","","","","");
 

@@ -1,5 +1,9 @@
 <?php
-       
+    
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+    
     include("../vista/Reporte_denuncias/prueba.php");
     
     // Definir un array multidimensional para almacenar los valores de todas las subidas

@@ -1,5 +1,9 @@
 <?php
-   
+
+
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
 
 //session_start();
 include("../vista/Reporte_denuncias/geolocalizacion.php");

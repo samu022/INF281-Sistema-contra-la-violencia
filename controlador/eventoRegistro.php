@@ -1,5 +1,8 @@
 <?php
-include ("../modelo/conexion.php");
+include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
+
 include("../vista/Eventos/EventoRegistro.php");
 
 if (isset($_POST['registrarEvento'])) {

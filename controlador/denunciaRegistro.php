@@ -1,7 +1,9 @@
 <?php
-    session_start();
+    
     
     include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
     
     
     include("../vista/Reporte_denuncias/index.php");

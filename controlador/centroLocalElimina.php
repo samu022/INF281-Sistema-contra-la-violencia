@@ -1,7 +1,11 @@
 <?php
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
     $codCentro=$_GET['cod'];
     include("../modelo/CentroLocalClase.php");
-    include("../modelo/conexion.php");
+    //include("../modelo/conexion.php");
     $carg=new CentroLocal($codCentro,"","","","");
     $res=$carg->eliminar();
     if($res){

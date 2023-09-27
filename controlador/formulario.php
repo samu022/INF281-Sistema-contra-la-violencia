@@ -1,6 +1,10 @@
 <?php
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
     include('../vista/formulario.php');
-    include ("../modelo/conexion.php");
+    //include ("../modelo/conexion.php");
     // Verificar si se ha enviado el formulario de Google Forms
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["entry.12345"])) {
         // Recopila los datos del formulario

@@ -1,6 +1,10 @@
 <?php
 
-    include("../modelo/conexion.php");
+include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
+
+    
     include("../vista/usuarioRegistro.php");
     if(isset($_POST['RegistrarUsuario'])){
         $ci = $_POST['ci'];

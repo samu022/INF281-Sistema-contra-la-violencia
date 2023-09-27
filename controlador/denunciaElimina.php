@@ -1,8 +1,12 @@
 <?php
 
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
     $cod=$_GET['cod'];
     //Primero eliminamos a las victimas
-    include("../modelo/conexion.php");
+    //include("../modelo/conexion.php");
     include("../modelo/PersonaClase.php");
     include("../modelo/VictimaClase.php");
     $carVictima=new Victima("","",$cod);

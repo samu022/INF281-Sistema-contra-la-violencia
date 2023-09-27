@@ -1,6 +1,10 @@
 <?php
 
 include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
+
+//include("../modelo/conexion.php");
 $cod = $_GET['cod'];
 include("../modelo/DenunciaClase.php");
 $car = new Denuncia($cod, "", "", "", "","","");

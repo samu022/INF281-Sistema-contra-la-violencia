@@ -1,6 +1,11 @@
 <?php
-    include("../vista/CentroLocalRegistro.php");
+
     include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
+    include("../vista/CentroLocalRegistro.php");
+    //include("../modelo/conexion.php");
     if(isset($_POST['RegistrarCentro'])){
         $nombre=$_POST['nombre'];
         $telefono=$_POST['telefono'];

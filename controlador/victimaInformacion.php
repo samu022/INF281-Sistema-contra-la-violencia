@@ -1,7 +1,10 @@
 <?php
 
 
-include("../modelo/conexion.php");
+    include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
 $cod = $_GET['cod'];
 include("../modelo/VictimaClase.php");
 include("../modelo/PersonaClase.php");

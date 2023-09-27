@@ -1,6 +1,11 @@
 <?php
+
+include("../modelo/conexion.php");
+include("../modelo/administrador.php");
+include("control_cookies.php");
+
 $codInformacion = $_GET['codInformacion'];
-include ("../modelo/conexion.php");
+//include ("../modelo/conexion.php");
 // Incluye la clase de InformacionEducativa
 include("../modelo/InformacionEducativaClase.php");
 $informacion = new InformacionEducativa($codInformacion, "", "","","","","");

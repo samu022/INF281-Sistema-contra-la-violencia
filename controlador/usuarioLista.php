@@ -1,12 +1,9 @@
 <?php
 
-    session_start();
-    
-    if($_SESSION['privilegio'] == "administrador" || $_SESSION['privilegio'] == "")
-    {
-        header("Location: ../controlador/login.php");
-    }
     include("../modelo/conexion.php");
+    include("../modelo/administrador.php");
+    include("control_cookies.php");
+
     include("../vista/dashboard_admin/head.php");
     include("../vista/dashboard_admin/sidebar.php");
     //incluimos modelo

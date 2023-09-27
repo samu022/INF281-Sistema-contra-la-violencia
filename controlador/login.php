@@ -24,7 +24,7 @@
         else if($admin->check_exists())
         {
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['privilegio'] = $admin->getrol();
+            $_SESSION['privilegio'] = $admin->getroles();
             $_SESSION['ci']=$admin->obtenerCI();
             header("Location: ../controlador/dashboard.php");
         }

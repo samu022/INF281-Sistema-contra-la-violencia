@@ -18,13 +18,13 @@
         {
             $_SESSION['usuario'] = $usuario;
             $_SESSION['ci']=$user->obtenerCI();
-            $_SESSION['privilegio'] = "usuario";
+            $_SESSION['tipo_usuario'] = "usuario";
             header("Location: ../controlador/panelweb.php");
         }
         else if($admin->check_exists())
         {
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['privilegio'] = $admin->getroles();
+            $_SESSION['tipo_usuario'] = "administrador";
             $_SESSION['ci']=$admin->obtenerCI();
             header("Location: ../controlador/dashboard.php");
         }

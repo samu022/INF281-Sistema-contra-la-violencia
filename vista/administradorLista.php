@@ -7,7 +7,6 @@
             <td>ci</td>
             <td>Nombre de Usuario</td>
             <td>Correo</td>
-            <td>roles</td>
 
         </tr>
         <?php

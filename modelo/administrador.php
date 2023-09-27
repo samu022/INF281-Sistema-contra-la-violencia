@@ -142,5 +142,19 @@ class Administrador
             return false;        
     }
 
+    public function delete_all_roles()
+    {
+        $db = new Conexion();
+        $sql = $db->query("DELETE FROM tiene_rol WHERE ci='$this->ci'");
+        return ($sql);
+    }
+
+    public function check_role($name_role)
+    {
+        $db = new Conexion();
+        $sql=$db->query("SELECT 1 FROM tiene_rol as x, rol as y WHERE x.ci='$this->ci' AND x.idRol=y.idRol AND y.nombreRol = '$name_role'");
+        return $sql->num_rows != 0;
+    }
+
 }
 ?>

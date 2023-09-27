@@ -39,7 +39,7 @@
 
 
         $tmp_admin = new Administrador("", "", "", "");
-    
+        $car->delete_all_roles();
         $total_roles = $tmp_admin->getRoles();
         while($rol=mysqli_fetch_array($total_roles)){
 

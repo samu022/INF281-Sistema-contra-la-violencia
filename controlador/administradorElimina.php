@@ -1,6 +1,8 @@
 <?php
 
  
+    include("../modelo/conexion.php");
+
 
     $ci = $_GET['ci'];
     

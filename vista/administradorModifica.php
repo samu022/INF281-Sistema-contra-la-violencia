@@ -24,15 +24,12 @@
         <tr>
             <td>CI</td>
             <td>Nombre de Usuario</td>
-            <td>Contrasenia</td>
             <td>Correo</td>
-            <td>rol</td>
         </tr>
         <?php
                 echo "<tr>";
                 echo "<td>".$ci."</td>";
                 echo "<td>".$nombre_usuario."</td>";
-                echo "<td>".$contrasenia."</td>";
                 echo "<td>".$correo."</td>";
                 echo "</tr>";
         ?>

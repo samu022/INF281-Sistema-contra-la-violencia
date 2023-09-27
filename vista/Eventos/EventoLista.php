@@ -75,7 +75,12 @@
         }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/eventoRegistro.php'">Ingresar nuevo evento</button>
-    </div>
+    <form action="../reportes/reporteEventos.php" method="post" accept-charset="utf-8">
+        <div class="row">
+            <button type="submit" class="btn btn-success mb-2">Reporte de eventos</button>
+        </div>
+    </form>    
+</div>
     </div>
 </body>
 </html>

@@ -111,7 +111,7 @@
                 strpos($nombreScriptActual, "usuarioEliminar.php"))))
             {
                 
-                if(!$tmp_admin->check_role("usuario"))
+                if(!$tmp_admin->check_role("tablausuarios"))
                     header("Location: ../controlador/dashboard.php");
             }
             else if(((strpos($nombreScriptActual, "victimaInformacion.php") ||

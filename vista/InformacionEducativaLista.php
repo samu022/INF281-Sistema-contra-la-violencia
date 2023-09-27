@@ -69,6 +69,11 @@
     }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/informacionEducativaRegistro.php'">Ingresar nueva Información Educativa</button>
+    <form action="../reportes/reporteInformacionEducativa.php" method="post" accept-charset="utf-8">
+        <div class="row">
+            <button type="submit" class="btn btn-success mb-2">Reporte de informacion educativa</button>
+        </div>
+    </form>
 </div>
 </body>
 </html>

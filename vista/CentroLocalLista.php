@@ -97,6 +97,11 @@
             }
         ?>
         <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/centroLocalRegistro.php'">Ingresar centro</button>
+    	<form action="../reportes/reporteCentroLocal.php" method="post" accept-charset="utf-8">
+	    <div class="row">
+		<button type="submit" class="btn btn-success mb-2">Reporte</button>
+	    </div>
+	</form>
     </div>
     
 </body>

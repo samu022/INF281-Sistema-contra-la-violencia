@@ -34,5 +34,9 @@
         }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/administradorRegistro.php'">Ingresar nuevo administrador</button>
-
+    <form action="../reportes/reporteAdministrador.php" method="post" accept-charset="utf-8">
+        <div class="row">
+            <button type="submit" class="btn btn-success mb-2">Reporte de adminstradores</button>
+        </div>
+    </form>
 </div>

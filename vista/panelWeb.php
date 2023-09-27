@@ -158,6 +158,17 @@
     </script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <!-- Agrega un botón para Cerrar Sesión -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="../controlador/cerrar_sesion.php">Cerrar Sesión</a>
+            </li>
+        </ul>
+        <!-- Resto del código de la barra de navegación... -->
+    </div>
+</nav>
     <!-- Menu delgado -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">

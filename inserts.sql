@@ -19,12 +19,44 @@ INSERT INTO `administrador` (`ci`, `nombre_usuario`, `contrasenia`, `correo`) VA
 (10001, 'pedro', '482c811da5d5b4bc6d497ffa98491e38', 'pedro@gmail.com'),
 (10002, 'maria', '482c811da5d5b4bc6d497ffa98491e38', 'maria@gmail.com');
 
-INSERT INTO `rol` (`ci`, `tipoRol`) VALUES (10001, 'Denuncia'),
-                                           (10001, 'CentroLocal'),
-                                           (10001, 'LeyNormativa'),
-                                           (10001, 'Evento'),
-                                           (10001, 'InformacionEducativa'),
-                                           (10002, 'LeyNormativa');
+INSERT INTO `rol` (`idRol`, `nombreRol`) VALUES
+(1, 'denuncia'),
+(2, 'centrolocal'),
+(3, 'leynormativa'),
+(4, 'evento'),
+(5, 'informacioneducativa'),
+(6, 'administrador'),
+(7, 'tablausuarios'),
+(8, 'agresor'),
+(9, 'geolocalizacion'),
+(10, 'prueba'),
+(11, 'victima');
+INSERT INTO `tiene_rol` (`ci`, `idRol`) VALUES
+(1231234, '2'),
+(1231234, '3'),
+(1231234, '4'),
+(1231234, '5'),
+(6, '1231234'),
+(1, '1231234'),
+(1231234, '1'),
+(1231234, '11'),
+(1231234, '6'),
+(35235345, '4'),
+(35235345, '5'),
+(35235345, '8'),
+(35235345, '9'),
+(832572567, '5'),
+(832572567, '6'),
+(832572567, '8'),
+(10001, '1'),
+(10001, '3'),
+(10001, '5'),
+(10001, '6'),
+(10001, '7'),
+(10001, '8'),
+(10001, '9'),
+(10001, '10'),
+(10001, '11');
 
 INSERT INTO `usuario` (`ci_usuario`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
 (10007, 'isabel', '482c811da5d5b4bc6d497ffa98491e38', 'isabel@gmail.com'),

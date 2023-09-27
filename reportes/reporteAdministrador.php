@@ -78,7 +78,6 @@ $tableHtml = '
         <th style="background-color: #0073e6; color: #fff; border: 1px solid #000; width: 20%;">ci</th>
         <th style="background-color: #0073e6; color: #fff; border: 1px solid #000; width: 30%;">nombreUsuario</th>
         <th style="background-color: #0073e6; color: #fff; border: 1px solid #000; width: 30%;">correo</th>
-        <th style="background-color: #0073e6; color: #fff; border: 1px solid #000; width: 15%;">privilegios</th>
     </tr>';
 
 $pdf->SetFont('helvetica','C', 10); 
@@ -97,7 +96,6 @@ while ($dataRow = mysqli_fetch_array($query)) {
             <td style="border: 1px solid #000;">' . $dataRow['ci'] . '</td>
             <td style="border: 1px solid #000;">' . $dataRow['nombre_usuario'] . '</td>
             <td style="border: 1px solid #000;">' . $dataRow['correo'] . '</td>
-            <td style="border: 1px solid #000;">' . $dataRow['privilegios'] . '</td>
         </tr>';
 
     // Cambia la variable para la siguiente fila

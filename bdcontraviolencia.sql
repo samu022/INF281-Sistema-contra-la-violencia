@@ -440,8 +440,9 @@ CREATE TABLE `victima` (
 
 CREATE TABLE `tiene_rol` (
   `ci` int(11) NOT NULL,
-  `idRol` varchar(100) DEFAULT NULL,
+  `idRol` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 CREATE TABLE `rol` (

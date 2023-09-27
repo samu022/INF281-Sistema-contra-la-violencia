@@ -1,12 +1,12 @@
 <?php
     include("../modelo/conexion.php");
-    include("../modelo/administrador.php");
-    include("control_cookies.php");
+    //include("../modelo/administrador.php");
+    //include("control_cookies.php");
 
     include('../vista/formulario.php');
     //include ("../modelo/conexion.php");
     // Verificar si se ha enviado el formulario de Google Forms
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["entry.12345"])) {
+   /* if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["entry.12345"])) {
         // Recopila los datos del formulario
         $respuesta = $_POST["entry.12345"]; // Reemplaza "entry.12345" con el identificador correcto del campo del formulario
         $otroDato = $_POST["otroDato"]; // Puedes agregar más campos aquí
@@ -25,6 +25,6 @@
 
         // Cierra la conexión a la base de datos
         $conn->close();
-    }
+    }*/
     
 ?>

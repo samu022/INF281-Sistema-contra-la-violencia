@@ -104,42 +104,7 @@
         .circle-card ul li {
             margin-bottom: 10px; /* Espaciado entre elementos de la lista */
         }
-        /* Estilos para los botones personalizados */
-        /* Estilo para los botones */
-        /* Contenedor de botones */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px; /* Espacio entre las filas de botones */
-        }
 
-        /* Filas de botones */
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Espacio entre los botones en la misma fila */
-        }
-
-        /* Estilo para los botones */
-        .custom-button {
-            background-color: #007bff;
-            border: none;
-            padding: 10px; /* Ajusta el tamaño del botón */
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.9); /* Sombra tipo 3D */
-        }
-
-        .custom-button-image {
-            width: 320px; /* Tamaño de la imagen */
-            height: 280px; /* Tamaño de la imagen */
-            margin-bottom: 5px; /* Espaciado entre la imagen y el texto */
-        }
     </style>
 
     <!-- Agrega jQuery y la biblioteca animate.css -->
@@ -232,55 +197,38 @@
         <!-- Agrega el contenido del slider aquí -->
     </div>
 
-     <!-- Botones para redirigir a las páginas -->
-     <div class="button-container">
-    <div class="row justify-content-center">
-        <!-- Botón Eventos -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="eventos">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN4T_Iq-aWFjkh1ZlsQlzdZa6dqAby6gOnDWwsjw4up-UR87ZVp-Gn85he6OQ2mHoX-gI&usqp=CAU" alt="Eventos" class="custom-button-image">
-                    <span class="custom-button-text">Eventos</span>
-                </button>
-            </form>
+    <!-- Leyes Normativas -->
+    <div class="container mt-4" id="leyes">
+        <h1 class="text-center">Leyes Normativas</h1>
+        <div class="row">
+            <?php
+            $cont = 0;
+            while ($reg = mysqli_fetch_array($res3)) {
+                $cont = $cont + 1;
+                ?>
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+            <div class="custom-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $reg['nombre']; ?></h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Fecha de Promulgación:</strong> <?php echo $reg['fecha_promulgacion']; ?></li>
+                                <li><strong>Temática:</strong> <?php echo $reg['tematica']; ?></li>
+                            </ul>
+                            <a href="<?php echo $reg['informacion']; ?>" class="btn btn-primary btn-block" target="_blank">Ver Ley</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
         </div>
-
-        <!-- Botón Información Educativa -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="informacionEducativa">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPV2MD7wChF43cfvGNGwJgk_e3P8nGez8wRh9gyYqj3CeOuZuC7lrfJz7z-OkGdJ_Yg3A&usqp=CAUg" alt="Información Educativa" class="custom-button-image">
-                    <span class="custom-button-text">Información Educativa</span>
-                </button>
-            </form>
-        </div>
+        <?php
+        if ($cont == 0) {
+            echo "<div style='text-align: center;' class='alert alert-danger' role='alert'>";
+            echo "<h3>No hay leyes registradas actualmente</h3></div>";
+        }
+        ?>
     </div>
-    <div class="row justify-content-center">
-        <!-- Botón Centros Locales -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="centrosLocales">
-                    <img src="https://img2.freepng.es/20190520/oya/kisspng-black-white-m-building-logo-font-home-home2-5ce3448fd27d53.4147901115583980958622.jpg" alt="Centros Locales" class="custom-button-image">
-                    <span class="custom-button-text">Centros Locales</span>
-                </button>
-            </form>
-        </div>
-
-        <!-- Botón Leyes Normativas -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="leyes">
-                    <img src="https://www.gobiernoelectronico.gob.ec/wp-content/uploads/2019/10/Leyes-8-449x298.png" alt="Leyes Normativas" class="custom-button-image">
-                    <span class="custom-button-text">Leyes Normativas</span>
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
 
     <!-- Pie de página -->
     <footer>

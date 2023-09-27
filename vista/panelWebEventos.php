@@ -104,42 +104,7 @@
         .circle-card ul li {
             margin-bottom: 10px; /* Espaciado entre elementos de la lista */
         }
-        /* Estilos para los botones personalizados */
-        /* Estilo para los botones */
-        /* Contenedor de botones */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px; /* Espacio entre las filas de botones */
-        }
 
-        /* Filas de botones */
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Espacio entre los botones en la misma fila */
-        }
-
-        /* Estilo para los botones */
-        .custom-button {
-            background-color: #007bff;
-            border: none;
-            padding: 10px; /* Ajusta el tamaño del botón */
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.9); /* Sombra tipo 3D */
-        }
-
-        .custom-button-image {
-            width: 320px; /* Tamaño de la imagen */
-            height: 280px; /* Tamaño de la imagen */
-            margin-bottom: 5px; /* Espaciado entre la imagen y el texto */
-        }
     </style>
 
     <!-- Agrega jQuery y la biblioteca animate.css -->
@@ -232,55 +197,61 @@
         <!-- Agrega el contenido del slider aquí -->
     </div>
 
-     <!-- Botones para redirigir a las páginas -->
-     <div class="button-container">
-    <div class="row justify-content-center">
-        <!-- Botón Eventos -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="eventos">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN4T_Iq-aWFjkh1ZlsQlzdZa6dqAby6gOnDWwsjw4up-UR87ZVp-Gn85he6OQ2mHoX-gI&usqp=CAU" alt="Eventos" class="custom-button-image">
-                    <span class="custom-button-text">Eventos</span>
-                </button>
-            </form>
-        </div>
+    <!-- Eventos -->
+    <div class="container mt-4" id="eventos">
+        <h1>Eventos</h1>
+        <div class="row" >
+            <?php
+            $cont = 0;
+            while ($reg = mysqli_fetch_array($res)) {
+                $cont = $cont + 1;
+                ?>
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="custom-card">
+                        <?php
+                        $rutaDirectorio = $reg['rutaDirectorio'];
+                        $extension = pathinfo($rutaDirectorio, PATHINFO_EXTENSION);
 
-        <!-- Botón Información Educativa -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="informacionEducativa">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPV2MD7wChF43cfvGNGwJgk_e3P8nGez8wRh9gyYqj3CeOuZuC7lrfJz7z-OkGdJ_Yg3A&usqp=CAUg" alt="Información Educativa" class="custom-button-image">
-                    <span class="custom-button-text">Información Educativa</span>
-                </button>
-            </form>
+                        if (in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif'])) {
+                            // Si es una imagen, muestra la imagen
+                            echo "<img src='../archivosEventos/$rutaDirectorio' class='card-img-top' alt=''>";
+                        } elseif (strtolower($extension) == 'pdf') {
+                            // Si es un PDF, muestra el PDF en un iframe
+                            echo "<iframe src='../archivosEventos/$rutaDirectorio' class='card-img-top' width='300' height='200'></iframe>";
+                            echo "<a href='../archivosEventos/$rutaDirectorio' target='_blank'>Ver PDF</a>";
+                        } elseif (in_array(strtolower($extension), ['mp4', 'avi', 'mkv'])) {
+                            // Si es un video, muestra el video en un elemento de video
+                            echo "<video class='card-img-top' width='300' height='200' controls>";
+                            echo "<source src='../archivosEventos/$rutaDirectorio' type='video/$extension'>";
+                            echo "Tu navegador no admite la reproducción de video.";
+                            echo "</video>";
+                        }
+                        ?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $reg['titulo']; ?></h5>
+                            <p class="card-text"><?php echo $reg['descripcion']; ?></p>
+                            <p class="card-text"><strong>Tipo de Violencia:</strong> <?php echo $reg['tipoViolencia']; ?></p>
+                            <p class="card-text"><strong>Fecha:</strong> <?php echo $reg['fecha']; ?></p>
+                            <p class="card-text"><strong>Hora Inicio:</strong> <?php echo $reg['horaInicio']; ?></p>
+                            <p class="card-text"><strong>Hora Final:</strong> <?php echo $reg['horaFinal']; ?></p>
+                            <p class="card-text"><strong>Modalidad:</strong> <?php echo $reg['modalidad']; ?></p>
+                            <p class="card-text"><strong>Expositor:</strong> <?php echo $reg['expositor']; ?></p>
+                            <p class="card-text"><strong>Fecha de Publicacion:</strong> <?php echo $reg['fechaSubida']; ?></p>
+                            <a href="../archivosEventos/<?php echo $rutaDirectorio; ?>" class="btn btn-primary" download>Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
         </div>
+        <?php
+        if ($cont == 0) {
+            echo "<div style='text-align: center;' class='alert alert-danger' role='alert'>";
+            echo "<h3>No hay eventos registrados</h3></div>";
+        }
+        ?>
     </div>
-    <div class="row justify-content-center">
-        <!-- Botón Centros Locales -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="centrosLocales">
-                    <img src="https://img2.freepng.es/20190520/oya/kisspng-black-white-m-building-logo-font-home-home2-5ce3448fd27d53.4147901115583980958622.jpg" alt="Centros Locales" class="custom-button-image">
-                    <span class="custom-button-text">Centros Locales</span>
-                </button>
-            </form>
-        </div>
-
-        <!-- Botón Leyes Normativas -->
-        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
-            <form action="" method="post" accept-charset="utf-8">
-                <button type="submit" class="custom-button" name="leyes">
-                    <img src="https://www.gobiernoelectronico.gob.ec/wp-content/uploads/2019/10/Leyes-8-449x298.png" alt="Leyes Normativas" class="custom-button-image">
-                    <span class="custom-button-text">Leyes Normativas</span>
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-
-
 
     <!-- Pie de página -->
     <footer>

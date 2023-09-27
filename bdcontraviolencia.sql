@@ -438,10 +438,16 @@ CREATE TABLE `victima` (
 -- Volcado de datos para la tabla `victima`
 --
 
+CREATE TABLE `tiene_rol` (
+  `ci` int(11) NOT NULL,
+  `idRol` varchar(100) DEFAULT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE `rol` (
-  `ci` int(11) NOT NULL,
-  `tipoRol` varchar(100) DEFAULT NULL
+  `idRol` int(11) NOT NULL,
+  `nombreRol` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idRol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

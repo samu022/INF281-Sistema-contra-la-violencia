@@ -37,9 +37,9 @@
         }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/leyRegistro.php'">Ingresar nueva ley</button>
-    <form action="../reportes/reporteUsuarios.php" method="post" accept-charset="utf-8">
+    <form action="../reportes/reporteLeyes.php" method="post" accept-charset="utf-8">
         <div class="row">
-            <button type="submit" class="btn btn-success mb-2">Reporte de usuarios</button>
+            <button type="submit" class="btn btn-success mb-2">Reporte de Leyes</button>
         </div>
     </form>
 </div>

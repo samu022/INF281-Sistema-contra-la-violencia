@@ -77,8 +77,24 @@
             </div>
 
             <div class="mb-3">
-                <label for="nom" class="form-label">Escriba rol:</label>
-                <input type="text" class="form-control" name="rol" id="nom" placeholder="Ej: escritura/lectura">
+                <label for="opciones">Selecciona opciones:</label>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <?php
+                            while($rol=mysqli_fetch_array($total_roles)){
+                                echo '<div class="form-check">';
+                                    echo '<input class="form-check-input" type="checkbox" id="opcion1" value="'.$rol['nombreRol'].'" name="'.$rol['idRol'].'">';
+                                    echo '<label class="form-check-label" for="opcion1">';
+                                        echo $rol['nombreRol'];
+                                    echo '</label>';
+                                echo '</div>';
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary" name="RegistrarAdministrador">Registrar Adminisrador</button>

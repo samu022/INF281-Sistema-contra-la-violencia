@@ -1,6 +1,6 @@
 <?php
 
-
+    include("../modelo/conexion.php");
     include("../vista/dashboard_admin/head.php");
     include("../vista/dashboard_admin/sidebar.php");
     //incluimos modelo

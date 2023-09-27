@@ -1,16 +1,7 @@
 <?php
 
-    session_start();
 
-    if($_SESSION['privilegio'] == "lectura")
-    {
-        header("Location: ../controlador/dashboard.php");
-    }
-    else if($_SESSION['privilegio'] == "usuario" || $_SESSION['privilegio'] == "")
-    {
-        header("Location: ../controlador/login.php");
-    }
-
+    include("../modelo/conexion.php");
 
     $ci = $_GET['ci'];
     include("../modelo/administrador.php");
@@ -22,7 +13,21 @@
     $nombre_usuario = $reg['nombre_usuario'];
     $contrasenia = $reg['contrasenia'];
     $correo = $reg['correo'];
-    $rol = $reg['rol'];
+
+    $tmp_admin = new Administrador("", "", "", "");
+    
+    $total_roles = $tmp_admin->getRoles();
+    //echo $ci;
+    $roles_de_administrador_propio =  $car->getRolesUser();
+    //print_r($roles_de_administrador_propio);
+
+    $v_roles_administrador = [];
+
+    while($rol_propio=mysqli_fetch_array($roles_de_administrador_propio)){
+        array_push($v_roles_administrador, $rol_propio['idRol']);
+    }
+
+    
 
     include("../vista/administradorModifica.php");
 
@@ -31,13 +36,26 @@
         $nombre_usuario = $_POST['nombre_usuario'];
         $contrasenia = $_POST['contrasenia'];
         $correo = $_POST['correo'];
-        $rol = $_POST['rol'];
 
+
+        $tmp_admin = new Administrador("", "", "", "");
+    
+        $total_roles = $tmp_admin->getRoles();
+        while($rol=mysqli_fetch_array($total_roles)){
+
+            if (array_key_exists($rol["idRol"], $_POST)) {
+                $car->setRol($rol["idRol"]);
+                echo $rol["idRol"];
+            }
+        }
+
+        
         $car->setNombreUsuario($nombre_usuario);
         $car->setContrasenia($contrasenia);
         $car->setCorreo($correo);
-        $car->setrol($rol);
         $res = $car->modifica();
+
+        
 
         if ($res) {
             echo "<script>

@@ -5,20 +5,18 @@ class Administrador
     private $nombre_usuario;
     private $contrasenia;
     private $correo;
-    private $rol;
 
-    public function __construct($ci, $nombre_usuario, $contrasenia, $correo, $rol)
+    public function __construct($ci, $nombre_usuario, $contrasenia, $correo)
     {
         $this->setCi($ci);   
         $this->setNombreUsuario($nombre_usuario);
         $this->setContrasenia($contrasenia);
         $this->setCorreo($correo);
-        $this->setrol($rol);
     }
 
     public function lista()
     {
-        include("conexion.php");
+        //include("conexion.php");
         $db = new Conexion();
         $sql = $db->query("SELECT * FROM administrador");
         return ($sql);
@@ -44,20 +42,15 @@ class Administrador
         $this->correo = $correo;
     }
 
-    public function setrol($rol)
-    {
-        $this->rol = $rol;
-    }
-    
     
     public function grabarAdministrador()
     {
         //include("conexion.php");
         $db = new Conexion();
         
-        $sql = $db->prepare("INSERT INTO administrador VALUES (?, ?, ?, ?, ?)"); 
+        $sql = $db->prepare("INSERT INTO administrador VALUES (?, ?, ?, ?)"); 
         
-        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->rol);
+        $sql->bind_param("ssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo);
 
         $result = $sql->execute();
 
@@ -95,8 +88,8 @@ class Administrador
     public function modifica()
     {
         $db = new Conexion();
-        $sql = $db->prepare("UPDATE administrador SET nombre_usuario = ?, contrasenia = ?, correo = ?, rol = ? WHERE ci = ?");
-        $sql->bind_param("ssssi", $this->nombre_usuario, $this->contrasenia, $this->correo, $this->rol, $this->ci);
+        $sql = $db->prepare("UPDATE administrador SET nombre_usuario = ?, contrasenia = ?, correo = ? WHERE ci = ?");
+        $sql->bind_param("sssi", $this->nombre_usuario, $this->contrasenia, $this->correo,  $this->ci);
         $result = $sql->execute();
 
         if($result)
@@ -119,12 +112,34 @@ class Administrador
         return $sql->num_rows != 0;
     }
 
-    public function getroles()
+    public function getRoles()
+    {
+        $db = new Conexion();
+        $sql=$db->query("SELECT idRol, nombreRol FROM rol");
+        return ($sql);
+    }
+
+    public function getRolesUser()
     {
         $db=new Conexion();
-        $sql=$db->query("SELECT tipoRol FROM rol where ci='$this->ci'");
-        //quiero la posicion primera de fetch assoc
-        return $sql->fetch_assoc()['tipoRol'];
+        $sql=$db->query("SELECT y.idRol, y.nombreRol FROM rol as y, tiene_rol as x where x.ci='$this->ci' AND x.idRol=y.idRol");
+        return ($sql);
+    }
+
+    public function setRol($nuevo_rol)
+    {
+        $db = new Conexion();
+        
+        $sql = $db->prepare("INSERT INTO tiene_rol VALUES (?, ?)"); 
+        
+        $sql->bind_param("ss", $this->ci, $nuevo_rol);
+
+        $result = $sql->execute();
+
+        if($result)
+            return true;
+        else
+            return false;        
     }
 
 }

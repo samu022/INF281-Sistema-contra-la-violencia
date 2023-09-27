@@ -34,7 +34,6 @@
                 echo "<td>".$nombre_usuario."</td>";
                 echo "<td>".$contrasenia."</td>";
                 echo "<td>".$correo."</td>";
-                echo "<td>".$rol."</td>";
                 echo "</tr>";
         ?>
     </table>
@@ -58,10 +57,29 @@
                 <input type="text" class="form-control" name="correo" id="nom" value="<?php echo $correo; ?>">
             </div>
 
-            <div class="mb-3">
-                <label for="nom" class="form-label">Escriba rol:</label>
-                <input type="text" class="form-control" name="rol" id="nom" value="<?php echo $rol; ?>">
-            </div>
+            <?php
+                            while($rol=mysqli_fetch_array($total_roles)){
+
+                                if(in_array($rol['idRol'], $v_roles_administrador))
+                                {
+                                    echo '<div class="form-check">';
+                                        echo '<input class="form-check-input" type="checkbox" id="opcion1" value="'.$rol['nombreRol'].'" name="'.$rol['idRol'].'" checked>';
+                                        echo '<label class="form-check-label" for="opcion1">';
+                                            echo $rol['nombreRol'];
+                                        echo '</label>';
+                                    echo '</div>';
+                                }
+                                else
+                                {
+                                    echo '<div class="form-check">';
+                                        echo '<input class="form-check-input" type="checkbox" id="opcion1" value="'.$rol['nombreRol'].'" name="'.$rol['idRol'].'">';
+                                        echo '<label class="form-check-label" for="opcion1">';
+                                            echo $rol['nombreRol'];
+                                        echo '</label>';
+                                    echo '</div>';
+                                }
+                            }
+                        ?>
 
             <button type="submit" class="btn btn-primary" name="ModificarAdministrador">Modificar Administrador</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/administradorListar.php'">Volver</button>

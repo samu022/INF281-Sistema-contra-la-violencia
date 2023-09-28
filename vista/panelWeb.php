@@ -140,6 +140,28 @@
             height: 280px; /* Tamaño de la imagen */
             margin-bottom: 5px; /* Espaciado entre la imagen y el texto */
         }
+        .circular-button {
+            width: 90px; /* Tamaño del botón circular */
+            height: 90px; /* Tamaño del botón circular */
+            border-radius: 50%; /* Hace que el botón sea circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+        /* Estilo personalizado para la etiqueta label con for="asunto" */
+        label[for="asunto"] {
+            color: black; /* Cambia el color del texto a negro */
+        }
+        /* Estilo personalizado para la etiqueta label con for="asunto" */
+        label[for="mensaje"] {
+            color: black; /* Cambia el color del texto a negro */
+        }
+
+
     </style>
 
     <!-- Agrega jQuery y la biblioteca animate.css -->
@@ -227,10 +249,14 @@
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="login.php">Login</a>
+                        <a class="nav-link text-white" href="../controlador/formulario.php">Formulario Evaluación Riesgos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="usuarioRegistro.php">Registro</a>
+                    <li  class="nav-item">
+                        <!-- Botón para enviar mensaje o consejo -->
+                        <button id="enviarMensaje" class="btn btn-primary circular-button">
+                            Enviar Mensaje 
+                        </button>
+
                     </li>
                 </ul>
             </div>
@@ -286,6 +312,7 @@
                 </button>
             </form>
         </div>
+        
     </div>
 </div>
 
@@ -323,8 +350,58 @@
                 </div>
             </div>
         </div>
-    </footer>
+        
+        <!-- Modal para el formulario de mensaje -->
+        <div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enviar Mensaje o Consejo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulario para el mensaje -->
+                        <h3 style="color: black;">Envíar Mensaje</h3>
+                        <form action="../controlador/enviar_correo.php" method="POST">
+                            <div class="modal-body">
+                                <!-- Campo de asunto -->
+                                <div class="form-group">
+                                    <label for="asunto">Asunto:</label>
+                                    <input type="text" class="form-control" name="asunto" id="asunto" required>
+                                </div>
 
+                                <!-- Campo de mensaje -->
+                                <div class="form-group">
+                                    <label for="mensaje">Mensaje o Consejo:</label>
+                                    <textarea class="form-control" name="mensaje" id="mensaje" rows="4" required></textarea>
+                                </div>
+                            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+
+            </div>
+            <div class="modal-footer">
+            
+            </div>
+        </div>
+    </div>
+</div>
+    </footer>
+ 
+<!-- Script para abrir el modal al hacer clic en el botón -->
+<script>
+    $(document).ready(function() {
+        $("#enviarMensaje").click(function() {
+            $("#modalMensaje").modal("show");
+        });
+    });
+</script>
     <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

@@ -83,7 +83,7 @@ VALUES
   (5, 'Activa', '11-10-2023', 10008, 5);
 
 INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `archivo`, `ci`) VALUES
-(1, 'Centro de Apoyo a la Mujer', '123-4567', 'Calle 1, Zona Norte, La Paz', 'imagen1.jpg' 10002),
+(1, 'Centro de Apoyo a la Mujer', '123-4567', 'Calle 1, Zona Norte, La Paz', 'imagen1.jpg',10002),
 (2, 'Centro de Prevención de la Violencia', '234-5678', 'Avenida 2, Zona Sur, La Paz','imagen2.jpg', 10001),
 (3, 'Centro de Ayuda a Víctimas de Violencia', '345-6789', 'Calle 3, Zona Centro, La Paz','imagen3.jpg' , 10002),
 (4, 'Centro Comunitario contra la Violencia', '456-7890', 'Avenida 4, Zona Este, La Paz', 'imagen4.jpg', 10001);

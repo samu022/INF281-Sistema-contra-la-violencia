@@ -34,7 +34,7 @@ $pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM); //Activa o desactiva el modo de
 //Informacion del PDF
 $pdf->SetCreator('UrianViera');
 $pdf->SetAuthor('UrianViera');
-$pdf->SetTitle('Informe de centros locales');
+$pdf->SetTitle('reporte de centros locales');
  
 /** Eje de Coordenadas
  *          Y

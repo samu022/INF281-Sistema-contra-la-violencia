@@ -162,6 +162,6 @@ while ($dataRow = mysqli_fetch_array($query)) {
 
 //$pdf->AddPage(); //Agregar nueva Pagina
 
-$pdf->Output('reporte_victimas'.date('d_m_y').'.pdf', 'I'); 
+$pdf->Output('reporte_denuncia'.date('d_m_y').'.pdf', 'I'); 
 // Output funcion que recibe 2 parameros, el nombre del archivo, ver archivo o descargar,
 // La D es para Forzar una descarga

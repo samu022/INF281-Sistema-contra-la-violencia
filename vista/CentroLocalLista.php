@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Centros Locales 2</title>
+	<title>Centros Locales</title>
     <style>
         body {
             background-color: #f7f7f7;

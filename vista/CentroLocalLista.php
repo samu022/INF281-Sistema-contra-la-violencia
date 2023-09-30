@@ -71,6 +71,7 @@
                 <td>Nombre</td>
                 <td>Telefono</td>
                 <td>Ubicacion</td>
+                <td>Foto</td>
             </tr>
             <?php
                 $cont=0;
@@ -81,6 +82,31 @@
                     echo "<td>".$reg['nombre']."</td>";
                     echo "<td>".$reg['telefono']."</td>";
                     echo "<td>".$reg['ubicacion']."</td>";
+                    echo "<td>";
+            
+                    $rutaDirectorio = $reg['archivo'];
+                    $extension = pathinfo($rutaDirectorio, PATHINFO_EXTENSION);
+
+                    if (in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif'])) {
+                        // Si es una imagen, muestra la imagen
+                        echo "<img src='../archivosCentrosLocales/$rutaDirectorio' alt='' width='120px' height='100px'>";
+                    } elseif (strtolower($extension) == 'pdf') {
+                        // Si es un PDF, muestra el PDF en un iframe
+                        echo "<iframe src='../archivosCentrosLocales/$rutaDirectorio' width='300' height='200'></iframe>";
+                    } elseif (in_array(strtolower($extension), ['mp4', 'avi', 'mkv'])) {
+                        // Si es un video, muestra el video en un elemento de video
+                        echo "<video width='300' height='200' controls>";
+                        echo "<source src='../archivosCentrosLocales/$rutaDirectorio' type='video/$extension'>";
+                        echo "Tu navegador no admite la reproducción de video.";
+                        echo "</video>";
+                    } else {
+                        // Si es otro tipo de archivo, muestra un enlace de descarga
+                        echo "<a href='../archivosCentrosLocales/$rutaDirectorio' download>Descargar $extension</a>";
+                    }
+
+                    echo "</td>";
+
+                    echo "<td>";
 
                     echo "<td><a href='../controlador/centroLocalElimina.php?cod=".$reg['codCentro']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";
                     echo "<td><a href='../controlador/centroLocalModifica.php?cod=".$reg['codCentro']."'  class='btn btn-success'>Modificar</a></td>";

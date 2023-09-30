@@ -22,6 +22,7 @@ class MYPDF extends TCPDF{
 
 //Iniciando un nuevo pdf
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, 'mm', 'Letter', true, 'UTF-8', false);
+
  
 //Establecer margenes del PDF
 $pdf->SetMargins(20, 35, 25);
@@ -91,47 +92,53 @@ $pdf->SetTextColor(0, 0, 0);
 //Almando la cabecera de la Tabla
 $pdf->SetFillColor(102, 204, 255);
 $pdf->SetFont('helvetica','B',12); //La B es para letras en Negritas
-$pdf->Cell(12,9,'nro',1,0,'C',1);
-$pdf->Cell(75,9,'nombre',1,0,'C',1);
-$pdf->Cell(28,9,'telefono',1,0,'C',1);
-$pdf->Cell(46,9,'ubicacion',1,1,'C',1); 
-/*El 1 despues de  Fecha Ingreso indica que hasta alli 
-llega la linea */
-
-$pdf->SetFont('helvetica','',10);
 
 
 $sql = ("SELECT * FROM centro_local");
 
 $query = mysqli_query($con, $sql);
 
-$esFilaPar = true; // Variable para rastrear si es una fila par o impar
-$nro = 1;
+
+// Crear una tabla con dos columnas
+$pdf->SetFont('helvetica', '', 12);
+$pdf->SetFillColor(191, 191, 255); // Color de fondo de la fila
+
+// Definir ancho de columnas
+$col1_width = 80;
+$col2_width = 80;
+
+$contadorFilas = 0;
+
 while ($dataRow = mysqli_fetch_array($query)) {
-    // Establece el color de fondo de la fila actual
-    if ($esFilaPar) {
-        $pdf->SetFillColor(191, 191, 255); // Color celeste para filas pares
-    } else {
-        $pdf->SetFillColor(223, 223, 255); // Color más claro para filas impares
-    }
-
-    $pdf->Cell(12, 14, $nro, 1, 0, 'C', 1);
-    $pdf->Cell(75, 14, ($dataRow['nombre']), 1, 0, 'C', 1);
-    $pdf->Cell(28, 14, $dataRow['telefono'], 1, 0, 'C', 1);
-
-    // Utiliza MultiCell para la columna 'ubicacion'
-    $pdf->MultiCell(46, 14, ($dataRow['ubicacion']), 1, 'C', 1);
-
-    // Mueve a la siguiente fila sin agregar espacio
-    $pdf->SetX(20); // Establece la posición X al mismo valor que la primera columna
+    // Alternar colores de fondo de fila
+    $colorFondo = $contadorFilas % 2 == 0 ? [153, 255, 153] : [255, 255, 128];
     
-    // Cambia la variable para la siguiente fila
-    $esFilaPar = !$esFilaPar;
-    $nro = $nro+1;
+    // Crear una fila de la tabla con color de fondo alternante
+    $pdf->SetFillColor($colorFondo[0], $colorFondo[1], $colorFondo[2]);
+    $pdf->MultiCell($col1_width, 10, "Código: {$dataRow['codCentro']} \nNombre: {$dataRow['nombre']} \nTelefono: {$dataRow['telefono']} \nUbicacion: {$dataRow['ubicacion']}", 1, 'L', true);
+    
+    // Verificar si la imagen existe
+    $imagen_path = '../archivosCentrosLocales/' . $dataRow['archivo'];
+    if (file_exists($imagen_path)) {
+        // Mostrar la imagen en la columna derecha con borde
+        $pdf->Image($imagen_path, $pdf->GetX() + $col1_width, $pdf->GetY(), 60, 30);
+    } else {
+        // Manejar el caso en que la imagen no existe con borde
+        $pdf->SetFillColor(255, 0, 0); // Color de fondo rojo para indicar imagen no disponible
+        $pdf->Cell($col2_width, 30, 'Imagen no disponible', 1, 0, 'C', true);
+    }
+    
+    // Salto de línea para la siguiente fila
+    $pdf->Ln();
+    
+    // Incrementar el contador de filas
+    $contadorFilas++;
 }
+
+// ... (código posterior)
 
 //$pdf->AddPage(); //Agregar nueva Pagina
 
-$pdf->Output('resumen_centroLocal'.date('d_m_y').'.pdf', 'I'); 
+$pdf->Output('reporte_centroLocal'.date('d_m_y').'.pdf', 'I'); 
 // Output funcion que recibe 2 parameros, el nombre del archivo, ver archivo o descargar,
 // La D es para Forzar una descarga

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <h1 class="mb-4">Bienvenido al Registro Centro Local</h1>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre del centro local:</label>
@@ -23,6 +23,10 @@
             <div class="mb-3">
                 <label for="ubicacion" class="form-label">Ingrese la ubicacion del centro:</label>
                 <input type="text" class="form-control" name="ubicacion" id="ubicacion" placeholder="Avenida 2,Zona Sur La Paz">
+            </div>
+            <div class="mb-3">
+                <label for="archivo" class="form-label">Cargar Archivo:</label>
+                <input type="file" class="form-control" name="archivo" id="archivo" required>
             </div>
             <button type="submit" class="btn btn-primary" name="RegistrarCentro">Registrar Centro</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/centroLocalLista.php'">Volver</button>

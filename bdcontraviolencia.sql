@@ -90,6 +90,7 @@ CREATE TABLE `centro_local` (
   `nombre` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL,
+  `archivo` varchar(100) DEFAULT NULL,
   `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

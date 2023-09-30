@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leyes Normativas</title>
+	<title>Centros Locales</title>
     <style>
         body {
             background-color: #f7f7f7;

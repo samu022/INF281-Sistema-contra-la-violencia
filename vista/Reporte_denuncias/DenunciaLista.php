@@ -86,6 +86,28 @@
                 <button type="submit" class="btn btn-success">Reporte de denuncia por fecha</button>
             </form>
         </div>
+        <h3>Reportes de las denuncias por tipo de violencia</h3>
+        <div class="text-center mt-3">
+            <form action="../reportes/reporteDenunciaTipoViolencia.php" method="post" accept-charset="utf-8" onsubmit="return validateForm()">
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Seleccione el tipo de denuncia:</label>
+                    <select class="form-select" name="tipo" id="tipo" required>
+                        <option value="Violencia física">Violencia física</option>
+                        <option value="Violencia psicológica o emocional">Violencia psicológica o emocional</option>
+                        <option value="Violencia verbal">Violencia verbal</option>
+                        <option value="Acoso sexual">Acoso sexual</option>
+                        <option value="Violencia doméstica">Violencia doméstica o de pareja</option>
+                        <option value="Violencia escolar o bullying">Violencia escolar o bullying</option>
+                        <option value="Violencia racial o xenofobia">Violencia racial o xenofobia</option>
+                        <option value="Violencia económica">Violencia económica</option>
+                        <option value="Violencia política">Violencia política</option>
+                        <option value="Violencia en línea o ciberacoso">Violencia en línea o ciberacoso</option>
+                        <option value="Violencia de género">Violencia de género</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Reporte de denuncia por tipo violencia</button>
+            </form>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

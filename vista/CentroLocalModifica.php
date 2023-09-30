@@ -27,7 +27,7 @@
     </table>
 
     <div class="container mt-5">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <h1 class="mb-4">Modificacion del centro Local</h1>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Escriba Nombre del centro:</label>
@@ -40,6 +40,10 @@
             <div class="mb-3">
                 <label for="ubicacion" class="form-label">Ingrese la ubicacion del centro:</label>
                 <input type="text" class="form-control" name="ubicacion" id="ubicacion" value="<?php echo $ubicacion; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="archivo" class="form-label">Cargar Archivo:</label>
+                <input type="file" class="form-control" name="archivo" id="archivo">
             </div>
             <button type="submit" class="btn btn-primary" name="ModificarCentro">Modificar Centro</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/centroLocalLista.php'">Volver</button>

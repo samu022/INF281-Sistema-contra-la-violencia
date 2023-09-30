@@ -4,13 +4,15 @@ class CentroLocal {
     private $nombre;
     private $telefono;
     private $ubicacion;
+    private $archivo;
     private $ci;
     
-    public function __construct($codCentro, $nombre, $telefono, $ubicacion, $ci) {
+    public function __construct($codCentro, $nombre, $telefono, $ubicacion, $archivo,$ci) {
         $this->setCodCentro($codCentro);
         $this->setNombre($nombre);
         $this->setTelefono($telefono);
         $this->setUbicacion($ubicacion);
+        $this->setArchivo($archivo);
         $this->setCi($ci);
     }
     
@@ -53,6 +55,10 @@ class CentroLocal {
     public function getCi() {
         return $this->ci;
     }
+
+    public function setArchivo($archivo){
+        $this->archivo = $archivo;
+    }
     
     public function lista() {
         //include("conexion.php");
@@ -73,10 +79,10 @@ class CentroLocal {
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $stmt = $db->prepare("INSERT INTO centro_local (nombre, telefono, ubicacion, ci) VALUES (?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO centro_local (nombre, telefono, ubicacion, archivo, ci) VALUES (?, ?, ?, ?, ?)");
     
         // Vincular los parámetros
-        $stmt->bind_param("sssi", $this->nombre, $this->telefono, $this->ubicacion, $this->ci);
+        $stmt->bind_param("ssssi", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->ci);
     
         // Ejecutar la sentencia
         $result = $stmt->execute();
@@ -101,10 +107,10 @@ class CentroLocal {
         $db = new Conexion();
         
         // Sentencia SQL para actualizar el centro local
-        $sql = $db->prepare("UPDATE centro_local SET nombre = ?, telefono = ?, ubicacion = ?, ci = ? WHERE codCentro = ?"); 
+        $sql = $db->prepare("UPDATE centro_local SET nombre = ?, telefono = ?, ubicacion = ? , archivo = ?, ci = ? WHERE codCentro = ?"); 
     
         // Vincular los parámetros
-        $sql->bind_param("sssss", $this->nombre, $this->telefono, $this->ubicacion, $this->ci, $this->codCentro);
+        $sql->bind_param("ssssss", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->ci, $this->codCentro);
         
         // Ejecutar la sentencia
         $result = $sql->execute();

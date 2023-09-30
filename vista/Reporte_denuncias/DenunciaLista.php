@@ -55,24 +55,35 @@
         <div class="text-center">
             <a href='../controlador/denunciaRegistro.php' class='btn btn-info'>Ingresar nueva denuncia</a>
         </div>
+        <h3>Reportes de todas las denuncias</h3>
         <div class="text-center mt-3">
             <form action="../reportes/reporteDenuncia.php" method="post" accept-charset="utf-8">
                 <button type="submit" class="btn btn-success">Reporte de Denuncias</button>
             </form>
         </div>
+        <h3>Reportes de todas las victimas</h3>
         <div class="text-center mt-3">
             <form action="../reportes/reporteVictimas.php" method="post" accept-charset="utf-8">
                 <button type="submit" class="btn btn-success">Reporte de Víctimas</button>
             </form>
         </div>
+        <h3>Reportes de todos lo agresores registrados</h3>
         <div class="text-center mt-3">
             <form action="../reportes/reporteAgresores.php" method="post" accept-charset="utf-8">
                 <button type="submit" class="btn btn-success">Reporte de Agresores</button>
             </form>
         </div>
+        <h3>Reportes de las denuncias con todos los detalles</h3>
         <div class="text-center mt-3">
             <form action="../reportes/reporteDenunciaDetallada.php" method="post" accept-charset="utf-8">
                 <button type="submit" class="btn btn-success">Reporte de Denuncia Detallada</button>
+            </form>
+        </div>
+        <h3>Reportes de las denuncias por fecha</h3>
+        <div class="text-center mt-3">
+            <form action="../reportes/reporteDenunciaFecha.php" method="post" accept-charset="utf-8" onsubmit="return validateForm()">
+                <input type="date" class="form-control" name="fecha" id="fecha" placeholder="" required>
+                <button type="submit" class="btn btn-success">Reporte de denuncia por fecha</button>
             </form>
         </div>
     </div>

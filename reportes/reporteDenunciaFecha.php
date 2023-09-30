@@ -2,10 +2,9 @@
 require_once('tcpdf/tcpdf.php'); //Llamando a la Libreria TCPDF
 include('../modelo/conexion.php'); //Llamando a la conexión para BD
 date_default_timezone_set('America/La_Paz');
-
 ob_end_clean(); //limpiar la memoria
 $con = new Conexion();
-
+$fechax = $_POST['fecha'];
 class MYPDF extends TCPDF{
       
     	public function Header() {
@@ -33,7 +32,7 @@ $pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM); //Activa o desactiva el modo de
 //Informacion del PDF
 $pdf->SetCreator('UrianViera');
 $pdf->SetAuthor('UrianViera');
-$pdf->SetTitle('Reporte de denuncias');
+$pdf->SetTitle('Reporte de denuncias por fecha');
  
 
 
@@ -65,7 +64,11 @@ $pdf->SetFillColor(100, 0, 0, 0); */
 $pdf->SetTextColor(34,68,136);
 
 $pdf->SetFont('helvetica','B', 18); 
-$pdf->Cell(90,6,'LISTA DE DENUNCIAS DETALLADAS',0,0,'B');
+$pdf->Cell(90,6,'DENUNCIAS REGISTRADAS',0,0,'B');
+
+
+$pdf->Ln(10); //Salto de Linea
+$pdf->Cell(90,6,"EN LA FECHA: $fechax",0,0,'B');
 
 
 $pdf->Ln(10); //Salto de Linea
@@ -81,13 +84,12 @@ from persona p,victima v,denuncia d,realiza r,usuario u,prueba pr,incidente_prue
 														where p.ci=a.ci and a.ci=r.ci)tmp
 where p.ci=v.ci and v.codDenuncia=d.codDenuncia and r.codDenuncia=d.codDenuncia
 and r.ci_usuario=u.ci_usuario and r.ci=tmp.ci and pr.codPrueba=ip.codPrueba 
-and ip.codDenuncia=d.codDenuncia
+and ip.codDenuncia=d.codDenuncia and d.fecha='$fechax'
 ";
 $query = mysqli_query($con, $sql);
 $nro = 1;
 
 $pdf->SetFillColor(0, 115, 230); // Establece el color de fondo de la cabecera
-
 while ($dataRow = mysqli_fetch_array($query)) {
     // Establece el color de fondo de la fila actual
     $pdf->SetFillColor($nro % 2 == 0 ? 191 : 223); // Alternar colores de fondo

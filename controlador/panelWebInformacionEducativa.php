@@ -11,7 +11,7 @@ $centro=new CentroLocal("","","","","","");
 $leyNormativa = new Ley_Normativa("","","","","");
 $res=$eventos->lista();
 if (isset($_POST['filtrarInformacion'])) {
-    echo "estoy aqui";
+    //echo "estoy aqui";
     $tipoViolencia = $_POST['tipoViolencia'];
     //echo $tipoViolencia;
     $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
@@ -21,5 +21,4 @@ else{
 }
 $res3 = $leyNormativa->lista();
 $res4 = $centro->lista();
-echo "hola";
 ?>

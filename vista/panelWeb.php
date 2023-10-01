@@ -229,13 +229,11 @@
                         <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
                     </li>
 
-                    <!--
                     <li class="nav-item">
                         <form action="" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="eventos">Eventos</button>
                         </form>
                     </li>
-                    -->
                     <li class="nav-item">
                         <form action="" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="informacionEducativa">Informacion Educativa</button>
@@ -318,10 +316,6 @@
         
     </div>
 </div>
-
-
-
-
 
     <!-- Pie de página -->
     <footer>

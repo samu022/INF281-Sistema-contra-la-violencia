@@ -1,27 +1,4 @@
 <?php
-//incluimos modelo
-/*
-include("../modelo/conexion.php");
-include("../modelo/EventoClase.php");
-include("../modelo/InformacionEducativaClase.php");
-include("../modelo/Ley_NormativaClase.php");
-include("../modelo/CentroLocalClase.php");
-$informacion=new InformacionEducativa("","","","","","","");
-$eventos=new Evento("","","","","","","","","","","","","");
-$centro=new CentroLocal("","","","","","");
-$leyNormativa = new Ley_Normativa("","","","","");
-$res=$eventos->lista();
-if (isset($_POST['filtrarInformacion'])) {
-    //echo "estoy aqui";
-    $tipoViolencia = $_POST['tipoViolencia'];
-    //echo $tipoViolencia;
-    $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
-}
-else{
-    $res2 = $informacion->lista();
-}
-$res3 = $leyNormativa->lista();
-$res4 = $centro->lista();*/
 include("../controlador/panelWebLeyes.php");
 ?>
 <!DOCTYPE html>
@@ -155,7 +132,7 @@ include("../controlador/panelWebLeyes.php");
             <a class="navbar-brand" href="#"><img src="logos/logo.png" alt="logo"></a>
             <p style="color:white;">Sistema contra la violencia</p>
             <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
-                <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                <form action="../controlador/panelWeb.php" method="post" accept-charset="utf-8" style="display: inline;">
                     <button type="submit" class="nav-link text-white" name="inicio" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">Inicio</button>
                 </form>
                 <li class="nav-item">
@@ -184,7 +161,7 @@ include("../controlador/panelWebLeyes.php");
                         <a class="nav-link text-white" href="#">Sistema contra violencia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
+                        <a class="nav-link text-white" href="../controlador/denunciaRegistro.php">Registrar denuncia</a>
                     </li>
                     <li class="nav-item">
                         <form action="panelWebEventos.php" method="post" accept-charset="utf-8" style="display: inline;">

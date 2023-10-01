@@ -4,13 +4,15 @@ class Usuario
     private $ci;
     private $nombre_usuario;
     private $contrasenia;
+    private $contrasenia_app;
     private $correo;
 
-    public function __construct($ci, $nombre_usuario, $contrasenia, $correo)
+    public function __construct($ci, $nombre_usuario, $contrasenia, $correo,$contrasenia_app)
     {
         $this->setCi($ci);   
         $this->setNombreUsuario($nombre_usuario);
         $this->setContrasenia($contrasenia);
+        $this->setContraseniaApp($contrasenia_app);
         $this->setCorreo($correo);
     }
 
@@ -35,6 +37,10 @@ class Usuario
     public function setContrasenia($contrasenia)
     {
         $this->contrasenia = md5($contrasenia);
+    }
+    public function setContraseniaApp($contrasenia_app)
+    {
+        $this->contrasenia_app = md5($contrasenia_app);
     }
 
     public function setCorreo($correo)
@@ -65,9 +71,9 @@ class Usuario
         //include("conexion.php");
         $db = new Conexion();
         
-        $sql = $db->prepare("INSERT INTO usuario VALUES (?, ?, ?, ?)"); 
+        $sql = $db->prepare("INSERT INTO usuario VALUES (?, ?, ?, ?,?)"); 
         
-        $sql->bind_param("ssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo);
+        $sql->bind_param("ssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->contrasenia_app);
 
         $result = $sql->execute();
 

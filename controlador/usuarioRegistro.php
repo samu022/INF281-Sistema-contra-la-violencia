@@ -4,12 +4,13 @@ include("../modelo/conexion.php");
 include("../modelo/administrador.php");
 include("control_cookies.php");
 
-    
+     
     include("../vista/usuarioRegistro.php");
     if(isset($_POST['RegistrarUsuario'])){
         $ci = $_POST['ci'];
         $nombre_usuario = $_POST['nombre_usuario'];
         $contrasenia = $_POST['contrasenia'];
+        $contrasenia_app = $_POST['app'];
         $correo = $_POST['correo'];
 
         // Datos de la Persona
@@ -22,10 +23,11 @@ include("control_cookies.php");
         $direccion = $_POST['direccion'];
         $estado_civil = $_POST['estado_civil'];
         $profesion = $_POST['profesion'];
+        
         $numero_telefono = $_POST['numero_telefono'];
         include("../modelo/usuarioClase.php");
         include("../modelo/PersonaClase.php");
-        $carg=new Usuario($ci, $nombre_usuario, $contrasenia, $correo);
+        $carg=new Usuario($ci, $nombre_usuario, $contrasenia, $correo, $contrasenia_app);
         $persona = new Persona($ci, $nombre_completo, $apePaterno, $apeMaterno, $fechaNaci,
             $sexo, $direccion, $estado_civil, $profesion, $numero_telefono);
         //public function __construct($ci, $nombre, $apePaterno, $apeMaterno, $fechaNaci,

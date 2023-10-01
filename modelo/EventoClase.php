@@ -201,5 +201,24 @@ class Evento{
         echo json_encode($eventos);
     }
 
+    public function filtrarTipoViolencia($tipoViolencia){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM evento WHERE tipoViolencia LIKE ?");
+        $param = "%$tipoViolencia%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+    public function filtrarFecha($fecha){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM evento WHERE fecha LIKE ?");
+        $param = "%$fecha%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+
 }
 ?>

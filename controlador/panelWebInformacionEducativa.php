@@ -14,11 +14,20 @@ if (isset($_POST['filtrarInformacion'])) {
     //echo "estoy aqui";
     $tipoViolencia = $_POST['tipoViolencia'];
     //echo $tipoViolencia;
-    $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
+    if($tipoViolencia=="Todos"){
+        $res2 = $informacion->lista();
+    }
+    else{
+        $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
+    }
+}
+else if(isset($_POST['filtrarFecha'])){
+    //echo "estoy aqui";
+    $fecha = $_POST['fecha'];
+    //echo $fecha;
+    $res2=$informacion->filtrarFecha($fecha);
 }
 else{
     $res2 = $informacion->lista();
 }
-$res3 = $leyNormativa->lista();
-$res4 = $centro->lista();
 ?>

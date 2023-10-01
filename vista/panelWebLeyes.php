@@ -203,6 +203,16 @@ include("../controlador/panelWebLeyes.php");
     <!-- Leyes Normativas -->
     <div class="container mt-4" id="leyes">
         <h1 class="text-center">Leyes Normativas</h1>
+        <form action="" method="POST" class="d-flex align-items-center">
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Ingresa la fecha de promulgacion (YYYY-MM-DD):</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+            </div>
+            <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
+        </form>
+        <form action="" method="POST" class="d-flex align-items-center">
+            <button type="submit" class="btn btn-primary" name="todos">todos</button>
+        </form>
         <div class="row">
             <?php
             $cont = 0;

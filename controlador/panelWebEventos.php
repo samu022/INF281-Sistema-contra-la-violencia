@@ -9,16 +9,24 @@ $informacion=new InformacionEducativa("","","","","","","");
 $eventos=new Evento("","","","","","","","","","","","","");
 $centro=new CentroLocal("","","","","","");
 $leyNormativa = new Ley_Normativa("","","","","");
-$res=$eventos->lista();
-if (isset($_POST['filtrarInformacion'])) {
+if(isset($_POST['filtrarTipoViolencia'])){
     //echo "estoy aqui";
     $tipoViolencia = $_POST['tipoViolencia'];
     //echo $tipoViolencia;
-    $res2=$informacion->filtrarTipoViolencia($tipoViolencia);
+    if($tipoViolencia=="Todos"){
+        $res=$eventos->lista();
+    }
+    else{
+        $res=$eventos->filtrarTipoViolencia($tipoViolencia);
+    }
+}
+else if(isset($_POST['filtrarFecha'])){
+    //echo "estoy aqui";
+    $fecha = $_POST['fecha'];
+    //echo $tipoViolencia;
+    $res=$eventos->filtrarFecha($fecha);
 }
 else{
-    $res2 = $informacion->lista();
+    $res=$eventos->lista();
 }
-$res3 = $leyNormativa->lista();
-$res4 = $centro->lista();
 ?>

@@ -203,6 +203,38 @@ include("../controlador/panelWebEventos.php");
     <!-- Eventos -->
     <div class="container mt-4" id="eventos">
         <h1>Eventos</h1>
+        <form action="" method="POST">
+            <div class="mb-3 d-inline">
+                <label for="tipoViolencia" class="form-label">Seleccione el tipo de violencia:</label>
+                <select class="form-select" name="tipoViolencia" id="tipoViolencia" required>
+                    <option value="Violencia fisica">Violencia física</option>
+                    <option value="Violencia psicológica o emocional">Violencia psicológica o emocional</option>
+                    <option value="Violencia verbal">Violencia verbal</option>
+                    <option value="Violencia sexual">Violencia sexual</option>
+                    <option value="Violencia doméstica o de pareja">Violencia doméstica o de pareja</option>
+                    <option value="Violencia escolar o bullying">Violencia escolar o bullying</option>
+                    <option value="Violencia racial o xenofobia">Violencia racial o xenofobia</option>
+                    <option value="Violencia económica">Violencia económica</option>
+                    <option value="Violencia política">Violencia política</option>
+                    <option value="Violencia en línea o ciberacoso">Violencia en línea o ciberacoso</option>
+                    <option value="Violencia de genero">Violencia de género</option>
+                    <option value="Todos">Todos</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" name="filtrarTipoViolencia">Buscar</button>
+        </form>
+        <form action="" method="POST" class="d-flex align-items-center">
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Ingresa la fecha del evento (YYYY-MM-DD):</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+            </div>
+            <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
+        </form>
+        <form action="" method="POST" class="d-flex align-items-center">
+            <button type="submit" class="btn btn-primary" name="todos">todos</button>
+        </form>
+        
+
         <div class="row" >
             <?php
             $cont = 0;

@@ -104,6 +104,16 @@ class Ley_Normativa{
             return false; // Fallo al actualizar
         }
     }
+
+    public function filtrarFecha($fecha){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM ley_normativa WHERE fecha_promulgacion LIKE ?");
+        $param = "%$fecha%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
     
 
 }

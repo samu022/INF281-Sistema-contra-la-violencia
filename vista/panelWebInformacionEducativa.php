@@ -218,11 +218,21 @@ include("../controlador/panelWebInformacionEducativa.php");
                 <option value="Violencia política">Violencia política</option>
                 <option value="Violencia en línea o ciberacoso">Violencia en línea o ciberacoso</option>
                 <option value="Violencia de genero">Violencia de género</option>
+                <option value="Todos">Todos</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary" name="filtrarInformacion">Buscar</button>
     </form>
-    
+    <form action="" method="POST" class="d-flex align-items-center">
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Ingresa la fecha de publicacion (YYYY-MM-DD):</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+        </div>
+        <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
+    </form>
+    <form action="" method="POST" class="d-flex align-items-center">
+        <button type="submit" class="btn btn-primary" name="todos">todos</button>
+    </form>
 
     <div class="row">
         <?php

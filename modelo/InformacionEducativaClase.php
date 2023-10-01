@@ -143,8 +143,14 @@ class InformacionEducativa {
         $result = $stmt->get_result();
         return $result;
     }
-    
-    
-
+    public function filtrarFecha($fecha){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM informacion_educativa WHERE fechaSubida LIKE ?");
+        $param = "%$fecha%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
 }
 ?>

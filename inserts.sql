@@ -89,9 +89,9 @@ INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `arc
 (4, 'Centro Comunitario contra la Violencia', '456-7890', 'Avenida 4, Zona Este, La Paz', 'imagen4.jpg', 10001);
 
 
-INSERT INTO `contacto_emergencia` (`ci_contacto`, `parentesco`, `telefono`) VALUES
-(10009, 'Padre', '591-75749393'),
-(10010, 'Madre', '591-73446291');
+INSERT INTO `contacto_emergencia` (`ci_contacto`, `telefono`) VALUES
+(10009,  '591-75749393'),
+(10010,  '591-73446291');
 
 INSERT INTO `denuncia` (`codDenuncia`, `tipo`, `descripcion`, `testigo`, `seguimiento`, `fecha`, `codGeo`)
 VALUES
@@ -172,10 +172,10 @@ VALUES
   (10007, 'Desconocido', 5);
 
 
-INSERT INTO `tiene` (`ci_contacto`, `ci_usuario`)
+INSERT INTO `tiene` (`ci_contacto`,`parentesco`, `ci_usuario`)
 VALUES
-  (10009, 10007),
-  (10010, 10008);
+  (10009, 'Padre'.10007),
+  (10010, 'Madre',10008);
 
 
 

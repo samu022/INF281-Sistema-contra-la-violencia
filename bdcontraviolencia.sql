@@ -107,10 +107,11 @@ CREATE TABLE `centro_local` (
 --
 
 CREATE TABLE `contacto_emergencia` (
-  `ci_contacto` int(11) NOT NULL,
-  `parentesco` varchar(40) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL
+  `ci_contacto` int(11) NOT NULL AUTO_INCREMENT,
+  `telefono` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ci_contacto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Volcado de datos para la tabla `contacto_emergencia`
@@ -398,6 +399,7 @@ CREATE TABLE `recibe` (
 
 CREATE TABLE `tiene` (
   `ci_contacto` int(11) NOT NULL,
+  `parentesco` varchar(40) DEFAULT NULL,
   `ci_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -491,8 +493,6 @@ ALTER TABLE `centro_local`
 --
 -- Indices de la tabla `contacto_emergencia`
 --
-ALTER TABLE `contacto_emergencia`
-  ADD PRIMARY KEY (`ci_contacto`);
 
 
 

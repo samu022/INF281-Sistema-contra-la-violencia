@@ -222,9 +222,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Sistema contra violencia</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
                     </li>
@@ -258,6 +256,17 @@
                             Enviar Mensaje 
                         </button>
 
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón "Ver Mensajes" -->
+                        
+                        <li class="nav-item">
+                            <!-- Enlace a la página de Gmail -->
+                            <a class="btn btn-primary circular-button" href="https://www.google.com/intl/es/gmail/about/" target="_blank">
+                                Ver Mensajes
+                            </a>
+                        </li>
+                        
                     </li>
                 </ul>
             </div>
@@ -347,7 +356,7 @@
                 </div>
             </div>
         </div>
-        
+         
         <!-- Modal para el formulario de mensaje -->
         <div class="modal fade" id="modalMensaje" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -375,7 +384,7 @@
                                     <textarea class="form-control" name="mensaje" id="mensaje" rows="4" required></textarea>
                                 </div>
                             </div>
-
+                       
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -387,6 +396,7 @@
             
             </div>
         </div>
+        
     </div>
 </div>
     </footer>

@@ -75,13 +75,13 @@ if (!isset($_GET['code']) && !isset($_POST['provider'])) {
     exit;
 }
 
-require 'vendor/autoload.php';
+require '../../autoload.php';
 
 session_start();
 
 $providerName = '';
-$clientId = '';
-$clientSecret = '';
+$clientId = '836714302039-4030421dsij5j4tracja3bjnoob12j62.apps.googleusercontent.com';
+$clientSecret = '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';
 $tenantId = '';
 
 if (array_key_exists('provider', $_POST)) {

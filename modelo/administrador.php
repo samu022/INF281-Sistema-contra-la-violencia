@@ -77,6 +77,39 @@ class Administrador
         
         return null; // Retorna null si no se encontraron resultados o hubo un error
     }
+    public function obtenerCIRandom() {
+        $db = new Conexion();
+    
+        // Obtén una cantidad total de registros en la tabla
+        $totalRegistros = $db->query("SELECT COUNT(*) AS total FROM administrador");
+        
+        if ($totalRegistros) {
+            $filaTotal = $totalRegistros->fetch_assoc();
+            $total = $filaTotal['total'];
+            
+            if ($total > 0) {
+                // Genera un número de fila aleatorio
+                $filaAleatoria = mt_rand(0, $total - 1);
+                
+                // Obtén un registro aleatorio de la tabla
+                $sql = $db->prepare("SELECT ci FROM administrador LIMIT ?, 1");
+                
+                if ($sql) {
+                    $sql->bind_param("i", $filaAleatoria);
+                    if ($sql->execute()) {
+                        $resultado = $sql->get_result();
+                        if ($resultado->num_rows === 1) {
+                            $row = $resultado->fetch_assoc();
+                            return $row['ci']; // Devuelve el valor de 'ci'
+                        }
+                    }
+                }
+            }
+        }
+        
+        return null; // Retorna null si no se encontraron resultados o hubo un error
+    }
+    
     public function elimina()
     {
         //include("conexion.php");

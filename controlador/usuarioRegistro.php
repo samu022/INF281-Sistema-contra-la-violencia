@@ -2,7 +2,7 @@
 
 include("../modelo/conexion.php");
 include("../modelo/administrador.php");
-include("control_cookies.php");
+//include("control_cookies.php");
 
      
     include("../vista/usuarioRegistro.php");
@@ -27,7 +27,7 @@ include("control_cookies.php");
         $numero_telefono = $_POST['numero_telefono'];
         include("../modelo/usuarioClase.php");
         include("../modelo/PersonaClase.php");
-        $carg=new Usuario($ci, $nombre_usuario, $contrasenia, $correo, $contrasenia_app);
+        $carg=new Usuario($ci, $nombre_usuario, $contrasenia,  $contrasenia_app, $correo);
         $persona = new Persona($ci, $nombre_completo, $apePaterno, $apeMaterno, $fechaNaci,
             $sexo, $direccion, $estado_civil, $profesion, $numero_telefono);
         //public function __construct($ci, $nombre, $apePaterno, $apeMaterno, $fechaNaci,

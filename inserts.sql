@@ -145,7 +145,7 @@ VALUES
   (10008, 2);
 
 
-INSERT INTO mensaje (`codMensaje`, `fechaMesaje`, `horaMensaje`, `contenidoMensaje`, `ci_usuario`)
+INSERT INTO mensaje (`codMensaje`, `fechaMensaje`, `horaMensaje`, `contenidoMensaje`, `ci_usuario`)
 VALUES
   (1, '06-09-2023', '10:15 AM', 'Hola, ¿cómo estás?', 10007),
   (2, '06-09-2023', '11:30 AM', 'Estoy bien, gracias. ¿Y tú?', 10008),
@@ -161,11 +161,7 @@ VALUES
   (10007, 3, 10004, 'No'),
   (10008, 4, 10004, 'No'),
   (10008, 5, 10003, 'Sí');
-INSERT INTO `recibe` (`codMensaje`, `ci_usuario`)
-VALUES
-  (1, 10008),
-  (2, 10007),
-  (3, 10008);
+
 
 INSERT INTO `victima` (`ci`, `relacion_perpetrador`, `codDenuncia`)
 VALUES

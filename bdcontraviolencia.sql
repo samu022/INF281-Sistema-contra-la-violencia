@@ -293,12 +293,14 @@ CREATE TABLE `llena` (
 --
 
 CREATE TABLE `mensaje` (
-  `codMensaje` int(11) NOT NULL,
-  `fechaMesaje` date DEFAULT NULL,
+  `codMensaje` int(11) NOT NULL AUTO_INCREMENT,
+  `fechaMensaje` date DEFAULT NULL,
   `horaMensaje` varchar(20) DEFAULT NULL,
   `contenidoMensaje` varchar(100) DEFAULT NULL,
-  `ci_usuario` int(11) DEFAULT NULL
+  `ci_usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codMensaje`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Volcado de datos para la tabla `mensaje`
@@ -541,9 +543,7 @@ ALTER TABLE `llena`
 --
 -- Indices de la tabla `mensaje`
 --
-ALTER TABLE `mensaje`
-  ADD PRIMARY KEY (`codMensaje`),
-  ADD KEY `R_16` (`ci_usuario`);
+
 
 --
 -- Indices de la tabla `persona`
@@ -567,9 +567,7 @@ ALTER TABLE `realiza`
 --
 -- Indices de la tabla `recibe`
 --
-ALTER TABLE `recibe`
-  ADD PRIMARY KEY (`codMensaje`,`ci_usuario`),
-  ADD KEY `R_19` (`ci_usuario`);
+
 
 --
 -- Indices de la tabla `tiene`
@@ -718,12 +716,6 @@ ALTER TABLE `realiza`
   ADD CONSTRAINT `R_22` FOREIGN KEY (`codDenuncia`) REFERENCES `denuncia` (`codDenuncia`),
   ADD CONSTRAINT `R_24` FOREIGN KEY (`ci`) REFERENCES `agresor` (`ci`);
 
---
--- Filtros para la tabla `recibe`
---
-ALTER TABLE `recibe`
-  ADD CONSTRAINT `R_17` FOREIGN KEY (`codMensaje`) REFERENCES `mensaje` (`codMensaje`),
-  ADD CONSTRAINT `R_19` FOREIGN KEY (`ci_usuario`) REFERENCES `usuario` (`ci_usuario`);
 
 --
 -- Filtros para la tabla `tiene`
@@ -752,3 +744,5 @@ COMMIT;
 
 ALTER TABLE `usuario`
   ADD COLUMN `contrasena_app` varchar(150) DEFAULT NULL AFTER `contrasenia`;
+
+ 

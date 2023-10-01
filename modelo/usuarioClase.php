@@ -40,7 +40,7 @@ class Usuario
     }
     public function setContraseniaApp($contrasenia_app)
     {
-        $this->contrasenia_app = md5($contrasenia_app);
+        $this->contrasenia_app = ($contrasenia_app);
     }
 
     public function setCorreo($correo)
@@ -73,7 +73,7 @@ class Usuario
         
         $sql = $db->prepare("INSERT INTO usuario VALUES (?, ?, ?, ?,?)"); 
         
-        $sql->bind_param("ssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->contrasenia_app);
+        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->contrasenia_app);
 
         $result = $sql->execute();
 
@@ -107,7 +107,7 @@ class Usuario
     public function lista_especifica(){
         //include("conexion.php");
         $db=new Conexion();
-        $sql=$db->query("SELECT * FROM usuario where ci='$this->ci'");
+        $sql=$db->query("SELECT * FROM usuario where ci_usuario='$this->ci'");
         return ($sql);
     }
 

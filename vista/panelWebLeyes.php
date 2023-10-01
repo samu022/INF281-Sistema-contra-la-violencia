@@ -1,5 +1,6 @@
 <?php
 //incluimos modelo
+/*
 include("../modelo/conexion.php");
 include("../modelo/EventoClase.php");
 include("../modelo/InformacionEducativaClase.php");
@@ -7,7 +8,7 @@ include("../modelo/Ley_NormativaClase.php");
 include("../modelo/CentroLocalClase.php");
 $informacion=new InformacionEducativa("","","","","","","");
 $eventos=new Evento("","","","","","","","","","","","","");
-$centro=new CentroLocal("","","","","");
+$centro=new CentroLocal("","","","","","");
 $leyNormativa = new Ley_Normativa("","","","","");
 $res=$eventos->lista();
 if (isset($_POST['filtrarInformacion'])) {
@@ -20,7 +21,8 @@ else{
     $res2 = $informacion->lista();
 }
 $res3 = $leyNormativa->lista();
-$res4 = $centro->lista();
+$res4 = $centro->lista();*/
+include("../controlador/panelWebLeyes.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -185,22 +187,22 @@ $res4 = $centro->lista();
                         <a class="nav-link text-white" href="denunciaRegistro.php">Registrar denuncia</a>
                     </li>
                     <li class="nav-item">
-                        <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                        <form action="panelWebEventos.php" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="eventos">Eventos</button>
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                        <form action="panelWebInformacionEducativa.php" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="informacionEducativa">Informacion Educativa</button>
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                        <form action="panelWebLeyes.php" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="leyes">Leyes Normativas</button>
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                        <form action="panelWebCentrosLocales.php" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="centrosLocales">Centros Locales</button>
                         </form>
                     </li>

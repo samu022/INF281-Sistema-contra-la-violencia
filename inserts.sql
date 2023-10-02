@@ -174,7 +174,7 @@ VALUES
 
 INSERT INTO `tiene` (`ci_contacto`,`parentesco`, `ci_usuario`)
 VALUES
-  (10009, 'Padre'.10007),
+  (10009, 'Padre',10007),
   (10010, 'Madre',10008);
 
 

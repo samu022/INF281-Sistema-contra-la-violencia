@@ -655,8 +655,7 @@ ALTER TABLE `centro_local`
 --
 -- Filtros para la tabla `contacto_emergencia`
 --
-ALTER TABLE `contacto_emergencia`
-  ADD CONSTRAINT `contacto_emergencia_ibfk_1` FOREIGN KEY (`ci_contacto`) REFERENCES `persona` (`ci`) ON DELETE CASCADE;
+
 
 --
 -- Filtros para la tabla `denuncia`
@@ -720,9 +719,6 @@ ALTER TABLE `realiza`
 --
 -- Filtros para la tabla `tiene`
 --
-ALTER TABLE `tiene`
-  ADD CONSTRAINT `R_15` FOREIGN KEY (`ci_usuario`) REFERENCES `usuario` (`ci_usuario`),
-  ADD CONSTRAINT `R_9` FOREIGN KEY (`ci_contacto`) REFERENCES `contacto_emergencia` (`ci_contacto`);
 
 --
 -- Filtros para la tabla `usuario`

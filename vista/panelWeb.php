@@ -204,12 +204,17 @@
                     <a class="nav-link text-white" href="../controlador/contactosLista.php">Contactos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Acerca de nosotros</a>
+                    <a class="nav-link text-white" href="../vista/aboutus.php">Acerca de nosotros</a>
+                </li>
+                <!-- Agregar la opción de "Contacto de Emergencia" con ícono y descripción -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../controlador/contactoEmergenciaLista.php">Contacto de Emergencia <i class="fas fa-exclamation-triangle"></i></a>
+                   
                 </li>
             </ul>
-
         </div>
     </nav>
+
 
     <!-- Línea blanca sin margen -->
     <hr class="bg-white" style="margin: 0;">

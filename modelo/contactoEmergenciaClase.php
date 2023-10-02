@@ -42,27 +42,31 @@ class ContactoEmergencia {
     }
 
     // Método para evitar inyecciones SQL y obtener el valor autoincremental
-        public function grabarContacto() {
-            $db = new Conexion();
-
-            // Utilizar sentencias preparadas para evitar inyección SQL
-            $stmt = $db->prepare("INSERT INTO contacto_emergencia  (telefono) VALUES (?)");
-
-            // Vincular los parámetros
-            $stmt->bind_param("s", $this->telefono);
-
-            // Ejecutar la sentencia
-            $result = $stmt->execute();
-
-            // Verificar si la consulta se realizó con éxito
-            if ($result) {
-                // Obtener el valor autoincremental generado
-                $ci_contacto = $db->insert_id;
-                return $ci_contacto; // Devuelve el valor de ci_contacto generado con éxito
-            } else {
-                return false; // Fallo al insertar
-            }
+    public function grabarContacto() {
+        $db = new Conexion();
+    
+        // Utilizar sentencias preparadas para evitar inyección SQL
+        $stmt = $db->prepare("INSERT INTO contacto_emergencia (telefono) VALUES (?)");
+    
+        // Vincular los parámetros
+        $stmt->bind_param("s", $this->telefono);
+    
+        // Ejecutar la sentencia
+        $result = $stmt->execute();
+    
+        // Verificar si la consulta se realizó con éxito
+        if ($result) {
+            // Obtener el valor autoincremental generado
+            $this->ci_contacto = $db->insert_id;
+            return $this->ci_contacto; // Devuelve el valor de ci_contacto generado con éxito
+        } else {
+            // Mostrar un mensaje de error en caso de fallo
+            echo "Error al insertar el contacto de emergencia: " . $stmt->error;
+            return false; // Fallo al insertar
         }
+    }
+    
+    
 
     public function elimina() {
         //include("conexion.php");
@@ -72,12 +76,12 @@ class ContactoEmergencia {
     }
     // Método para verificar si el teléfono ya está registrado
     // Método para verificar si el teléfono ya está registrado y obtener el ci_contacto si existe
-        public function telefonoExistente($telefono) {
+        public function telefonoExistente() {
             $db = new Conexion();
 
             // Utilizar una sentencia preparada para evitar inyección SQL
             $stmt = $db->prepare("SELECT ci_contacto FROM contacto_emergencia WHERE telefono = ?");
-            $stmt->bind_param("s", $telefono);
+            $stmt->bind_param("s", $this->telefono);
             $stmt->execute();
 
             // Obtener el resultado
@@ -86,9 +90,11 @@ class ContactoEmergencia {
             // Intentar obtener el valor
             if ($stmt->fetch()) {
                 // El teléfono ya está registrado; devuelve el ci_contacto
+                //echo "siiiiiiiiiiiiii";
                 return $ci_contacto;
             } else {
                 // El teléfono no está registrado
+                //echo"noooooooo";
                 return false;
             }
         }

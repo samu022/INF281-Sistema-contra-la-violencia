@@ -122,6 +122,12 @@ class CentroLocal {
             return false; // Fallo al actualizar
         }
     }
+    public function cuenta(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT COUNT(*) as count FROM centro_local"); // Usa "as count" para dar un alias al resultado
+        $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+        return $result['count']; // Devuelve el valor de la columna "count"
+    }
 }
 
 ?>

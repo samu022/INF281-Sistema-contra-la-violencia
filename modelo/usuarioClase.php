@@ -110,7 +110,46 @@ class Usuario
         $sql=$db->query("SELECT * FROM usuario where ci_usuario='$this->ci'");
         return ($sql);
     }
-
+    public function cuenta(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT COUNT(*) as count FROM usuario"); // Usa "as count" para dar un alias al resultado
+        $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+        return $result['count']; // Devuelve el valor de la columna "count"
+    }
+    public function edades(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) < 18 THEN 1 ELSE 0 END) AS Menores18,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) BETWEEN 18 AND 30 THEN 1 ELSE 0 END) AS De18a30,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) BETWEEN 31 AND 45 THEN 1 ELSE 0 END) AS De31a45,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) > 45 THEN 1 ELSE 0 END) AS Mayores45
+        FROM persona
+        INNER JOIN usuario ON persona.ci = usuario.ci_usuario");
+     
+        if ($sql) {
+            $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+            // Crear un nuevo arreglo asociativo con nombres de claves más descriptivos
+            $edadesArray = array(
+                'Menores18' => $result['Menores18'],
+                'De18a30' => $result['De18a30'],
+                'De31a45' => $result['De31a45'],
+                'Mayores45' => $result['Mayores45']
+            );
+    
+            // Convierte el arreglo a una cadena JSON y la devuelve
+            return json_encode($edadesArray);
+        } else {
+            // Manejo de error si la consulta no se ejecuta correctamente
+            return null;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     public function check_exists(){
         //print($this->nombre_usuario);
         //print($this->contrasenia);

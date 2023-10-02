@@ -138,7 +138,33 @@ class Victima{
             return false; // Fallo al actualizar
         }
     }
+    public function edades(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) < 18 THEN 1 ELSE 0 END) AS Menores18,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) BETWEEN 18 AND 30 THEN 1 ELSE 0 END) AS De18a30,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) BETWEEN 31 AND 45 THEN 1 ELSE 0 END) AS De31a45,
+            SUM(CASE WHEN TIMESTAMPDIFF(YEAR, fechaNaci, CURDATE()) > 45 THEN 1 ELSE 0 END) AS Mayores45
+        FROM persona
+        INNER JOIN victima ON persona.ci = victima.ci");
+     
+        if ($sql) {
+            $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+            // Crear un nuevo arreglo asociativo con nombres de claves más descriptivos
+            $edadesArray = array(
+                'Menores18' => $result['Menores18'],
+                'De18a30' => $result['De18a30'],
+                'De31a45' => $result['De31a45'],
+                'Mayores45' => $result['Mayores45']
+            );
     
+            // Convierte el arreglo a una cadena JSON y la devuelve
+            return json_encode($edadesArray);
+        } else {
+            // Manejo de error si la consulta no se ejecuta correctamente
+            return null;
+        }
+    }
 
 }
 ?>

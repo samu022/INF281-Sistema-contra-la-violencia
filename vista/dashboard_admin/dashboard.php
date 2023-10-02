@@ -1,335 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Descripción de la página">
+    <meta name="author" content="Nombre del autor">
+    <title>SB Admin 2 - Dashboard</title>
+    <!-- Agrega Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body> <!-- Agregado el elemento <body> -->
+    
+    <div class="row">
+       <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary">
+                <div class="card-body d-flex text-white">
+                    <span>Usuarios</span>
+                    <i class="fas fa-user fa-2x ml-auto"></i>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between" >
+                    <a href="../controlador/usuarioLista.php" class="text-white">Ver Detalles</a>
+                    <span class="text-white">
+                        <?php
+                        // Incluye los archivos de conexión y la clase de usuario
+                        include("../modelo/conexion.php");
+                        include("../modelo/usuarioClase.php");
 
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+                        // Crea una instancia de la clase Usuario
+                        $cargU = new Usuario("","","","","");
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        // Obtiene el número de usuarios
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
+                </div>
+            </div> 
+            
+
         </div>
-
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success">
+                <div class="card-body d-flex text-white">
+                    <span>Eventos</span>
+                    <i class="fas fa-users fa-2x ml-auto"></i>
                 </div>
-            </div>
+                <div class="card-footer d-flex align-items-center justify-content-between" >
+                    <a href="../controlador/eventoLista.php" class="text-white">Ver Detalles</a>
+                    <span class="text-white">
+                    <?php
+                        // Incluye los archivos de conexión y la clase de usuario
+                        //include("../../modelo/conexion.php");
+                        include("../modelo/EventoClase.php");
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        // Crea una instancia de la clase Usuario
+                        $cargU = new Evento("","","","","","","","","","","","","");
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
+                        // Obtiene el número de usuarios
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
                 </div>
-            </div>
+            </div> 
+            
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Requests</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <!-- Content Row -->
-
-        <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                        </div>
-                    </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger">
+                <div class="card-body d-flex text-white">
+                    <span>Denuncias</span>
+                    <i class="fab fa-product-hunt  fa-2x ml-auto"></i>
                 </div>
-            </div>
+                <div class="card-footer d-flex align-items-center justify-content-between" >
+                    <a href="../controlador/denunciaLista.php" class="text-white">Ver Detalles</a>
+                    <span class="text-white">
+                    <?php
+                        // Incluye los archivos de conexión y la clase de usuario
+                        //include("../../modelo/conexion.php");
+                        include("../modelo/DenunciaClase.php");
 
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie pt-4 pb-2">
-                            <canvas id="myPieChart"></canvas>
-                        </div>
-                        <div class="mt-4 text-center small">
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-primary"></i> Direct
-                            </span>
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-success"></i> Social
-                            </span>
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-info"></i> Referral
-                            </span>
-                        </div>
-                    </div>
+                        // Crea una instancia de la clase Usuario
+                        $cargU = new Denuncia("","","","","","","");
+
+                        // Obtiene el número de usuarios
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
+                </div>
+            </div> 
+            
+
+        </div>
+    </div>    
+     
+    <!--SEGUNDA LINEA-->
+    <div class="row">
+            <div class="col-xl-3 col-md-6">
+            <div class="card bg-info"> <!-- Cambiar la clase "bg-primary" por "bg-info" para cambiar el color de fondo -->
+                <div class="card-body d-flex text-white">
+                    <span>Información educativa</span>
+                    <i class="fas fa-graduation-cap fa-2x ml-auto"></i> <!-- Cambiar el icono a uno relacionado con educación -->
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a href="../controlador/informacionEducativaLista.php" class="text-white">Ver Detalles</a>
+                    <span class="text-white">
+                        <?php
+                        // Incluye los archivos de conexión y la clase de usuario
+                        include("../modelo/InformacionEducativaClase.php");
+
+                        // Crea una instancia de la clase InformacionEducativa
+                        $cargU = new InformacionEducativa("","","","","","","");
+
+                        // Obtiene el número de registros de información educativa
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
                 </div>
             </div>
         </div>
 
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-                <!-- Project Card Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="small font-weight-bold">Server Migration <span
-                                class="float-right">20%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Sales Tracking <span
-                                class="float-right">40%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Customer Database <span
-                                class="float-right">60%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar" role="progressbar" style="width: 60%"
-                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Payout Details <span
-                                class="float-right">80%</span></h4>
-                        <div class="progress mb-4">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Account Setup <span
-                                class="float-right">Complete!</span></h4>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning"> <!-- Cambia la clase "bg-success" por "bg-warning" para cambiar el color de fondo -->
+                <div class="card-body d-flex text-white">
+                    <span>Leyes Normativas</span>
+                    <i class="fas fa-gavel fa-2x ml-auto"></i> <!-- Cambia el icono a uno relacionado con leyes -->
                 </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a href="../controlador/leyLista.php" class="text-white">Ver Detalles</a> <!-- Cambia el enlace a "LeyesNormativas.php" si es necesario -->
+                    <span class="text-white">
+                        <?php
+                        // Incluye los archivos de conexión y la clase de Ley_Normativa
+                        include("../modelo/Ley_NormativaClase.php");
 
-                <!-- Color System -->
+                        // Crea una instancia de la clase Ley_Normativa
+                        $cargU = new Ley_Normativa("","","","","");
+
+                        // Obtiene el número de registros de Leyes Normativas
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-info"> <!-- Cambia la clase "bg-danger" por "bg-info" para cambiar el color de fondo -->
+                <div class="card-body d-flex text-white">
+                    <span>Centros Locales</span>
+                    <i class="fas fa-hospital  fa-2x ml-auto"></i> <!-- Cambia el icono a uno relacionado con centros locales de ayuda -->
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a href="../controlador/centroLocalLista.php" class="text-white">Ver Detalles</a> <!-- Cambia el enlace a "CentrosLocales.php" si es necesario -->
+                    <span class="text-white">
+                        <?php
+                        // Incluye los archivos de conexión y la clase de CentroLocal
+                        include("../modelo/CentroLocalClase.php");
+
+                        // Crea una instancia de la clase CentroLocal
+                        $cargU = new CentroLocal("","","","","","");
+
+                        // Obtiene el número de registros de Centros Locales de Ayuda
+                        $resp = $cargU->cuenta();
+                        echo $resp;
+                        ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>  
+    <div class="container">
+        <div class="row mb-1">
+            <!-- Columna para el primer gráfico -->
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-primary text-white shadow">
+                    <div class="col-md-12">
+                        <div class="card">
                             <div class="card-body">
-                                Primary
-                                <div class="text-white-50 small">#4e73df</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-success text-white shadow">
-                            <div class="card-body">
-                                Success
-                                <div class="text-white-50 small">#1cc88a</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-info text-white shadow">
-                            <div class="card-body">
-                                Info
-                                <div class="text-white-50 small">#36b9cc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-warning text-white shadow">
-                            <div class="card-body">
-                                Warning
-                                <div class="text-white-50 small">#f6c23e</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-danger text-white shadow">
-                            <div class="card-body">
-                                Danger
-                                <div class="text-white-50 small">#e74a3b</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-secondary text-white shadow">
-                            <div class="card-body">
-                                Secondary
-                                <div class="text-white-50 small">#858796</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-light text-black shadow">
-                            <div class="card-body">
-                                Light
-                                <div class="text-black-50 small">#f8f9fc</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="card bg-dark text-white shadow">
-                            <div class="card-body">
-                                Dark
-                                <div class="text-white-50 small">#5a5c69</div>
+                                <canvas id="graficoDenunciasTipo"></canvas>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <div class="col-lg-6 mb-4">
-
-                <!-- Illustrations -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center">
-                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                src="img/undraw_posting_photo.svg" alt="...">
+            <!-- Columna para el segundo gráfico -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="graficoEdadesUsuarios"></canvas>
+                            </div>
                         </div>
-                        <p>Add some quality, svg illustrations to your project courtesy of <a
-                                target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                            constantly updated collection of beautiful svg images that you can use
-                            completely free and without attribution!</p>
-                        <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                            unDraw &rarr;</a>
                     </div>
                 </div>
-
-                <!-- Approach -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                    </div>
-                    <div class="card-body">
-                        <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                            CSS bloat and poor page performance. Custom CSS classes are used to create
-                            custom components and custom utility classes.</p>
-                        <p class="mb-0">Before working with this theme, you should become familiar with the
-                            Bootstrap framework, especially the utility classes.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
-
     </div>
-    <!-- /.container-fluid -->
+    <div class="container">
+        <div class="row mb-2">
+            <!-- Columna para el primer gráfico -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="graficoEdadVictima"></canvas>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna para el segundo gráfico -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="graficoEdadesUsuarios"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--Grafico de Denuncias por Tipo -->
+     <div class="row">
+        <div class="col-md-12">
+            <!-- Agrega una clase personalizada al canvas -->
+            <canvas id="graficoDenunciasTipo" class="grafico-canvas"></canvas>
+        </div>
+    </div>
 
-</div>
-<!-- End of Main Content -->
+    <!-- Agrega la referencia a la biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script>
+        // Obtén los datos de la función PHP
+        <?php
+        $carg = new Denuncia("","","","","","","");
+        
+        ?>
+        var datosDenuncias = <?php echo json_encode($carg->grafico_tipo()); ?>;
+
+        // Extrae las etiquetas (tipos de denuncias) y la cantidad de denuncias
+        var etiquetas = [];
+        var cantidadDenuncias = [];
+
+        for (var i = 0; i < datosDenuncias.length; i++) {
+            etiquetas.push(datosDenuncias[i].tipo);
+            cantidadDenuncias.push(datosDenuncias[i].cantidad_denuncias);
+        }
+
+        // Obtén el elemento canvas del gráfico
+        var ctx = document.getElementById('graficoDenunciasTipo').getContext('2d');
+
+        // Crea el gráfico de barras
+        var graficoDenuncias = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: etiquetas,
+                datasets: [{
+                    label: 'Cantidad de Denuncias por Tipo',
+                    data: cantidadDenuncias,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <br>
+    <!--Grafico por edad de usuarios rangos-->
+   <!-- Agrega el elemento canvas para el gráfico -->
+   <canvas id="graficoEdadesUsuarios"></canvas>
+
+
+   <?php
+$carg = new Usuario("", "", "", "", "");
+$edadesData = $carg->edades();
+?>
+
+<script>
+    // Obtén los datos de PHP y analízalos en un objeto JavaScript
+    var datosEdades = <?php echo $edadesData; ?>;
+
+    // Verifica si se obtuvieron datos correctamente
+    if (datosEdades !== null) {
+        // Obtiene el elemento canvas del gráfico
+        var ctx = document.getElementById('graficoEdadesUsuarios').getContext('2d');
+
+        // Crea el gráfico de barras
+        var graficoEdadesUsuarios = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(datosEdades),
+                datasets: [{
+                    label: 'Cantidad de Usuarios por Edad',
+                    data: Object.values(datosEdades),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    } else {
+        console.log("No se obtuvieron datos de edades de usuarios.");
+    }
+</script>
+
+
+<!-- Agrega el elemento canvas para el gráfico circular -->
+
+
+
+<?php
+include("../modelo/victimaClase.php");
+$carg = new Victima("", "", "");
+$edadesData = $carg->edades();
+?>
+
+<script>
+    // Obtén los datos de PHP y analízalos en un objeto JavaScript
+    var datosEdades = <?php echo $edadesData; ?>;
+    
+    // Verifica si se obtuvieron datos correctamente
+    if (datosEdades !== null) {
+        // Obtiene el elemento canvas del gráfico circular
+        var ctx = document.getElementById('graficoEdadVictima').getContext('2d');
+    
+        // Crea el gráfico circular
+        var graficoEdadesVictimas = new Chart(ctx, {
+            type: 'pie', // Cambia el tipo de gráfico a pie
+            data: {
+                labels: Object.keys(datosEdades),
+                datasets: [{
+                    data: Object.values(datosEdades),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Evita que el gráfico se ajuste automáticamente
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right' // Cambia la posición de la leyenda a la derecha
+                    }
+                }
+            }
+        });
+    } else {
+        console.log("No se obtuvieron datos de edades de víctimas.");
+    }
+</script>
+
+</body>
+</html>

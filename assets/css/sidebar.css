@@ -1,0 +1,42 @@
+/* Estilo para el menú sidebar */
+.menu-sidebar {
+    position: fixed; /* Fija el menú en su lugar */
+    width: 250px; /* Ancho del menú lateral */
+    height: 100%; /* Altura completa del menú */
+    left: 0; /* Coloca el menú en el lado izquierdo */
+    top: 0; /* Alinea el menú en la parte superior */
+    overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
+    transition: all 0.3s; /* Efecto de transición suave */
+    z-index: 1; /* Asegura que el menú esté por encima del contenido */
+}
+
+/* Ajusta el contenido principal para que se mueva a la derecha del menú */
+.main-content {
+    padding: 15px; /* Espacio interior */
+    transition: all 0.3s; /* Efecto de transición suave */
+    z-index: 0; /* Asegura que el contenido esté detrás del menú */
+    margin-left: 0; /* Inicialmente, sin margen izquierdo */
+}
+
+/* Cuando el menú está visible, ajusta el margen izquierdo del contenido */
+.menu-sidebar.show {
+    margin-left: 250px; /* Ancho del menú lateral + margen */
+}
+
+/* Reduce el tamaño de la fuente de los íconos del menú */
+.menu-sidebar .nav-item .nav-link .fas {
+    font-size: 1.2rem; /* Tamaño de fuente personalizado */
+}
+
+/* Añade estilos adicionales según sea necesario */
+
+/* Para ocultar el menú en pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+    .menu-sidebar {
+        width: 0; /* Oculta el menú en pantallas pequeñas */
+    }
+
+    .main-content {
+        margin-left: 0; /* Mueve el contenido principal a la izquierda */
+    }
+}

@@ -138,7 +138,26 @@ class Denuncia{
         return true;
     }
     
-    
+    public function cuenta(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT COUNT(*) as count FROM denuncia"); // Usa "as count" para dar un alias al resultado
+        $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+        return $result['count']; // Devuelve el valor de la columna "count"
+    }
+    public function grafico_tipo(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT tipo, COUNT(*) AS cantidad_denuncias FROM denuncia GROUP BY tipo");
+        
+        $data = array(); // Crear un array para almacenar los resultados
+        
+        // Obtener todos los resultados en un array
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
+        
+        // Devolver el array de resultados
+        return $data;
+    }
     public function modifica(){
         //include("conexion.php");
         $db = new Conexion();

@@ -152,5 +152,11 @@ class InformacionEducativa {
         $result = $stmt->get_result();
         return $result;
     }
+    public function cuenta(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT COUNT(*) as count FROM informacion_educativa"); // Usa "as count" para dar un alias al resultado
+        $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
+        return $result['count']; // Devuelve el valor de la columna "count"
+    }
 }
 ?>

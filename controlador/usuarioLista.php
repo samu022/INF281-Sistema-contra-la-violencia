@@ -8,7 +8,7 @@
     include("../vista/dashboard_admin/sidebar.php");
     //incluimos modelo
     include("../modelo/usuarioClase.php");
-    $car = new Usuario("", "", "", "");
+    $car = new Usuario("", "", "", "","");
     $res=$car->lista();
     include("../vista/usuarioLista.php");
     include("../vista/dashboard_admin/footer.php");

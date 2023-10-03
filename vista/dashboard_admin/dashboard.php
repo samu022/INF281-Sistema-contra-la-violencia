@@ -304,7 +304,26 @@
         </div>
     </div>
     
+    <div class="container">
+        <h4>Resultados Formulario</h4>
+        <div class="row mb-2">
+            <!-- Columna para el primer gráfico -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="graficoFormulario"></canvas>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna para el segundo gráfico -->
 
+        </div>
+    </div>
      
     <!-- Agrega la referencia a la biblioteca Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -519,3 +538,69 @@ console.log(cantidadDenuncias);
     });
 </script>
 
+
+
+
+
+<!-- Script PHP para obtener datos -->
+<?php
+include("../modelo/llenaClase.php");
+$carg1 = new Llena("", "", "");
+
+$datosFormulario = $carg1->obtenerRes();
+?>
+
+<!-- Script JavaScript para crear el gráfico de torta -->
+<script>
+    var datosDenuncias = <?php echo json_encode($datosFormulario); ?>;
+
+    // Extrae las etiquetas (consejos) y la cantidad de denuncias (total)
+    var etiquetas = [];
+    var cantidadDenuncias = [];
+
+    for (var i = 0; i < datosDenuncias.length; i++) {
+        etiquetas.push(datosDenuncias[i].consejo); // Corrige el acceso a la propiedad 'consejo'
+        cantidadDenuncias.push(datosDenuncias[i].total); // Corrige el acceso a la propiedad 'total'
+    }
+
+    // Obtiene el elemento canvas del gráfico
+    var ctx = document.getElementById('graficoFormulario').getContext('2d');
+
+    // Crea el gráfico de torta con un tamaño adecuado
+    var graficoFormulario = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: etiquetas,
+            datasets: [{
+                data: cantidadDenuncias,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: true,
+                position: 'bottom'
+            },
+            title: {
+                display: true,
+                text: 'Gráfico de Torta'
+            }
+        }
+    });
+</script>

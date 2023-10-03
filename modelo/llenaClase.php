@@ -84,29 +84,20 @@ class Llena
 
         return null;
     }
-    public function obtenerRes()
-{
-    $db = new Conexion();
-
-    $sql = $db->prepare("SELECT consejo, COUNT(*) as total FROM llena GROUP BY consejo"); // Reemplaza "tu_tabla" con el nombre de tu tabla
-
-    $resultados = [];
-
-    if ($sql) {
-        if ($sql->execute()) {
-            $resultado = $sql->get_result();
-
-            while ($row = $resultado->fetch_assoc()) {
-                $resultados[] = [
-                    'consejo' => $row['consejo'],
-                    'total' => $row['total']
-                ];
-            }
+    public function obtenerRes() {
+        $db = new Conexion();
+        $sql = $db->query("SELECT consejo, COUNT(*) as total FROM llena GROUP BY consejo;");
+        
+        $data = array(); // Create an array to store the results
+        
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
         }
+        
+        // Devolver el array de resultados
+        return $data;
     }
-
-    return $resultados;
-}
+   
 
     public function elimina()
     {

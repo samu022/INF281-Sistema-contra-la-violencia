@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -14,66 +13,62 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-       /* Primary Card */
-       
-.primary-card {
-    background-color: #007bff;
-    color: #ffffff;
-}
+        /* Estilos de los cards */
+        .primary-card {
+            background-color: #007bff;
+            color: #ffffff;
+        }
 
-/* Success Card */
-.success-card {
-    background-color: #28a745;
-    color: #ffffff;
-}
+        .success-card {
+            background-color: #28a745;
+            color: #ffffff;
+        }
 
-/* Danger Card */
-.danger-card {
-    background-color: #dc3545;
-    color: #ffffff;
-}
+        .danger-card {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
 
-/* Info Card */
-.info-card {
-    background-color: #17a2b8;
-    color: #ffffff;
-}
+        .info-card {
+            background-color: #17a2b8;
+            color: #ffffff;
+        }
 
-/* Warning Card */
-.warning-card {
-    background-color: #ffc107;
-    color: #000000;
-}
+        .warning-card {
+            background-color: #ffc107;
+            color: #000000;
+        }
 
-/* Card Title */
-.card-title {
-    color: #333; /* Adjust the color to make the title more readable */
-    margin-bottom: 10px;
-}
+        /* Otros estilos */
+        .card-title {
+            color: #333; /* Ajusta el color del título para que sea más legible */
+            margin-bottom: 10px;
+        }
 
-/* Card Text */
-.card-text {
-    color: #555; /* Adjust the color to make the text more readable */
-}
+        .card-text {
+            color: #555; /* Ajusta el color del texto para que sea más legible */
+        }
 
-/* Card Footer Text */
-.card-footer-text {
-    color: #555; /* Adjust the color to make the footer text more readable */
-}
+        .card-footer-text {
+            color: #555; /* Ajusta el color del texto del pie de página para que sea más legible */
+        }
     </style>
 </head>
-<body> <!-- Agregado el elemento <body> -->
-    
-    <div class="row">
-       <div class="col-xl-3 col-md-6">
-            <div class="card bg-primary">
-                <div class="card-body d-flex text-white">
-                    <span>Usuarios</span>
-                    <i class="fas fa-user fa-2x ml-auto"></i>
-                </div>
-                <div class="card-footer d-flex align-items-center justify-content-between" >
-                    <a href="../controlador/usuarioLista.php" class="text-white">Ver Detalles</a>
-                    <span class="text-white">
+<body class="bg-light"> <!-- Agregado el elemento <body> y clase "bg-light" para un fondo claro -->
+
+    <div class="container mt-5"> <!-- Contenedor Bootstrap y margen superior -->
+
+        <div class="row justify-content-center"> <!-- Fila centrada -->
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card primary-card">
+                    <div class="card-body d-flex text-white">
+                        <span>Usuarios</span>
+                        <i class="fas fa-user fa-2x ml-auto"></i>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a href="../controlador/usuarioLista.php" class="text-white">Ver Detalles</a>
+                        <span class="text-white">
                         <?php
                         // Incluye los archivos de conexión y la clase de usuario
                         include("../modelo/conexion.php");
@@ -149,16 +144,17 @@
     </div>    
      
     <!--SEGUNDA LINEA-->
-    <div class="row">
-            <div class="col-xl-3 col-md-6">
-            <div class="card bg-info"> <!-- Cambiar la clase "bg-primary" por "bg-info" para cambiar el color de fondo -->
-                <div class="card-body d-flex text-white">
-                    <span>Información educativa</span>
-                    <i class="fas fa-graduation-cap fa-2x ml-auto"></i> <!-- Cambiar el icono a uno relacionado con educación -->
-                </div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a href="../controlador/informacionEducativaLista.php" class="text-white">Ver Detalles</a>
-                    <span class="text-white">
+    <div class="row justify-content-center"> <!-- Segunda fila centrada -->
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card bg-info">
+                    <div class="card-body d-flex text-white">
+                        <span>Información educativa</span>
+                        <i class="fas fa-graduation-cap fa-2x ml-auto"></i>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a href="../controlador/informacionEducativaLista.php" class="text-white">Ver Detalles</a>
+                        <span class="text-white">
                         <?php
                         // Incluye los archivos de conexión y la clase de usuario
                         include("../modelo/InformacionEducativaClase.php");

@@ -152,7 +152,6 @@ CREATE TABLE `denuncia` (
 CREATE TABLE `evaluacion_riesgo` (
   `codFormulario` int(11) NOT NULL,
   `url_cuestionario` varchar(70) DEFAULT NULL,
-  `consejo` varchar(70) DEFAULT NULL,
   `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -277,6 +276,7 @@ CREATE TABLE `ley_normativa` (
 
 CREATE TABLE `llena` (
   `ci_usuario` int(11) NOT NULL,
+    `consejo` varchar(70) DEFAULT NULL,
   `codFormulario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -536,9 +536,7 @@ ALTER TABLE `ley_normativa`
 --
 -- Indices de la tabla `llena`
 --
-ALTER TABLE `llena`
-  ADD PRIMARY KEY (`ci_usuario`,`codFormulario`),
-  ADD KEY `R_40` (`codFormulario`);
+
 
 --
 -- Indices de la tabla `mensaje`

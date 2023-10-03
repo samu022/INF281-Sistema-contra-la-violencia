@@ -102,9 +102,9 @@ VALUES
   (5, 'Acoso Sexual', 'Acoso callejero', 'Pedro Martínez', 'En proceso', '18-02-2023', 5);
 
 
-INSERT INTO `evaluacion_riesgo` (`codFormulario`, `url_cuestionario`, `consejo`, `ci`) VALUES
-(1, 'https://forms.gle/ps8d58fb1i3jg6Kn9', 'Es mejor prevenir', 10002),
-(2, 'https://forms.gle/iUH5exDGVoR5huoMA', 'Es mejor ver señales', 10002);
+INSERT INTO `evaluacion_riesgo` (`codFormulario`, `url_cuestionario`, `ci`) VALUES
+(1, 'https://form.jotform.com/232692464799676', 10002),
+(2, 'https://forms.gle/iUH5exDGVoR5huoMA', 10002);
 
 
 INSERT INTO `evento` (`codEvento`, `tipo`, `fecha`, `titulo`, `descripcion`, `tipoViolencia`, `modalidad`, `horaInicio`, `horaFinal`, `detalleEvento`, `expositor`, `fechaSubida`, `rutaDirectorio`, `ci`) VALUES
@@ -139,10 +139,10 @@ INSERT INTO `ley_normativa` (`codLey`, `nombre`, `fecha_promulgacion`, `tematica
 (1, 'Ley 348', '2013-03-09', 'Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia', 'https://bolivia.unfpa.org/sites/default/files/pub-pdf/Ley_348_0_1.pdf', 10001),
 (2, 'Ley 243', '2012-07-20', 'Ley contra el Acoso y la Violencia Política hacia las Mujeres', 'https://www.ilo.org/dyn/natlex/docs/ELECTRONIC/90299/104007/F226460565/BOL90299.pdf', 10002);
 
-INSERT INTO `llena` (`ci_usuario`, `codFormulario`)
+INSERT INTO `llena` (`ci_usuario`, `codFormulario`,`consejo`)
 VALUES
-  (10007, 1),
-  (10008, 2);
+  (10007, 1,'LEVE'),
+  (10008, 2,'MODERADO');
 
 
 INSERT INTO mensaje (`codMensaje`, `fechaMensaje`, `horaMensaje`, `contenidoMensaje`, `ci_usuario`)

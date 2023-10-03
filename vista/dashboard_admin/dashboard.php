@@ -227,6 +227,7 @@
 
     </div>  
     <div class="container">
+    <h4>Reporte de tipos de denuncia</h4>
         <div class="row mb-1">
             <!-- Columna para el primer gráfico -->
             <div class="col-md-6">
@@ -243,6 +244,7 @@
             </div>
             <!-- Columna para el segundo gráfico -->
             <div class="col-md-6">
+            <h4>Reporte de edades de todos los usuarios</h4>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -256,6 +258,7 @@
         </div>
     </div>
     <div class="container">
+        <h4>Edades de las victimas</h4>
         <div class="row mb-2">
             <!-- Columna para el primer gráfico -->
             <div class="col-md-6">
@@ -276,6 +279,7 @@
             
            <!-- Gráfico por Día, Mes y Año -->
     <div class="col-md-6">
+    <h4>Reporte de tipos de denuncia desde fecha dada</h4>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

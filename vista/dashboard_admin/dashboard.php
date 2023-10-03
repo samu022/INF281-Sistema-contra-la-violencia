@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -222,27 +223,37 @@
                 </div>
             </div>
             <!-- Columna para el segundo gráfico -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <canvas id="graficoEdadesUsuarios"></canvas>
+        
+         
+            
+           <!-- Gráfico por Día, Mes y Año -->
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Gráfico por Día, Mes y Año</h5>
+                        <form id="formularioDiaMesAnio" method="POST" action="">
+                            <div class="form-group">
+                                <label for="dia">Seleccione el Día:</label>
+                                <input type="date" class="form-control" id="dia" name="dia">
                             </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary">Generar Gráfico</button>
+                        </form>
+                        <canvas id="graficoDiaViolencia"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <!--Grafico de Denuncias por Tipo -->
-     <div class="row">
-        <div class="col-md-12">
-            <!-- Agrega una clase personalizada al canvas -->
-            <canvas id="graficoDenunciasTipo" class="grafico-canvas"></canvas>
+
+
+
         </div>
     </div>
+    
 
+     
     <!-- Agrega la referencia a la biblioteca Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -291,7 +302,7 @@
     <br>
     <!--Grafico por edad de usuarios rangos-->
    <!-- Agrega el elemento canvas para el gráfico -->
-   <canvas id="graficoEdadesUsuarios"></canvas>
+  
 
 
    <?php
@@ -392,5 +403,67 @@ $edadesData = $carg->edades();
     }
 </script>
 
-</body>
-</html>
+<!-- Agrega el elemento canvas para el gráfico -->
+
+
+<!-- Script PHP para obtener datos -->
+<?php
+$carg1 = new Denuncia("", "", "", "", "", "", "");
+$fecha = "2023-01-01";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifica si se envió el formulario
+
+    // Obtiene la fecha seleccionada desde $_POST
+    $fecha = $_POST["dia"];
+    $fecha = date("Y-m-d", strtotime($fecha));
+    // Puedes hacer lo que necesites con la fecha, por ejemplo, mostrarla
+   
+}
+
+$datosDenuncias = $carg1->denunciasPorFecha($fecha);
+
+//print_r($datosDenuncias);
+?>
+
+<!-- Script JavaScript para crear el gráfico -->
+<script>
+    var datosDenuncias = <?php echo json_encode($datosDenuncias); ?>;
+
+    // Extrae las etiquetas (tipos de denuncias) y la cantidad de denuncias
+    var etiquetas = [];
+    var cantidadDenuncias = [];
+
+    for (var i = 0; i < datosDenuncias.length; i++) {
+        etiquetas.push(datosDenuncias[i].tipo);
+        cantidadDenuncias.push(datosDenuncias[i].cantidad);
+    }
+    console.log(etiquetas);
+console.log(cantidadDenuncias);
+
+    // Obtiene el elemento canvas del gráfico
+    var ctx = document.getElementById('graficoDiaViolencia').getContext('2d');
+
+    // Crea el gráfico de barras
+    var graficoDiaViolencia = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: etiquetas,
+            datasets: [{
+                label: 'Cantidad de Denuncias por Tipo',
+                data: cantidadDenuncias,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+

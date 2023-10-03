@@ -144,6 +144,7 @@ class Denuncia{
         $result = $sql->fetch_assoc(); // Obtiene el resultado como un array asociativo
         return $result['count']; // Devuelve el valor de la columna "count"
     }
+    
     public function grafico_tipo(){
         $db = new Conexion();
         $sql = $db->query("SELECT tipo, COUNT(*) AS cantidad_denuncias FROM denuncia GROUP BY tipo");
@@ -158,6 +159,67 @@ class Denuncia{
         // Devolver el array de resultados
         return $data;
     }
+    public function denunciasPorAnio($anio) {
+        $db = new Conexion();
+        $sql = $db->query("SELECT tipo, COUNT(*) AS cantidad FROM denuncia WHERE YEAR(fecha) >= $anio AND fecha <= CURDATE() GROUP BY tipo;");
+        
+        $data = array(); // Create an array to store the results
+        
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
+        
+        // Devolver el array de resultados
+        return $data;
+    }
+    
+    
+    public function denunciasPorFecha($fecha) {
+        $db = new Conexion();
+    
+        // Consulta SQL con parámetros preparados para evitar SQL injection
+        $sql = "SELECT tipo, COUNT(*) as cantidad 
+                FROM denuncia 
+                WHERE fecha BETWEEN ? AND CURDATE() group by tipo;";
+        
+        // Preparar la consulta
+        if ($stmt = $db->prepare($sql)) {
+            // Asociar los parámetros
+            $stmt->bind_param("s", $fecha);
+    
+            // Ejecutar la consulta
+            $stmt->execute();
+    
+            // Obtener resultados
+            $result = $stmt->get_result();
+    
+            // Crear un array para almacenar los resultados
+            $data = array();
+    
+            // Obtener todos los resultados en un array
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+    
+            // Cerrar la consulta
+            $stmt->close();
+    
+            // Devolver el array de resultados
+            return $data;
+        } else {
+            // Manejar error en la preparación de la consulta
+            echo "Error en la preparación de la consulta: " . $db->error;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public function modifica(){
         //include("conexion.php");
         $db = new Conexion();

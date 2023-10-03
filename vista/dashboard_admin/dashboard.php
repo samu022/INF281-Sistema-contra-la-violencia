@@ -13,6 +13,54 @@
     <!-- Custom fonts for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+       /* Primary Card */
+       
+.primary-card {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Success Card */
+.success-card {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+/* Danger Card */
+.danger-card {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* Info Card */
+.info-card {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+/* Warning Card */
+.warning-card {
+    background-color: #ffc107;
+    color: #000000;
+}
+
+/* Card Title */
+.card-title {
+    color: #333; /* Adjust the color to make the title more readable */
+    margin-bottom: 10px;
+}
+
+/* Card Text */
+.card-text {
+    color: #555; /* Adjust the color to make the text more readable */
+}
+
+/* Card Footer Text */
+.card-footer-text {
+    color: #555; /* Adjust the color to make the footer text more readable */
+}
+    </style>
 </head>
 <body> <!-- Agregado el elemento <body> -->
     

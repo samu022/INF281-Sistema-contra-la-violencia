@@ -60,7 +60,7 @@
 
         <div class="row justify-content-center"> <!-- Fila centrada -->
 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card primary-card">
                     <div class="card-body d-flex text-white">
                         <span>Usuarios</span>
@@ -87,7 +87,7 @@
             
 
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card bg-success">
                 <div class="card-body d-flex text-white">
                     <span>Eventos</span>
@@ -114,7 +114,7 @@
             
 
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card bg-danger">
                 <div class="card-body d-flex text-white">
                     <span>Denuncias</span>
@@ -146,7 +146,7 @@
     <!--SEGUNDA LINEA-->
     <div class="row justify-content-center"> <!-- Segunda fila centrada -->
 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card bg-info">
                     <div class="card-body d-flex text-white">
                         <span>Información educativa</span>
@@ -171,7 +171,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card bg-warning"> <!-- Cambia la clase "bg-success" por "bg-warning" para cambiar el color de fondo -->
                 <div class="card-body d-flex text-white">
                     <span>Leyes Normativas</span>
@@ -196,7 +196,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card bg-info"> <!-- Cambia la clase "bg-danger" por "bg-info" para cambiar el color de fondo -->
                 <div class="card-body d-flex text-white">
                     <span>Centros Locales</span>

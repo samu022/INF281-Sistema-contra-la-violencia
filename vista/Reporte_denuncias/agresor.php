@@ -56,7 +56,7 @@
         </div>
         <div class="formulario__grupo-input">
             <label for="descripcion">Descripcion:</label>
-            <textarea class="descripcion" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Describa al agresor aqui." required="required" aria-required="true"></textarea>
+            <textarea class="descripcion" name="descripcion" id="form-field-message" rows="4" placeholder="Describa al agresor aqui." required="required" aria-required="true"></textarea>
         </div>
         <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
         <input class="botons" type="submit" value="Registrar Agresor" name="registrarAgresor">

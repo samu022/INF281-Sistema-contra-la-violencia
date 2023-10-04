@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         #map-container {
-            width: 700px; /* Ancho del contenedor del mapa */
-            height: 500px; /* Alto del contenedor del mapa */
+            width: 100%; /* 100% del ancho del contenedor principal */
+            height: 500px; /* Alto fijo */
             margin: 0 auto; /* Centrar el contenedor horizontalmente */
         }
 
         #map {
             height: 100%; /* Usar el 100% del alto del contenedor */
         }
+
     </style>
 </head>
 <body>

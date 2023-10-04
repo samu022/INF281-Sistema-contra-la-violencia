@@ -107,7 +107,18 @@ include("../controlador/panelWebInformacionEducativa.php");
         .circle-card ul li {
             margin-bottom: 10px; /* Espaciado entre elementos de la lista */
         }
-
+        .circular-button {
+            width: 90px; /* Tamaño del botón circular */
+            height: 90px; /* Tamaño del botón circular */
+            border-radius: 50%; /* Hace que el botón sea circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
     </style>
 
     <!-- Agrega jQuery y la biblioteca animate.css -->
@@ -126,25 +137,41 @@ include("../controlador/panelWebInformacionEducativa.php");
     </script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <!-- Agrega un botón para Cerrar Sesión -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="../controlador/cerrar_sesion.php">Cerrar Sesión</a>
+            </li>
+        </ul>
+        <!-- Resto del código de la barra de navegación... -->
+    </div>
+</nav>
     <!-- Menu delgado -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="logos/logo.png" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="../controlador/logos/logo.png" alt="logo"></a>
             <p style="color:white;">Sistema contra la violencia</p>
             <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
-                <form action="../controlador/panelWeb.php" method="post" accept-charset="utf-8" style="display: inline;">
+                <form action="" method="post" accept-charset="utf-8" style="display: inline;">
                     <button type="submit" class="nav-link text-white" name="inicio" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">Inicio</button>
                 </form>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/contactosLista.php">Contactos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Acerca de nosotros</a>
+                    <a class="nav-link text-white" href="../controlador/aboutus.phpp">Acerca de nosotros</a>
+                </li>
+                <!-- Agregar la opción de "Contacto de Emergencia" con ícono y descripción -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../controlador/contactoEmergenciaLista.php">Contacto de Emergencia <i class="fas fa-exclamation-triangle"></i></a>
+                   
                 </li>
             </ul>
-
         </div>
     </nav>
+
 
     <!-- Línea blanca sin margen -->
     <hr class="bg-white" style="margin: 0;">
@@ -157,12 +184,11 @@ include("../controlador/panelWebInformacionEducativa.php");
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Sistema contra violencia</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link text-white" href="../controlador/denunciaRegistro.php">Registrar denuncia</a>
                     </li>
+
                     <li class="nav-item">
                         <form action="panelWebEventos.php" method="post" accept-charset="utf-8" style="display: inline;">
                             <button type="submit" class="btn btn-link nav-link text-white" name="eventos">Eventos</button>
@@ -184,11 +210,9 @@ include("../controlador/panelWebInformacionEducativa.php");
                         </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="login.php">Login</a>
+                        <a class="nav-link text-white" href="../controlador/formulario.php">Formulario Evaluación Riesgos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="usuarioRegistro.php">Registro</a>
-                    </li>
+                    
                 </ul>
             </div>
 

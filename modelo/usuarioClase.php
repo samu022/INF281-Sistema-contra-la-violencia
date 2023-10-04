@@ -34,14 +34,14 @@ class Usuario
         $this->nombre_usuario = $nombre_usuario;
     }
 
-        public function setContrasenia($contrasenia)
+        public function setContraseniaApp($contraseniaApp)
     {
-        $this->contrasenia =  $contrasenia;
+        $this->contraseniaApp =  $contraseniaApp;
     }
 
-    public function setContraseniaApp($contrasenia_app)
+    public function setContrasenia($contrasenia)
     {
-        $this->contrasenia_app = hash('sha256', $contrasenia_app);
+        $this->contrasenia = hash('sha256', $contrasenia);
     }
     public function setCorreo($correo)
     {

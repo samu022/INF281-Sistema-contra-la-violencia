@@ -33,9 +33,11 @@ class Administrador
     }
 
     public function setContrasenia($contrasenia)
-    {
-        $this->contrasenia = md5($contrasenia);
-    }
+{
+    $this->contrasenia = hash('sha256', $contrasenia);
+}
+
+
 
     public function setCorreo($correo)
     {

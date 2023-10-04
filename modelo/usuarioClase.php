@@ -34,15 +34,15 @@ class Usuario
         $this->nombre_usuario = $nombre_usuario;
     }
 
-    public function setContrasenia($contrasenia)
+        public function setContrasenia($contrasenia)
     {
-        $this->contrasenia = md5($contrasenia);
-    }
-    public function setContraseniaApp($contrasenia_app)
-    {
-        $this->contrasenia_app = ($contrasenia_app);
+        $this->contrasenia = hash('sha256', $contrasenia);
     }
 
+    public function setContraseniaApp($contrasenia_app)
+    {
+        $this->contrasenia_app = hash('sha256', $contrasenia_app);
+    }
     public function setCorreo($correo)
     {
         $this->correo = $correo;
@@ -73,7 +73,7 @@ class Usuario
         
         $sql = $db->prepare("INSERT INTO usuario VALUES (?, ?, ?, ?,?)"); 
         
-        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia, $this->correo, $this->contrasenia_app);
+        $sql->bind_param("sssss", $this->ci, $this->nombre_usuario, $this->contrasenia,  $this->contrasenia_app, $this->correo);
 
         $result = $sql->execute();
 

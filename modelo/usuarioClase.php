@@ -29,14 +29,14 @@ class Usuario
         $this->ci = $ci;
     }  
 
-    public function setNombreUsuario($nombre_usuario)
+    public function setNombreUsuario($nombre_usuario) 
     {
         $this->nombre_usuario = $nombre_usuario;
     }
 
         public function setContrasenia($contrasenia)
     {
-        $this->contrasenia = hash('sha256', $contrasenia);
+        $this->contrasenia =  $contrasenia;
     }
 
     public function setContraseniaApp($contrasenia_app)

@@ -114,6 +114,28 @@ class Ley_Normativa{
         $result = $stmt->get_result();
         return $result;
     }
+
+    public function buscarPorPalabraClave($palabraClave) {
+        $db = new Conexion();
+        
+        // Consulta SQL con una consulta preparada para evitar la inyección SQL
+        $stmt = $db->prepare("SELECT * FROM ley_normativa WHERE tematica LIKE ?");
+        
+        // Usamos % antes y después del valor para buscar coincidencias parciales
+        $param = "%" . $palabraClave . "%";
+        
+        // Vinculamos el parámetro múltiples veces según la cantidad de columnas en la consulta
+        $stmt->bind_param("s", $param);
+        
+        // Ejecutamos la consulta
+        $stmt->execute();
+        
+        // Obtenemos el resultado
+        $result = $stmt->get_result();
+        
+        return $result;
+    }
+
     public function cuenta(){
         $db = new Conexion();
         $sql = $db->query("SELECT COUNT(*) as count FROM ley_normativa"); // Usa "as count" para dar un alias al resultado
@@ -121,6 +143,7 @@ class Ley_Normativa{
         return $result['count']; // Devuelve el valor de la columna "count"
     }
     
+
 
 }
 ?>

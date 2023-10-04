@@ -320,7 +320,9 @@
 
         </div>
     </div>
-     
+    <div class="container text-center mt-4">
+    <a href="https://www.jotform.com/report/23276367732506004" class="btn btn-primary" target="_blank">Reporte de Formulario Evaluación de Riesgos</a>
+</div>
     <!-- Agrega la referencia a la biblioteca Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

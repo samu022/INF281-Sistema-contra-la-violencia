@@ -122,6 +122,28 @@ class CentroLocal {
             return false; // Fallo al actualizar
         }
     }
+
+    public function buscarPorPalabraClave($palabraClave) {
+        $db = new Conexion();
+        
+        // Consulta SQL con una consulta preparada para evitar la inyección SQL
+        $stmt = $db->prepare("SELECT * FROM centro_local WHERE nombre LIKE ? OR telefono LIKE ? OR ubicacion LIKE ?");
+        
+        // Usamos % antes y después del valor para buscar coincidencias parciales
+        $param = "%" . $palabraClave . "%";
+        
+        // Vinculamos el parámetro múltiples veces según la cantidad de columnas en la consulta
+        $stmt->bind_param("sss", $param, $param, $param);
+        
+        // Ejecutamos la consulta
+        $stmt->execute();
+        
+        // Obtenemos el resultado
+        $result = $stmt->get_result();
+        
+        return $result;
+    }
+
     public function cuenta(){
         $db = new Conexion();
         $sql = $db->query("SELECT COUNT(*) as count FROM centro_local"); // Usa "as count" para dar un alias al resultado

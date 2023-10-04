@@ -202,6 +202,15 @@ include("../controlador/panelWebCentrosLocales.php");
     <!-- Centros Locales -->
     <div class="container mt-4" id="centroLocal">
         <h1 class="text-center">Centros Locales</h1>
+        <form method="post" action="" class="d-flex align-items-center">
+            <div class="form-group">
+                <input type="text" class="form-control" name="palabraClave" placeholder="Buscar por palabra clave">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <form action="" method="POST" class="d-flex align-items-center">
+            <button type="submit" class="btn btn-primary" name="todos">todos</button>
+        </form>
         <div class="row">
             <?php
             $cont = 0;

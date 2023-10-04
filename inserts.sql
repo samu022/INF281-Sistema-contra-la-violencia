@@ -16,8 +16,8 @@ INSERT INTO `persona` (`ci`, `nombre`, `apePaterno`, `apeMaterno`, `fechaNaci`, 
 
 
 INSERT INTO `administrador` (`ci`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
-(10001, 'pedro', '482c811da5d5b4bc6d497ffa98491e38', 'pedro@gmail.com'),
-(10002, 'maria', '482c811da5d5b4bc6d497ffa98491e38', 'maria@gmail.com');
+(10001, 'pedro', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'pedro@gmail.com'),
+(10002, 'maria', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'maria@gmail.com');
 
 INSERT INTO `rol` (`idRol`, `nombreRol`) VALUES
 (1, 'denuncia'),
@@ -59,8 +59,8 @@ INSERT INTO `tiene_rol` (`ci`, `idRol`) VALUES
 (10001, '11');
 
 INSERT INTO `usuario` (`ci_usuario`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
-(10007, 'isabel', '482c811da5d5b4bc6d497ffa98491e38', 'isabel@gmail.com'),
-(10008, 'carolina', '482c811da5d5b4bc6d497ffa98491e38', 'carolina@gmail.com');
+(10007, 'isabel', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'isabel@gmail.com'),
+(10008, 'carolina', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'carolina@gmail.com');
 
 INSERT INTO `geolocalizacion` (`codGeo`, `latitud`, `longitud`) VALUES
 (1, '-16.5000', '-68.1500'),
@@ -95,11 +95,11 @@ INSERT INTO `contacto_emergencia` (`ci_contacto`, `telefono`) VALUES
 
 INSERT INTO `denuncia` (`codDenuncia`, `tipo`, `descripcion`, `testigo`, `seguimiento`, `fecha`, `codGeo`)
 VALUES
-  (1, 'Violencia Doméstica', 'Agresión física', 'Ana Pérez', 'En proceso', '07-10-2023', 1),
-  (2, 'Acoso Sexual', 'Acoso en el trabajo', 'Luisa Rodríguez', 'En investigación', '06-12-2023', 2),
-  (3, 'Violencia de Género', 'Amenazas verbales', 'María García', 'Cerrada', '06-01-2023', 3),
-  (4, 'Violencia Doméstica', 'Violencia psicológica', 'Carlos López', 'En proceso', '12-01-2023', 4),
-  (5, 'Acoso Sexual', 'Acoso callejero', 'Pedro Martínez', 'En proceso', '18-02-2023', 5);
+  (1, 'Violencia Doméstica', 'Agresión física', 'Ana Pérez', 'En proceso', '2023-10-07', 1),
+  (2, 'Acoso Sexual', 'Acoso en el trabajo', 'Luisa Rodríguez', 'En investigación', '2023-06-12', 2),
+  (3, 'Violencia de Género', 'Amenazas verbales', 'María García', 'Cerrada', '2022-05-04', 3),
+  (4, 'Violencia Doméstica', 'Violencia psicológica', 'Carlos López', 'En proceso', '2022-04-02', 4),
+  (5, 'Acoso Sexual', 'Acoso callejero', 'Pedro Martínez', 'En proceso', '2023-05-08', 5);
 
 
 INSERT INTO `evaluacion_riesgo` (`codFormulario`, `url_cuestionario`, `ci`) VALUES

@@ -219,6 +219,41 @@ class Evento{
         $result = $stmt->get_result();
         return $result;
     }
+    public function filtrarFechaPublicacion($fecha){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM evento WHERE fechaSubida LIKE ?");
+        $param = "%$fecha%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+    
+
+    public function buscarPorPalabraClave($palabraClave) {
+        $db = new Conexion();
+        
+        // Consulta SQL con una consulta preparada para evitar la inyección SQL
+        $stmt = $db->prepare("SELECT * FROM evento WHERE titulo LIKE ? OR descripcion LIKE ? OR expositor LIKE ? OR horaInicio LIKE ? OR horaFinal LIKE ? OR modalidad LIKE ? OR tipoViolencia LIKE ?");
+        
+        // Usamos % antes y después del valor para buscar coincidencias parciales
+        $param = "%" . $palabraClave . "%";
+        
+        // Vinculamos el parámetro múltiples veces según la cantidad de columnas en la consulta
+        $stmt->bind_param("sssssss", $param, $param, $param, $param, $param, $param, $param);
+        
+        // Ejecutamos la consulta
+        $stmt->execute();
+        
+        // Obtenemos el resultado
+        $result = $stmt->get_result();
+        
+        return $result;
+    }
+    
+    
+    
+
     public function cuenta(){
         $db = new Conexion();
         $sql = $db->query("SELECT COUNT(*) as count FROM evento"); // Usa "as count" para dar un alias al resultado

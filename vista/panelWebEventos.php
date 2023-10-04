@@ -203,6 +203,7 @@ include("../controlador/panelWebEventos.php");
     <!-- Eventos -->
     <div class="container mt-4" id="eventos">
         <h1>Eventos</h1>
+    
         <form action="" method="POST">
             <div class="mb-3 d-inline">
                 <label for="tipoViolencia" class="form-label">Seleccione el tipo de violencia:</label>
@@ -230,6 +231,22 @@ include("../controlador/panelWebEventos.php");
             </div>
             <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
         </form>
+
+        <form action="" method="POST" class="d-flex align-items-center">
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Ingresa la fecha de publicacion (YYYY-MM-DD):</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+            </div>
+            <button type="submit" class="btn btn-primary" name="filtrarFechaPublicacion">Buscar</button>
+        </form>
+
+        <form method="post" action="" class="d-flex align-items-center">
+            <div class="form-group">
+                <input type="text" class="form-control" name="palabraClave" placeholder="Buscar por palabra clave">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
         <form action="" method="POST" class="d-flex align-items-center">
             <button type="submit" class="btn btn-primary" name="todos">todos</button>
         </form>
@@ -271,6 +288,7 @@ include("../controlador/panelWebEventos.php");
                             <p class="card-text"><strong>Hora Final:</strong> <?php echo $reg['horaFinal']; ?></p>
                             <p class="card-text"><strong>Modalidad:</strong> <?php echo $reg['modalidad']; ?></p>
                             <p class="card-text"><strong>Expositor:</strong> <?php echo $reg['expositor']; ?></p>
+                            <p class="card-text"><strong>Fecha del evento:</strong> <?php echo $reg['fecha']; ?></p>
                             <p class="card-text"><strong>Fecha de Publicacion:</strong> <?php echo $reg['fechaSubida']; ?></p>
                             <a href="../archivosEventos/<?php echo $rutaDirectorio; ?>" class="btn btn-primary" download>Descargar</a>
                         </div>

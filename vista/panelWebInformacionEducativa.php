@@ -254,6 +254,12 @@ include("../controlador/panelWebInformacionEducativa.php");
         </div>
         <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
     </form>
+    <form method="post" action="" class="d-flex align-items-center">
+        <div class="form-group">
+            <input type="text" class="form-control" name="palabraClave" placeholder="Buscar por palabra clave">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
     <form action="" method="POST" class="d-flex align-items-center">
         <button type="submit" class="btn btn-primary" name="todos">todos</button>
     </form>

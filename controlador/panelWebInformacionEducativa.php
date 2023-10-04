@@ -27,6 +27,10 @@ else if(isset($_POST['filtrarFecha'])){
     //echo $fecha;
     $res2=$informacion->filtrarFecha($fecha);
 }
+else if (isset($_POST["palabraClave"])) {
+    $palabraClave = $_POST["palabraClave"];
+    $res2 = $informacion->buscarPorPalabraClave($palabraClave);
+}
 else{
     $res2 = $informacion->lista();
 }

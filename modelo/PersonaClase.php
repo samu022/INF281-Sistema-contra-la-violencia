@@ -141,7 +141,7 @@ class Persona{
             if ($result) {
                 return true; // Éxito
             } else {
-                echo "Error al registrar la denuncia: " . $stmt->error;
+                //echo "Error al registrar la denuncia: " . $stmt->error;
                 return false; // Fallo al insertar
             }
 

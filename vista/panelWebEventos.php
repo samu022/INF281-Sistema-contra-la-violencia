@@ -155,7 +155,7 @@ include("../controlador/panelWebEventos.php");
             <a class="navbar-brand" href="#"><img src="../controlador/logos/logo.png" alt="logo"></a>
             <p style="color:white;">Sistema contra la violencia</p>
             <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
-                <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                <form action="../controlador/panelweb.php" method="post" accept-charset="utf-8" style="display: inline;">
                     <button type="submit" class="nav-link text-white" name="inicio" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">Inicio</button>
                 </form>
                 <li class="nav-item">

@@ -210,7 +210,30 @@ include("../controlador/panelWebCentrosLocales.php");
                 ?>
                 <div class="col-md-4 animate__animated animate__fadeInUp">
                     <div class="custom-card">
+                    <?php
+                        $rutaDirectorio = $reg['archivo'];
+                        $extension = pathinfo($rutaDirectorio, PATHINFO_EXTENSION);
+
+                        if (in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif'])) {
+                            // Si es una imagen, muestra la imagen
+                            echo "<img src='../archivosCentrosLocales/$rutaDirectorio' class='card-img-top' alt=''>";
+                        } elseif (strtolower($extension) == 'pdf') {
+                            // Si es un PDF, muestra el PDF en un iframe
+                            echo "<iframe src='../archivosCentrosLocales/$rutaDirectorio' class='card-img-top' width='300' height='200'></iframe>";
+                            echo "<a href='../archivosCentrosLocales/$rutaDirectorio' target='_blank'>Ver PDF</a>";
+                        } elseif (in_array(strtolower($extension), ['mp4', 'avi', 'mkv'])) {
+                            // Si es un video, muestra el video en un elemento de video
+                            echo "<video class='card-img-top' width='300' height='200' controls>";
+                            echo "<source src='../archivosCentrosLocales/$rutaDirectorio' type='video/$extension'>";
+                            echo "Tu navegador no admite la reproducción de video.";
+                            echo "</video>";
+                        }
+                        ?>
                         <div class="card-body">
+
+                            
+
+
                             <h5 class="card-title"><?php echo $reg['nombre']; ?></h5>
                             <ul class="list-unstyled">
                                 <li><strong>Código Centro:</strong> <?php echo $reg['codCentro']; ?></li>

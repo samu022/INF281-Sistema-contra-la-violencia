@@ -87,10 +87,11 @@ CREATE TABLE `alerta` (
 
 CREATE TABLE `centro_local` (
   `codCentro` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
+  `nombre` varchar(120) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL,
   `archivo` varchar(100) DEFAULT NULL,
+  `pagina` varchar(200) DEFAULT NULL,
   `ci` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

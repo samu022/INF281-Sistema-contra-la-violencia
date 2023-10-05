@@ -5,14 +5,16 @@ class CentroLocal {
     private $telefono;
     private $ubicacion;
     private $archivo;
+    private $pagina;
     private $ci;
     
-    public function __construct($codCentro, $nombre, $telefono, $ubicacion, $archivo,$ci) {
+    public function __construct($codCentro, $nombre, $telefono, $ubicacion, $archivo,$pagina,$ci) {
         $this->setCodCentro($codCentro);
         $this->setNombre($nombre);
         $this->setTelefono($telefono);
         $this->setUbicacion($ubicacion);
         $this->setArchivo($archivo);
+        $this->setPagina($pagina);
         $this->setCi($ci);
     }
     
@@ -47,6 +49,14 @@ class CentroLocal {
     public function getUbicacion() {
         return $this->ubicacion;
     }
+
+    public function setPagina($pagina) {
+        $this->pagina = $pagina;
+    }
+    
+    public function getPagina() {
+        return $this->pagina;
+    }
     
     public function setCi($ci) {
         $this->ci = $ci;
@@ -79,10 +89,10 @@ class CentroLocal {
         $db = new Conexion();
     
         // Utilizar sentencias preparadas para evitar inyección SQL
-        $stmt = $db->prepare("INSERT INTO centro_local (nombre, telefono, ubicacion, archivo, ci) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO centro_local (nombre, telefono, ubicacion, archivo, pagina, ci) VALUES (?, ?, ?, ?, ?, ?)");
     
         // Vincular los parámetros
-        $stmt->bind_param("ssssi", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->ci);
+        $stmt->bind_param("sssssi", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->pagina, $this->ci);
     
         // Ejecutar la sentencia
         $result = $stmt->execute();
@@ -107,10 +117,10 @@ class CentroLocal {
         $db = new Conexion();
         
         // Sentencia SQL para actualizar el centro local
-        $sql = $db->prepare("UPDATE centro_local SET nombre = ?, telefono = ?, ubicacion = ? , archivo = ?, ci = ? WHERE codCentro = ?"); 
+        $sql = $db->prepare("UPDATE centro_local SET nombre = ?, telefono = ?, ubicacion = ? , archivo = ?, pagina = ?, ci = ? WHERE codCentro = ?"); 
     
         // Vincular los parámetros
-        $sql->bind_param("ssssss", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->ci, $this->codCentro);
+        $sql->bind_param("sssssss", $this->nombre, $this->telefono, $this->ubicacion, $this->archivo, $this->pagina, $this->ci, $this->codCentro);
         
         // Ejecutar la sentencia
         $result = $sql->execute();

@@ -45,6 +45,10 @@
                 <label for="archivo" class="form-label">Cargar Archivo:</label>
                 <input type="file" class="form-control" name="archivo" id="archivo">
             </div>
+            <div class="mb-3">
+                <label for="pagina" class="form-label">Ingrese la pagina del centro:</label>
+                <input type="text" class="form-control" name="pagina" id="pagina" value="<?php echo $pagina; ?>">
+            </div>
             <button type="submit" class="btn btn-primary" name="ModificarCentro">Modificar Centro</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/centroLocalLista.php'">Volver</button>
         </form>

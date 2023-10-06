@@ -79,7 +79,12 @@
         <div class="row">
             <button type="submit" class="btn btn-success mb-2">Reporte de eventos</button>
         </div>
-    </form>    
+    </form>
+    <form action="../vista/eventos/calendario.php" method="post" accept-charset="utf-8">
+        <div class="row">
+            <button type="submit" class="btn btn-info mb-2">Ver calendario</button>
+        </div>
+    </form>  
 </div>
     </div>
 </body>

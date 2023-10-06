@@ -315,6 +315,19 @@ include("../controlador/panelWebEventos.php");
                             <p class="card-text"><strong>Expositor:</strong> <?php echo $reg['expositor']; ?></p>
                             <p class="card-text"><strong>Fecha del evento:</strong> <?php echo $reg['fecha']; ?></p>
                             <p class="card-text"><strong>Fecha de Publicacion:</strong> <?php echo $reg['fechaSubida']; ?></p>
+                            <?php
+                            if($reg['modalidad'] == "Presencial"){
+                            ?>
+                                <p class="card-text"><strong>Lugar del evento:</strong> <?php echo $reg['detalleEvento']; ?></p>
+                            <?php
+                            } else {
+                            ?>
+                                <a href="<?php echo $reg['detalleEvento']; ?>" class="btn btn-success btn-block" target="_blank">Link del evento</a>
+                            <?php
+                            }
+                            ?>
+
+
                             <a href="../archivosEventos/<?php echo $rutaDirectorio; ?>" class="btn btn-primary" download>Descargar</a>
                         </div>
                     </div>

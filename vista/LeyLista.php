@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
     <h2>Lista de Leyes contra la violencia</h2>
     <table  class="table table-dark table-sm">
         

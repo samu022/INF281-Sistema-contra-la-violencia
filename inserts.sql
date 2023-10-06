@@ -82,7 +82,7 @@ VALUES
   (4, 'Inactiva', '14-08-2023', 10007, 4),
   (5, 'Activa', '11-10-2023', 10008, 5);
 
-INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `archivo`, `pagina`, `ci`) VALUES
+INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `archivo`, `https://camvicentinos.org/`, `ci`) VALUES
 (1, 'Centro de Apoyo a la Mujer', '123-4567', 'Calle 1, Zona Norte, La Paz', 'imagen1.jpg', 'pagina1',10002),
 (2, 'Centro de Prevención de la Violencia', '234-5678', 'Avenida 2, Zona Sur, La Paz','imagen2.jpg', 'pagina1',10001),
 (3, 'Centro de Ayuda a Víctimas de Violencia', '345-6789', 'Calle 3, Zona Centro, La Paz','imagen3.jpg' , 'pagina1',10002),

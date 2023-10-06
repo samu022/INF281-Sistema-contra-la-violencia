@@ -181,9 +181,17 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<h3 style="color: white;">Bienvenido <?php 
+                $ci=$_SESSION['ci'];
+                
+                include("../modelo/PersonaClase.php");
+                $carg=new Persona($ci,"","","","","","","","","");
+                echo $carg->obtenerNombreCompleto();
+                ?></h3>
     <div class="container">
         <!-- Agrega un botón para Cerrar Sesión -->
         <ul class="navbar-nav ml-auto">
+        
             <li class="nav-item">
                 <a class="nav-link text-white" href="../controlador/cerrar_sesion.php">Cerrar Sesión</a>
             </li>

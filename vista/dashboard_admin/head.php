@@ -20,6 +20,9 @@
     <style>
 /* styles.css */
 .sidebar {
+    z-index: 1000; /* Valor alto para el menú desplegable */
+}
+.sidebar {
     width: 250px;
     height: 100%;
     background-color: #333;

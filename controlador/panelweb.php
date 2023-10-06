@@ -1,4 +1,6 @@
 <?php
+include("../modelo/conexion.php");
+session_start();
 if (isset($_POST['eventos'])) {
     $_SESSION['formulario_enviado'] = 'eventos';
     header("Location: ../vista/panelWebEventos.php"); 

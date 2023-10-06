@@ -1,5 +1,6 @@
 <?php
 include("../controlador/panelWebInformacionEducativa.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -138,6 +139,14 @@ include("../controlador/panelWebInformacionEducativa.php");
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<h3 style="color: white;">Bienvenido <?php 
+
+                $ci=$_SESSION['ci'];
+                
+                include("../modelo/PersonaClase.php");
+                $carg=new Persona($ci,"","","","","","","","","");
+                echo $carg->obtenerNombreCompleto();
+                ?></h3>
     <div class="container">
         <!-- Agrega un botón para Cerrar Sesión -->
         <ul class="navbar-nav ml-auto">

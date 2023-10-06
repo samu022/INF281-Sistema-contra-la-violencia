@@ -71,7 +71,7 @@
                         <span class="text-white">
                         <?php
                         // Incluye los archivos de conexión y la clase de usuario
-                        include("../modelo/conexion.php");
+                        //include("../modelo/conexion.php");
                         include("../modelo/usuarioClase.php");
 
                         // Crea una instancia de la clase Usuario

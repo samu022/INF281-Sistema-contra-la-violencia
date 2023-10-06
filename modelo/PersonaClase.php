@@ -154,7 +154,25 @@ class Persona{
     }
     
     
+    public function obtenerNombreCompleto(){
+        $db = new Conexion();
+        $sql = $db->query("SELECT nombre, apePaterno, apeMaterno FROM persona WHERE ci='$this->ci'");
         
+        if ($sql && $sql->num_rows > 0) {
+            $row = $sql->fetch_assoc();
+            $nombre = $row['nombre'];
+            $apePaterno = $row['apePaterno'];
+            $apeMaterno = $row['apeMaterno'];
+            
+            // Construir el nombre completo capitalizando la primera letra de cada palabra
+            $nombreCompleto = ucwords($nombre . ' ' . $apePaterno . ' ' . $apeMaterno);
+            
+            return $nombreCompleto;
+        } else {
+            return ''; // Devolver una cadena vacía o manejar el caso en el que no se encuentra la persona.
+        }
+    }
+    
     public function elimina(){
         //include("conexion.php");
         $db=new Conexion();

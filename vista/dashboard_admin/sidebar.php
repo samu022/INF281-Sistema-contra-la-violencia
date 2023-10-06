@@ -13,7 +13,15 @@
                         <i class="fas fa-laugh-wink"></i>
                     </div>
                     <div class="sidebar-brand-text mx-3">Violencia De Genero</div>
+                    
                 </a>
+                <div class="sidebar-brand-text mx-3">Bienvenido <?php 
+                $ci=$_SESSION['ci'];
+                
+                include_once("../modelo/PersonaClase.php");
+                $carg=new Persona($ci,"","","","","","","","","");
+                echo $carg->obtenerNombreCompleto();
+                ?></div>
             </li>
 
             <!-- Nav Item - Dashboard -->
@@ -29,7 +37,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Interface
+            Opciones
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->

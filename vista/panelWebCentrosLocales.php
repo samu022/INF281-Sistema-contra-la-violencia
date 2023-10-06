@@ -1,5 +1,6 @@
 <?php
 include("../controlador/panelWebCentrosLocales.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -138,6 +139,15 @@ include("../controlador/panelWebCentrosLocales.php");
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<h3 style="color: white;">Bienvenido <?php 
+
+                
+$ci=$_SESSION['ci'];
+
+include("../modelo/PersonaClase.php");
+$carg=new Persona($ci,"","","","","","","","","");
+echo $carg->obtenerNombreCompleto();
+?></h3>
     <div class="container">
         <!-- Agrega un botón para Cerrar Sesión -->
         <ul class="navbar-nav ml-auto">
@@ -150,7 +160,9 @@ include("../controlador/panelWebCentrosLocales.php");
 </nav>
     <!-- Menu delgado -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    
         <div class="container">
+            
             <a class="navbar-brand" href="#"><img src="../controlador/logos/logo.png" alt="logo"></a>
             <p style="color:white;">Sistema contra la violencia</p>
             <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
@@ -178,6 +190,7 @@ include("../controlador/panelWebCentrosLocales.php");
 
     <!-- Barra de navegación grande -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

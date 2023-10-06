@@ -34,15 +34,25 @@ class Usuario
         $this->nombre_usuario = $nombre_usuario;
     }
 
-        public function setContraseniaApp($contraseniaApp)
+    public function setContraseniaApp($contraseniaApp)
     {
-        $this->contraseniaApp =  $contraseniaApp;
+        $this->contrasenia_app =  $contraseniaApp;
+    }
+    public function getContraseniaApp()
+    {
+        return $this->contrasenia_app;
     }
 
     public function setContrasenia($contrasenia)
     {
         $this->contrasenia = hash('sha256', $contrasenia);
     }
+
+    public function setContrasenia_prev_hashed($password_hashed)
+    {
+        $this->contrasenia = $password_hashed;
+    }
+
     public function setCorreo($correo)
     {
         $this->correo = $correo;
@@ -94,8 +104,10 @@ class Usuario
     public function modifica()
     {
         $db = new Conexion();
-        $sql = $db->prepare("UPDATE usuario SET nombre_usuario = ?, contrasenia = ?, correo = ?WHERE ci_usuario = ?");
-        $sql->bind_param("ssssi", $this->nombre_usuario, $this->contrasenia, $this->correo, $this->ci);
+        $sql = $db->prepare("UPDATE usuario SET nombre_usuario = ?, contrasenia = ?, correo = ?, contrasena_app = ? WHERE ci_usuario = ?");
+        //echo "xd";
+        //echo $this->getContraseniaApp();
+        $sql->bind_param("ssssi", $this->nombre_usuario, $this->contrasenia, $this->correo, $this->contrasenia_app, $this->ci);
         $result = $sql->execute();
 
         if($result)

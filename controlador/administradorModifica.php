@@ -36,7 +36,7 @@
     if (isset($_POST['ModificarAdministrador'])) {
 
         $nombre_usuario = $_POST['nombre_usuario'];
-        $contrasenia = $_POST['contrasenia'];
+        $nueva_contrasenia = $_POST['contrasenia'];
         $correo = $_POST['correo'];
 
 
@@ -53,7 +53,15 @@
 
         
         $car->setNombreUsuario($nombre_usuario);
-        $car->setContrasenia($contrasenia);
+
+        if($nueva_contrasenia != ""){
+            $car->setContrasenia($nueva_contrasenia);
+        }
+        else
+        {
+            $car->setContrasenia_prev_hashed($contrasenia);
+        }
+        
         $car->setCorreo($correo);
         $res = $car->modifica();
 

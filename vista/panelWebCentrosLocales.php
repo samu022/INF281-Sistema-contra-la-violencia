@@ -273,6 +273,7 @@ include("../controlador/panelWebCentrosLocales.php");
                                 <li><strong>Código Centro:</strong> <?php echo $reg['codCentro']; ?></li>
                                 <li><strong>Teléfono:</strong> <?php echo $reg['telefono']; ?></li>
                                 <li><strong>Ubicación:</strong> <?php echo $reg['ubicacion']; ?></li>
+                                <a href="<?php echo $reg['pagina']; ?>" class="btn btn-primary btn-block" target="_blank">Ver pagina</a>
                             </ul>
                         </div>
                     </div>

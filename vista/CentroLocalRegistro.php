@@ -25,6 +25,10 @@
                 <input type="text" class="form-control" name="ubicacion" id="ubicacion" placeholder="Avenida 2,Zona Sur La Paz">
             </div>
             <div class="mb-3">
+                <label for="pagina" class="form-label">Ingrese la pagina del centro:</label>
+                <input type="text" class="form-control" name="pagina" id="pagina" placeholder="https://centro_local">
+            </div>
+            <div class="mb-3">
                 <label for="archivo" class="form-label">Cargar Archivo:</label>
                 <input type="file" class="form-control" name="archivo" id="archivo" required>
             </div>

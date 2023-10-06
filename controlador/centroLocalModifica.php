@@ -5,18 +5,21 @@ include("control_cookies.php");
 $cod = $_GET['cod'];
 include("../modelo/CentroLocalClase.php");
 //include("../modelo/conexion.php");
-$car = new CentroLocal($cod, "", "", "", "","");
+$car = new CentroLocal($cod, "", "", "", "","","");
 $res = $car->listaEspecifica();
 $reg = $res->fetch_assoc();
 $nombre = $reg['nombre'];
 $telefono = $reg['telefono'];
 $ubicacion = $reg['ubicacion'];
 $rutaDirectorio = $reg['archivo'];
+$pagina = $reg['pagina'];
 
 $nombreActual = $nombre;
 $telefonoActual = $telefono;
 $ubicacioActual = $ubicacion;
 $rutaDirectorioActual = $rutaDirectorio;
+$paginaActual = $pagina;
+
 $ci = 10001;
 include("../vista/CentroLocalModifica.php");
 
@@ -24,6 +27,7 @@ if (isset($_POST['ModificarCentro'])) {
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
     $ubicacion = $_POST['ubicacion'];
+    $pagina = $_POST['pagina'];
     // $carg=new Ley_Normativa($cod,$nom,$fecha_prom,$tem,$inf);// Verifica si se seleccionó un nuevo archivo
     if ($_FILES['archivo']['error'] === 0) {
         // Obtén la información del nuevo archivo
@@ -51,6 +55,7 @@ if (isset($_POST['ModificarCentro'])) {
     $car->setNombre($nombre);
     $car->setTelefono($telefono);
     $car->setUbicacion($ubicacion);
+    $car->setPagina($pagina);
     $car->setCi($ci);
     $res = $car->modificar();
     if ($res) {

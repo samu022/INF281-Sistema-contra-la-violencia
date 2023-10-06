@@ -72,6 +72,7 @@
                 <td>Telefono</td>
                 <td>Ubicacion</td>
                 <td>Foto</td>
+                <td>pagina</td>
             </tr>
             <?php
                 $cont=0;
@@ -105,7 +106,7 @@
                     }
 
                     echo "</td>";
-
+                    echo "<td>".$reg['pagina']."</td>";
                     echo "<td>";
 
                     echo "<td><a href='../controlador/centroLocalElimina.php?cod=".$reg['codCentro']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";

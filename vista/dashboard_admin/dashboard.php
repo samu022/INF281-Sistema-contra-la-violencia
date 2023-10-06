@@ -210,7 +210,7 @@
                         include("../modelo/CentroLocalClase.php");
 
                         // Crea una instancia de la clase CentroLocal
-                        $cargU = new CentroLocal("","","","","","");
+                        $cargU = new CentroLocal("","","","","","","");
 
                         // Obtiene el número de registros de Centros Locales de Ayuda
                         $resp = $cargU->cuenta();

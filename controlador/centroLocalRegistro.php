@@ -10,6 +10,7 @@
         $nombre=$_POST['nombre'];
         $telefono=$_POST['telefono'];
         $ubicacion=$_POST['ubicacion'];
+        $pagina=$_POST['pagina'];
 
         // Obtener la información del archivo cargado
         $archivoNombre = $_FILES['archivo']['name'];
@@ -32,7 +33,7 @@
 
             $ci = 10001;//esto cambiara cuando ya se introdusca el login y capturemos el ci del admin
             include("../modelo/CentroLocalClase.php");
-            $carg=new CentroLocal("",$nombre,$telefono,$ubicacion,$rutaArchivoDestino,$ci);
+            $carg=new CentroLocal("",$nombre,$telefono,$ubicacion,$rutaArchivoDestino,$pagina,$ci);
             $res=$carg->insertar();
             if($res){
                 echo "<script>

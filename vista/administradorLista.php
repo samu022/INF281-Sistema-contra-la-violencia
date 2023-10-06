@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
     <h2>Lista Administradores</h2>
     <table  class="table table-dark table-sm">
         

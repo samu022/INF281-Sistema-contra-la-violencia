@@ -159,27 +159,32 @@ session_start();
 </nav>
     <!-- Menu delgado -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="../controlador/logos/logo.png" alt="logo"></a>
-            <p style="color:white;">Sistema contra la violencia</p>
-            <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
-                <form action="../controlador/panelweb.php" method="post" accept-charset="utf-8" style="display: inline;">
-                    <button type="submit" class="nav-link text-white" name="inicio" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">Inicio</button>
-                </form>
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="../controlador/logos/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <form action="../controlador/panelweb.php" method="post" accept-charset="utf-8" class="nav-item">
+                <button type="submit" class="btn btn-link nav-link text-white" name="inicio">
+                    Inicio
+                </button>
+            </form>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/contactosLista.php">Contactos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../controlador/aboutus.phpp">Acerca de nosotros</a>
+                    <a class="nav-link text-white" href="../controlador/aboutus.php">Acerca de nosotros</a>
                 </li>
                 <!-- Agregar la opción de "Contacto de Emergencia" con ícono y descripción -->
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/contactoEmergenciaLista.php">Contacto de Emergencia <i class="fas fa-exclamation-triangle"></i></a>
-                   
                 </li>
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
     <!-- Línea blanca sin margen -->

@@ -15,6 +15,12 @@ img {vertical-align: middle;}
   margin: auto;
 }
 
+/* Establecer un tamaño fijo para las imágenes */
+.mySlides img {
+  width: 100%;
+  height: 420px; /* Establece la altura deseada */
+}
+
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -43,22 +49,10 @@ img {vertical-align: middle;}
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
 }
 
 .active {
   background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
 }
 
 /* On smaller screens, decrease text size */
@@ -69,22 +63,18 @@ img {vertical-align: middle;}
 </head>
 <body>
 
-
-
 <div class="slideshow-container">
+  <div class="mySlides">
+    <img src="../assets/img/img1.jpg">
+  </div>
 
-<div class="mySlides fade">
-  <img src="../assets/img/img1.jpg" style="width:100%">
-</div>
+  <div class="mySlides">
+    <img src="../assets/img/img2.jpg">
+  </div>
 
-<div class="mySlides fade">
-  <img src="../assets/img/img2.jpg" style="width:100%">
-</div>
-
-<div class="mySlides fade">
-  <img src="../assets/img/img3.jpg" style="width:100%">
-</div>
-
+  <div class="mySlides">
+    <img src="../assets/img/img3.jpg">
+  </div>
 </div>
 <br>
 
@@ -112,9 +102,9 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
+  setTimeout(showSlides, 3000); // Cambia la imagen después de 3 segundos
 }
 </script>
 
 </body>
-</html> 
+</html>

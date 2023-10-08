@@ -180,48 +180,40 @@
     </script>
 </head>
 <body>
+<!-- Barra de navegación superior -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <h3 style="color: white;">Bienvenido <?php 
-                $ci=$_SESSION['ci'];
-                
-                include("../modelo/PersonaClase.php");
-                $carg=new Persona($ci,"","","","","","","","","");
-                echo $carg->obtenerNombreCompleto();
-                ?></h3>
+               
+               $ci=$_SESSION['ci'];
+               
+               include("../modelo/PersonaClase.php");
+               $carg=new Persona($ci,"","","","","","","","","");
+               echo $carg->obtenerNombreCompleto();
+               ?></h3>
     <div class="container">
-        <!-- Agrega un botón para Cerrar Sesión -->
-        <ul class="navbar-nav ml-auto">
-        
-            <li class="nav-item">
-                <a class="nav-link text-white" href="../controlador/cerrar_sesion.php">Cerrar Sesión</a>
-            </li>
-        </ul>
-        <!-- Resto del código de la barra de navegación... -->
-    </div>
-</nav>
-    <!-- Menu delgado -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="logos/logo.png" alt="logo"></a>
-            <p style="color:white;">Sistema contra la violencia</p>
-            <ul class="navbar-nav ml-auto" style="display: flex; align-items: center;">
-                <form action="" method="post" accept-charset="utf-8" style="display: inline;">
-                    <button type="submit" class="nav-link text-white" name="inicio" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">Inicio</button>
-                </form>
+        <a class="navbar-brand" href="#"><img src="logos/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/contactosLista.php">Contactos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/aboutus.php">Acerca de nosotros</a>
                 </li>
-                <!-- Agregar la opción de "Contacto de Emergencia" con ícono y descripción -->
                 <li class="nav-item">
                     <a class="nav-link text-white" href="../controlador/contactoEmergenciaLista.php">Contacto de Emergencia <i class="fas fa-exclamation-triangle"></i></a>
-                   
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../controlador/cerrar_sesion.php">Cerrar Sesión</a>
+                </li>
+                
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
     <!-- Línea blanca sin margen -->

@@ -5,9 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Login</title>
+    <style>
+        /* Estilos personalizados */
+        body {
+            background: linear-gradient(#141e30, #243b55);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+            padding: 20px;
+        }
+
+        .btn-cyan {
+            background: #03e9f4;
+            color: #fff;
+            border: none;
+            outline: none;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        .btn-cyan:hover {
+            background: #03c3df;
+            cursor: pointer;
+        }
+
+        .btn-cyan::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            transition: width 0.3s ease;
+        }
+
+        .btn-cyan:hover::before {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
+<div class="container">
+    <h2 class="title">Sistema de apoyo a víctimas de violencia</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -25,12 +78,12 @@
                             <input type="password" class="form-control" id="password" name="contrasenia" required>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary" name="login">Login</button>
+                            <button type="submit" class="btn btn-cyan" name="login">Login</button>
                         </div>
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <p>No tiene cuenta? <a href="../controlador/usuarioRegistro.php">Regístrese aquí</a></p>
+                    <p style="margin-bottom: 0;">¿No tiene cuenta? <a href="../controlador/usuarioRegistro.php">Regístrese aquí</a></p>
                 </div>
             </div>
         </div>

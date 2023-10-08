@@ -170,6 +170,14 @@ class Usuario
         $sql=$db->query("SELECT * FROM usuario where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
         return $sql->num_rows != 0;
     }
+    public function check_exists_basico(){
+        //print($this->nombre_usuario);
+        //print($this->contrasenia);
+        //include("conexion.php");
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM usuario where nombre_usuario='$this->nombre_usuario'");
+        return $sql->num_rows != 0;
+    }
 
 }
 ?>

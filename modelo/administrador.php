@@ -150,6 +150,12 @@ class Administrador
         $sql=$db->query("SELECT * FROM administrador where nombre_usuario='$this->nombre_usuario' AND contrasenia='$this->contrasenia'");
         return $sql->num_rows != 0;
     }
+    public function check_exists_basico(){
+        
+        $db=new Conexion();
+        $sql=$db->query("SELECT * FROM administrador where nombre_usuario='$this->nombre_usuario'");
+        return $sql->num_rows != 0;
+    }
 
     public function getRoles()
     {

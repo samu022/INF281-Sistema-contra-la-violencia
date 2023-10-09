@@ -1,30 +1,33 @@
 <!-- Begin Page Content -->
 <div class="container">
     <h2>Lista Administradores</h2>
-    <table  class="table table-dark table-sm">
-        
-        <tr>
-            <td>ci</td>
-            <td>Nombre de Usuario</td>
-            <td>Correo</td>
+    <div class="table-responsive"> 
+        <table  class="table table-dark table-sm">
+            
+            <tr>
+                <td>ci</td>
+                <td>Nombre de Usuario</td>
+                <td>Correo</td>
 
-        </tr>
-        <?php
-            $cont=0;
-            while($reg=mysqli_fetch_array($res)){
-                $cont=$cont+1;
-                echo "<tr>";
-                echo "<td>".$reg['ci']."</td>";
-                echo "<td>".$reg['nombre_usuario']."</td>";
-                echo "<td>".$reg['correo']."</td>";
+            </tr>
+            <?php
+                $cont=0;
+                while($reg=mysqli_fetch_array($res)){
+                    $cont=$cont+1;
+                    echo "<tr>";
+                    echo "<td>".$reg['ci']."</td>";
+                    echo "<td>".$reg['nombre_usuario']."</td>";
+                    echo "<td>".$reg['correo']."</td>";
 
-                echo "<td><a href='../controlador/administradorElimina.php?ci=".$reg['ci']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";
-                echo "<td><a href='../controlador/administradorModifica.php?ci=".$reg['ci']."'  class='btn btn-success'>Modificar</a></td>";
-                echo "</tr>";
-                
-            }
-        ?>
-    </table>
+                    echo "<td><a href='../controlador/administradorElimina.php?ci=".$reg['ci']."' btn='btn-danger' class='btn btn-danger'>Eliminar</a></td>";
+                    echo "<td><a href='../controlador/administradorModifica.php?ci=".$reg['ci']."'  class='btn btn-success'>Modificar</a></td>";
+                    echo "</tr>";
+                    
+                }
+            ?>
+        </table>
+    </div>
+    
     
     <?php
         if($cont==0){

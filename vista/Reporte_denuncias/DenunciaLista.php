@@ -4,13 +4,96 @@
     <meta charset="UTF-8">
     <title>Lista de Denuncias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 4px solid #343a40; /* Cambia el color del borde de las celdas */
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .alert-danger {
+            
+        
+        background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+
+        .alert-danger h3 {
+            color: #721c24;
+        }
+       /* Estilo para filas pares */
+       table tr:nth-child(even) {
+            background-color: #66ccff;
+        }
+
+        /* Estilo para filas impares */
+        table tr:nth-child(odd) {
+            background-color: #3399ff;
+        }
+        /* Cambia el color del texto en las celdas de la tabla */
+        .table-dark th,
+        .table-dark td {
+            color: #000; /* Cambia el color del texto a negro (#000) */
+        }
+        /* Estilo para el título "Lista de Centros Locales" */
+        h2 {
+            font-size: 34px; /* Tamaño de fuente más grande */
+            font-weight: bold; /* Hace que el título sea negrita */
+            color: #333; /* Color de texto negro */
+            text-align: center; /* Centra el título en la página */
+            padding: 10px; /* Añade espacio alrededor del título para resaltarlo */
+            background-color: #ffff66; /* Fondo gris claro */
+            border-radius: 10px; /* Borde redondeado */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+            margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+            margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+        } 
+        h3 {
+            font-size: 30px; /* Tamaño de fuente más grande */
+            font-weight: bold; /* Hace que el título sea negrita */
+            color: #333; /* Color de texto negro */
+            text-align: center; /* Centra el título en la página */
+            padding: 10px; /* Añade espacio alrededor del título para resaltarlo */
+            background-color: #ffff66; /* Fondo gris claro */
+            border-radius: 10px; /* Borde redondeado */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+            margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+            margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+        } 
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <h2 class="text-center">Lista de Denuncias</h2>
-        <table class="table table-bordered table-striped">
+        <div class="table-responsive">
+        <table>
             <thead>
-                <tr>
+                <tr style = "font-size: 20px; background-color: #66ff99;">
                     <th>Código Denuncia</th>
                     <th>Tipo de Violencia</th>
                     <th>Descripción</th>
@@ -46,6 +129,8 @@
                 ?>
             </tbody>
         </table>
+        </div>
+        
         <?php
             if ($cont == 0) {
                 echo "<div class='alert alert-danger text-center' role='alert'>";

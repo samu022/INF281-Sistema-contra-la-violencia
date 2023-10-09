@@ -1,9 +1,10 @@
 <div class="container-fluid">
 <div class="container">
-    <h2 style="color: #343a40; text-align: center; margin-top: 20px; font-size: 70px; font-weight: bold;">Lista de eventos</h2>
+    <h2>Lista de eventos</h2>
+        <div class="table-responsive">
         <table  class="table table-dark table-sm" >
  
-            <tr>
+            <tr style = "font-size: 20px; background-color: #66ff99;">
                 <td>codigo evento</td>
                 <td>tipo</td>
                 <td>Fecha del evento</td>
@@ -67,7 +68,9 @@
                     
                 }
             ?>
-        </table>
+            </table>
+        </div>
+        
     <?php
         if($cont==0){
             echo "<div style='text-align: center;' class='alert alert-danger' role='alert'>";

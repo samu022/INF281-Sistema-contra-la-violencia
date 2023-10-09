@@ -74,9 +74,7 @@
     <div class="container mt-5">
         <form action="" method="POST">
             <h1 class="mb-4">Bienvenido al Registro de Denuncias</h1>
-            <label for="anonima" class="form-label">¿La denuncia no será anónima?</label>
-            <input type="checkbox" class="form-check-input" name="anonima" id="anonima">
-            <label class="form-check-label" for="anonima">No Anónima</label>
+            
 
             <div class="mb-3">
                 <label for="tipo" class="form-label">Seleccione el tipo de denuncia:</label>
@@ -99,20 +97,28 @@
                 <textarea class="form-control" name="des" id="des" rows="4" placeholder="Escriba aquí su descripción" required></textarea>
             </div>
             <div class="mb-3">
+                
             <div class="mb-3">
-                <label for="tes" class="form-label">Ingrese nombre del testigo:</label>
-                <input type="text" class="form-control" name="tes" id="tes" placeholder="Escriba aquí el nombre del testigo" disabled>
-            </div>
+            <label for="anonima" class="form-label">¿La denuncia será anónima?</label>
+            <label>
+                <input type="radio" name="respuesta" value="si"> No
+            </label>
+            <label>
+                <input type="radio" name="respuesta" value="no"> Si
+            </label><br>
+            <label for="tes" class="form-label">Ingrese nombre del testigo:</label>
+            <input type="text" class="form-control" name="tes" id="tes" placeholder="Escriba aquí el nombre del testigo" disabled>
+
             </div>
             
             <h1>Datos Victima</h1>
-            <iframe id="victima" src="../controlador/victimaRegistro.php" width="100%" height="1000px" frameborder="0"></iframe>
+            <iframe id="victima" src="../controlador/victimaRegistro.php" width="100%" height="1200px" frameborder="0"></iframe>
             <h1>Datos Agresor</h1>
-            <iframe id="agresor" src="../controlador/agresorRegistro.php" width="100%" height="1050px" frameborder="0"></iframe>
+            <iframe id="agresor" src="../controlador/agresorRegistro.php" width="100%" height="1250px" frameborder="0"></iframe>
             <h1>Pruebas</h1>
             <iframe id="prueba" src="../controlador/pruebaRegistro.php" width="100%" height="450px" frameborder="0"></iframe>
             <h1>Ubicación</h1>
-            <iframe src="../controlador/geoRegistro.php" width="100%" height="680px" frameborder="0"></iframe>
+            <iframe src="../controlador/geoRegistro.php" width="100%" height="1000px" frameborder="0"></iframe>
             <button type="submit" class="btn btn-primary" name="RegistrarDenuncia">Registrar Denuncia</button>
             <button type="button" class="btn btn-danger" onclick="window.location.href='../controlador/panelweb.php'">Volver</button>
         </form>
@@ -122,15 +128,18 @@
     </div>
     <script>
     // Obtener referencias a los elementos del DOM
-    const checkboxAnonima = document.getElementById('anonima');
-    const campoTestigo = document.getElementById('tes');
+    const radioRespuesta = document.getElementsByName('respuesta');
+    const campoTestigo = document.getElementById('tes'); // Reemplaza 'campoTestigo' con el ID real de tu campo
 
-    // Agregar un evento change al checkbox
-    checkboxAnonima.addEventListener('change', function () {
-        // Habilitar o deshabilitar el campo de testigo según si el checkbox está marcado o no
-        campoTestigo.disabled = this.checked;
-    });
+    // Agregar un evento change a los radios de respuesta
+    for (let i = 0; i < radioRespuesta.length; i++) {
+        radioRespuesta[i].addEventListener('change', function () {
+            // Habilitar o deshabilitar el campo de testigo según la respuesta seleccionada
+            campoTestigo.disabled = radioRespuesta[1].checked; // Deshabilita si "No" está seleccionado
+        });
+    }
 </script>
+
 <script>
   window.watsonAssistantChatOptions = {
     integrationID: "b5720f5e-69c2-4db5-9923-cb183ac44279", // The ID of this integration.

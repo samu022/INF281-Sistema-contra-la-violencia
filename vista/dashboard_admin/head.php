@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,35 +12,10 @@
 
     <!-- Agrega Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   
-    
     <style>
-/* styles.css */
-.sidebar {
-    z-index: 1000; /* Valor alto para el menú desplegable */
-}
-.sidebar {
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    padding: 20px;
-    color: #fff;
-}
-
-.content {
-    margin-left: 250px; /* Ancho del sidebar */
-    padding: 20px;
-}
-
-/* Estilos adicionales según tus necesidades */
-
+        /* Estilo personalizado para asegurarse de que la barra lateral ocupe toda la altura de la pantalla */
+        .full-height {
+            min-height: 100vh;
+        }
     </style>
 </head>
-

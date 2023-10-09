@@ -83,10 +83,10 @@ VALUES
   (5, 'Activa', '11-10-2023', 10008, 5);
 
 INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `archivo`, `pagina`, `ci`) VALUES
-(1, 'Centro de Apoyo a la Mujer', '123-4567', 'Calle 1, Zona Norte, La Paz', 'imagen1.jpg', 'pagina1',10002),
-(2, 'Centro de Prevención de la Violencia', '234-5678', 'Avenida 2, Zona Sur, La Paz','imagen2.jpg', 'pagina1',10001),
-(3, 'Centro de Ayuda a Víctimas de Violencia', '345-6789', 'Calle 3, Zona Centro, La Paz','imagen3.jpg' , 'pagina1',10002),
-(4, 'Centro Comunitario contra la Violencia', '456-7890', 'Avenida 4, Zona Este, La Paz', 'imagen4.jpg', 'pagina1',10001);
+(1, 'Centro de Apoyo a la Mujer', '123-4567', 'Calle 1, Zona Norte, La Paz', 'imagen1.jpg', 'https://camvicentinos.org/',10002),
+(2, 'Centro de Prevención de la Violencia', '234-5678', 'Avenida 2, Zona Sur, La Paz','imagen2.jpg', 'https://www.sedegeslapaz.gob.bo/Programa-Centro-Especializado-de-Prevencion-y-Atencion-Terapeutica-a-Victimas-de-Violencia-Sexual-CEPAT',10001),
+(3, 'Centro de Ayuda a Víctimas de Violencia', '345-6789', 'Calle 3, Zona Centro, La Paz','imagen3.jpg' , 'https://ceprev.org/quienes-somos.html',10002),
+(4, 'Centro Comunitario contra la Violencia', '456-7890', 'Avenida 4, Zona Este, La Paz', 'imagen4.jpg', 'https://bolivia.unfpa.org/es/news/el-municipio-de-sacaba-cuenta-desde-hoy-con-el-primer-%E2%80%9Ccentro-integral-contra-la-violencia%E2%80%9D',10001);
 
 
 INSERT INTO `contacto_emergencia` (`ci_contacto`, `telefono`) VALUES
@@ -188,9 +188,9 @@ personas', 'https://tsj.bo/wp-content/uploads/2019/11/ley-263-integral-contra-la
 (5, 'Ley 2033', '1999-10-29', 'Ley de proteccion a las victimas de delitos contra la libertad sexual', 'http://www.silep.gob.bo/norma/3936/ley_actualizada', 10001);
 
 INSERT INTO `centro_local` (`codCentro`, `nombre`, `telefono`, `ubicacion`, `archivo`, `pagina`, `ci`) VALUES
-(5, 'Fuerza Especial de Lucha Contra la Violencia', '2285495', 'Av. Sucre Nro 1122, Zona Centro, La Paz', 'imagen5.jpg','pagina1', 10001),
-(6, 'Fuerza Especial de Lucha Contra la Violencia', '800142031', 'Av. Fuerza Aerea Esq. Km 7 Nro 100, El Alto', 'imagen6.jpg','pagina1',10002),
-(7, 'Fuerza de Lucha Contra el Crimen', '2285776', 'Av. Sucre esquina Bolivar Nro 1122, Zona Centro,La Paz','imagen7.jpg','pagina1' ,10001);
+(5, 'Fuerza Especial de Lucha Contra la Violencia', '2285495', 'Av. Sucre Nro 1122, Zona Centro, La Paz', 'imagen5.jpg','https://help.unhcr.org/bolivia/coronavirus__trashed/violencia-basada-en-genero/#:~:text=Fuerza%20Especial%20de%20Lucha%20contra,direcci%C3%B3n%20funcional%20del%20Ministerio%20P%C3%BAblico.', 10001),
+(6, 'ONU MUJERES', '800142031', 'Av. Fuerza Aerea Esq. Km 7 Nro 100, El Alto', 'imagen6.jpg','https://www.unwomen.org/es/news/stories/2019/3/feature-safe-cities-bolivia',10002),
+(7, 'Fuerza de Lucha Contra el Crimen', '2285776', 'Av. Sucre esquina Bolivar Nro 1122, Zona Centro,La Paz','imagen7.jpg','https://www.policia.bo/?page_id=1243' ,10001);
 
 INSERT INTO `informacion_educativa` (`codInformacion`, `titulo`, `descripcion`, `tipoViolencia`, `rutaDirectorio`, `tipo`, `fechaSubida`, `ci`) VALUES
 (3, 'Ley para garantizar a las mujeres una vida libre de violencia nro 348', '43 preguntas y respuestas acerca de la ley en favor de los derechos humanos', 'Todas', 'cartilla.pdf', 'PDF', '2023-09-17', 10002),

@@ -37,6 +37,23 @@
 
         // Agregar el array de la víctima actual al array principal
         $_SESSION['datosAgresor'][] = $agresor;
+        echo '<script>
+                var alertDiv = document.createElement("div");
+                alertDiv.innerHTML = "El agresor se registro correctamente";
+                alertDiv.style.backgroundColor = "#00ff00";
+                alertDiv.style.color = "black";
+                alertDiv.style.padding = "10px 20px";
+                alertDiv.style.borderRadius = "5px";
+                alertDiv.style.position = "fixed";
+                alertDiv.style.top = "80%";
+                alertDiv.style.left = "50%";
+                alertDiv.style.transform = "translate(-50%, -50%)";
+                alertDiv.style.zIndex = "1000";
+                document.body.appendChild(alertDiv);
+                setTimeout(function() {
+                    alertDiv.style.display = "none";
+                }, 6000);
+            </script>';
         /*include("../modelo/PersonaClase.php");
         $carg1=new Victima($ci, $nom, $apeP, $apeM, $fechanac, $sexo, $dir, $est, $prof);
         $res1=$carg1->grabarPersona();

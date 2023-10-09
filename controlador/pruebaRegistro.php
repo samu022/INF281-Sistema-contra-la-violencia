@@ -46,17 +46,67 @@ if(isset($_POST['subePrueba'])){
 
             // Agregar los datos de esta subida al conjunto de datos principal
             $_SESSION['datosPruebas'][] = $datosSubida;
-
+            echo '<script>
+                var alertDiv = document.createElement("div");
+                alertDiv.innerHTML = "La prueba se registro correctamente";
+                alertDiv.style.backgroundColor = "#00ff00";
+                alertDiv.style.color = "black";
+                alertDiv.style.padding = "10px 20px";
+                alertDiv.style.borderRadius = "5px";
+                alertDiv.style.position = "fixed";
+                alertDiv.style.top = "80%";
+                alertDiv.style.left = "50%";
+                alertDiv.style.transform = "translate(-50%, -50%)";
+                alertDiv.style.zIndex = "1000";
+                document.body.appendChild(alertDiv);
+                setTimeout(function() {
+                    alertDiv.style.display = "none";
+                }, 6000);
+            </script>';
             // Aquí puedes realizar cualquier otra operación con los datos antes de registrarlos en la base de datos
         } else {
             // Error al subir el archivo
-            echo '<p class="error-message">Error al subir el archivo.</p>';
+            //echo '<p class="error-message">Error al subir el archivo.</p>';
+            echo '<script>
+                var alertDiv = document.createElement("div");
+                alertDiv.innerHTML = "Error al subir el archivo.";
+                alertDiv.style.backgroundColor = "#ff0000";
+                alertDiv.style.color = "white";
+                alertDiv.style.padding = "10px 20px";
+                alertDiv.style.borderRadius = "5px";
+                alertDiv.style.position = "fixed";
+                alertDiv.style.top = "80%";
+                alertDiv.style.left = "50%";
+                alertDiv.style.transform = "translate(-50%, -50%)";
+                alertDiv.style.zIndex = "1000";
+                document.body.appendChild(alertDiv);
+                setTimeout(function() {
+                    alertDiv.style.display = "none";
+                }, 6000);
+            </script>';
         }
         
         // Puedes acceder a los datos almacenados en el array $_SESSION['datosPruebas'] aquí
         //print_r($_SESSION['datosPruebas']);
     } else {
-        echo "No se ha seleccionado ningún archivo.";
+        //echo "No se ha seleccionado ningún archivo.";
+        echo '<script>
+                var alertDiv = document.createElement("div");
+                alertDiv.innerHTML = "No se ha seleccionado ningún archivo.";
+                alertDiv.style.backgroundColor = "#ffa500";
+                alertDiv.style.color = "black";
+                alertDiv.style.padding = "10px 20px";
+                alertDiv.style.borderRadius = "5px";
+                alertDiv.style.position = "fixed";
+                alertDiv.style.top = "80%";
+                alertDiv.style.left = "50%";
+                alertDiv.style.transform = "translate(-50%, -50%)";
+                alertDiv.style.zIndex = "1000";
+                document.body.appendChild(alertDiv);
+                setTimeout(function() {
+                    alertDiv.style.display = "none";
+                }, 6000);
+            </script>';
     }
 }
 ?>

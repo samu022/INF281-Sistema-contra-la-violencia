@@ -4,6 +4,7 @@
     <title>Formulario Evaluación de riesgos</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Se necesita jQuery para hacer la solicitud AJAX -->
 </head>
+
 <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.46040" type="text/javascript"></script>
 <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.46040" type="text/javascript"></script>
 <script src="https://cdn02.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.46040" type="text/javascript"></script>
@@ -884,6 +885,10 @@ div.form-header-group.header-large {
       <li class="form-line form-line-column form-col-1" data-type="control_calculation" id="id_87"><label class="form-label form-label-top" id="label_87" for="input_87" aria-hidden="false"> Puntaje 2 </label>
         <div id="cid_87" class="form-input-wide" data-layout="half"> <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_87" name="q87_puntaje2" value="0" /> </div>
       </li>
+      
+        
+    
+
       <li id="cid_76" class="form-input-wide" data-type="control_pagebreak">
         <div class="form-pagebreak" data-component="pagebreak">
           <div class="form-pagebreak-back-container"><button id="form-pagebreak-back_76" type="button" class="form-pagebreak-back  jf-form-buttons" data-component="pagebreak-back">Atrás</button></div>

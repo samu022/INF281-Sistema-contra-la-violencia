@@ -59,7 +59,7 @@
             <label for="telefono">Telefono:</label>
             <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su numero telefonico">
         </div>
-        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+        <p>Estoy de acuerdo con <a href="terminos.php">Terminos y Condiciones</a></p>
         <input class="botons" type="submit" value="Registrar Víctima" name="registraVictima">
     </form>
        

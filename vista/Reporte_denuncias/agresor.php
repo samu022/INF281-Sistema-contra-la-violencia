@@ -59,7 +59,7 @@
             <label for="descripcion">Descripcion:</label>
             <textarea class="descripcion" name="descripcion" id="form-field-message" rows="4" placeholder="Describa al agresor aqui." required="required" aria-required="true"></textarea>
         </div>
-        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+        <p>Estoy de acuerdo con <a href="terminos.php">Terminos y Condiciones</a></p>
         <input class="botons" type="submit" value="Registrar Agresor" name="registrarAgresor">
     </form>
     <button type="button" class="btn btn-success" onclick="window.location.href='../controlador/agresorVista.php'">Ver los agresores registrados</button>

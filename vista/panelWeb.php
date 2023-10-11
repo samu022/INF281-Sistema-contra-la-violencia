@@ -356,7 +356,7 @@
                     <p>Enlaces útiles</p>
                     <ul>
                         <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Términos de servicio</a></li>
+                        <li><a href="../controlador/terminos.php">Términos de servicio</a></li>
                     </ul>
                 </div>
             </div>

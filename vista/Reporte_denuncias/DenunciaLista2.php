@@ -126,11 +126,17 @@
                         echo "<td><a href='../controlador/pruebasInformacion.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Pruebas</a></td>";
                         echo "<td><a href='../controlador/geoInformacion.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Ubicación</a></td>";
                         echo "<td>".$reg['seguimiento']."</td>";
-                        echo "<td><a href='../controlador/denunciaModificar.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Modificar</a></td>";
+
+                        // Comprueba si el estado de seguimiento es 'En proceso' y habilita o deshabilita el botón "Modificar" en consecuencia.
+                        if ($reg['seguimiento'] === 'En proceso') {
+                            echo "<td><a href='../controlador/denunciaModificar.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Modificar</a></td>";
+                        } else {
+                            echo "<td><button class='btn btn-success' disabled>Modificar</button></td>";
+                        }
+
                         echo "</tr>";
                     }
                 ?>
-                
             </tbody>
             
         </table>

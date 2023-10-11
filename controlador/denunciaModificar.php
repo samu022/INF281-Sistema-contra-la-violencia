@@ -1,8 +1,8 @@
 <?php
 
-include("../modelo/conexion.php");
+include_once("../modelo/conexion.php");
 include("../modelo/administrador.php");
-include("control_cookies.php");
+include("control_cookies.php"); 
 
 //include("../modelo/conexion.php");
 $cod = $_GET['cod'];
@@ -25,7 +25,7 @@ include("../vista/Reporte_denuncias/denunciaModificar.php");
 if (isset($_POST['ModificarDenuncia'])) {
     $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
-    $seguimiento = $_POST['seguimiento'];
+    //$seguimiento = $_POST['seguimiento'];
     $fecha = $_POST['fecha']; // Supongamos que la fecha está en formato dd-mm-yyyy
     $fecha = date("Y-m-d", strtotime($fecha));
 
@@ -36,7 +36,7 @@ if (isset($_POST['ModificarDenuncia'])) {
     $car->setTipo($tipo);
     $car->setDescripcion($descripcion);
     $car->setTestigo($testigo);
-    $car->setSeguimiento($seguimiento);
+    //$car->setSeguimiento($seguimiento);
     $car->setFecha($fecha);
     $res = $car->modifica();
 

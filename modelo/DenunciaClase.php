@@ -16,12 +16,19 @@ class Denuncia{
         $this->setSeguimiento($seguimiento);
         $this->setCodGeo($codGeo);
     }
-    public function lista(){
+    public function lista1(){
         //include("conexion.php");
         $db=new Conexion();
-        $sql=$db->query("SELECT * FROM denuncia");
+        $sql=$db->query("SELECT * FROM denuncia ORDER BY fecha desc");
         return ($sql);
-    }public function lista_especifica(){
+    }
+    public function lista() {
+        $db = new Conexion();
+        $sql = $db->query("SELECT * FROM denuncia WHERE seguimiento='En proceso' ORDER BY fecha desc");
+        return $sql;
+    }
+    
+    public function lista_especifica(){
         //include("conexion.php");
         $db=new Conexion();
         $sql=$db->query("SELECT * FROM denuncia where codDenuncia=$this->codDenuncia");
@@ -236,6 +243,44 @@ class Denuncia{
             return false; // Fallo al actualizar
         }
     }
+    public function ModificaSeguimiento1($cod){
+        $db = new Conexion();
+        $seguimiento = "Finalizado"; // Valor que deseas establecer
+        $sql = $db->prepare("UPDATE denuncia SET seguimiento = '$seguimiento' WHERE codDenuncia = ?"); 
+    
+        // Aquí vinculamos el código de denuncia al marcador de posición
+        $sql->bind_param("i", $this->codDenuncia);
+    
+        $result = $sql->execute();
+        
+        // Verificar si la actualización fue exitosa
+        if ($result) {
+            return true; // Éxito
+        } else {
+            echo "SQL Error: " . $sql->error;
+            return false; // Fallo al actualizar
+        }
+    }
+    public function ModificaSeguimiento2($cod){
+        $db = new Conexion();
+        $seguimiento = "En proceso"; // Valor que deseas establecer
+        $sql = $db->prepare("UPDATE denuncia SET seguimiento = '$seguimiento' WHERE codDenuncia = ?"); 
+    
+        // Aquí vinculamos el código de denuncia al marcador de posición
+        $sql->bind_param("i", $this->codDenuncia);
+    
+        $result = $sql->execute();
+        
+        // Verificar si la actualización fue exitosa
+        if ($result) {
+            return true; // Éxito
+        } else {
+            echo "SQL Error: " . $sql->error;
+            return false; // Fallo al actualizar
+        }
+    }
+    
+    
     
 
 }

@@ -65,10 +65,10 @@
                 <input class="form-control" type="text" id="testigo" name="testigo" value="<?php echo $testigo; ?>" disabled>
             </div>
 
-            <div class="mb-3">
+            <!--div class="mb-3">
                 <label for="seguimiento" class="form-label">Seguimiento:</label>
                 <input class="form-control" type="text" id="seguimiento" name="seguimiento" value="<?php echo $seguimiento; ?>">
-            </div>
+            </div-->
 
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label>

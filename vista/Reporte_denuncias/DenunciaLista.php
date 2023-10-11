@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <title>Lista de Denuncias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
@@ -91,6 +91,7 @@
     <div class="container-fluid">
         <h2 class="text-center">Lista de Denuncias</h2>
         <div class="table-responsive">
+        <form method="post" action="">
         <table>
             <thead>
                 <tr style = "font-size: 20px; background-color: #66ff99;">
@@ -103,8 +104,10 @@
                     <th>Agresores</th>
                     <th>Pruebas</th>
                     <th>Ubicación</th>
+                    <th>Finalizar Caso</th>
                     <th>Eliminar</th>
                     <th>Modificar</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -122,14 +125,19 @@
                         echo "<td><a href='../controlador/agresorInformacion.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Agresores</a></td>";
                         echo "<td><a href='../controlador/pruebasInformacion.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Pruebas</a></td>";
                         echo "<td><a href='../controlador/geoInformacion.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Ubicación</a></td>";
+                        echo '<td><input type="checkbox" name="denuncia_atendida[]" class="atender-checkbox" value="' . $reg['codDenuncia'] . '"></td>';
                         echo "<td><a href='../controlador/denunciaElimina.php?cod=".$reg['codDenuncia']."' class='btn btn-danger'>Eliminar</a></td>";
                         echo "<td><a href='../controlador/denunciaModificar.php?cod=".$reg['codDenuncia']."' class='btn btn-success'>Modificar</a></td>";
                         echo "</tr>";
                     }
                 ?>
+                
             </tbody>
+            
         </table>
-        </div>
+        <button class="btn btn-danger float-right" type="submit">Confirmar Denuncias Finalizadas</button>
+        </form>
+    </div>
         
         <?php
             if ($cont == 0) {
@@ -196,5 +204,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+
 </body>
 </html>

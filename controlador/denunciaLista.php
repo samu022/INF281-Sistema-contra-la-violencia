@@ -11,7 +11,7 @@ include("../modelo/DenunciaClase.php");
     if (isset($_POST['denuncia_atendida']) && is_array($_POST['denuncia_atendida'])) {
         foreach ($_POST['denuncia_atendida'] as $codDenuncia) {
             $car0=new Denuncia($codDenuncia,"","","","","","");
-            $change=$car0->ModificaSeguimiento("Finalizado");
+            $change=$car0->ModificaSeguimiento1("Finalizado");
         }
     }
     

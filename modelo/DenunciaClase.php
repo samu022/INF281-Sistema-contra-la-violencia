@@ -279,9 +279,26 @@ class Denuncia{
             return false; // Fallo al actualizar
         }
     }
-    
-    
-    
+
+    public function filtrarFecha($fecha){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM denuncia WHERE fecha LIKE ?");
+        $param = "%$fecha%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+
+    public function filtrarSeguimiento($seguimiento){
+        $db = new Conexion();
+        $stmt = $db->prepare("SELECT * FROM denuncia WHERE seguimiento LIKE ?");
+        $param = "%$seguimiento%";
+        $stmt->bind_param("s", $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
 
 }
 ?>

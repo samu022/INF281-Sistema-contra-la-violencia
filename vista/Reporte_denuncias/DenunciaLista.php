@@ -91,6 +91,28 @@
     <div class="container-fluid">
         <h2 class="text-center">Lista de Denuncias En proceso</h2>
         <div class="table-responsive">
+        <div style="background-color: #ffcc66; padding: 15px; border-radius: 5px;" class="d-flex align-items-center">
+            <form action="" method="POST" class="mr-3">
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Ver por fecha:</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                </div>
+                <button type="submit" class="btn btn-primary" name="filtrarFecha">Buscar</button>
+            </form>
+
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="seguimiento" class="form-label">Seleccione el seguimiento:</label>
+                    <select class="form-select" name="seguimiento" id="seguimiento" required>
+                        <option value="En proceso">En proceso</option>
+                        <option value="En investigación">En investigación</option>
+                        <option value="Cerrada">Cerrada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" name="filtrarSeguimiento">Buscar</button>
+            </form>
+        </div>
+
         <form method="post" action="">
         <table>
             <thead>

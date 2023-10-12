@@ -12,6 +12,7 @@
     include("../modelo/VictimaClase.php");
     include("../modelo/PruebaClase.php");
     include("../modelo/RealizaClase.php");
+    include("../modelo/Incidente_PruebaClase.php");
     if(isset($_POST['RegistrarDenuncia'])){
         $tes="";
         if (isset($_POST['anonima'])) {
@@ -36,7 +37,7 @@
 
         include("../modelo/DenunciaClase.php");
         //echo "Código de Geolocalización: " . $cargGeo->getCodGeo() . "<br>";
-        $cargDen=new Denuncia("", $tipo, $des, $fechaActual,$tes,"En investigación",$cargGeo->getCodGeo());
+        $cargDen=new Denuncia("", $tipo, $des, $fechaActual,$tes,"En proceso",$cargGeo->getCodGeo());
         $resDen=$cargDen->grabarDenuncia();
         //Registramos a victima
         
@@ -131,7 +132,7 @@
                 
                 $cargPrueba=new Prueba("", $tipoArchivo, $descripcion, $rutaArchivo);
                 $resPrueba=$cargPrueba->grabarPrueba();
-                include("../modelo/Incidente_PruebaClase.php");
+                
                 $cargIP=new Incidente_Prueba($cargDen->getCodDenuncia(),$cargPrueba->getCodPrueba());
                 $resIP=$cargIP->insertarIncidentePrueba();
             }

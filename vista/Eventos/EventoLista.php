@@ -78,16 +78,29 @@
         }
     ?>
     <button type="button" class="btn btn-info" onclick="window.location.href='../controlador/eventoRegistro.php'">Ingresar nuevo evento</button>
-    <form action="../reportes/reporteEventos.php" method="post" accept-charset="utf-8">
-        <div class="row">
-            <button type="submit" class="btn btn-success mb-2">Reporte de eventos</button>
+    <br>
+    <br>
+    <div class="row justify-content-center">
+        <!-- Botón Calendario -->
+        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
+            <form action="../vista/eventos/calendario.php" method="post" accept-charset="utf-8">
+                <button type="submit" class="custom-button" name="eventos">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN4T_Iq-aWFjkh1ZlsQlzdZa6dqAby6gOnDWwsjw4up-UR87ZVp-Gn85he6OQ2mHoX-gI&usqp=CAU" alt="Eventos" class="custom-button-image">
+                    <span class="custom-button-text">Ver calendario</span>
+                </button>
+            </form>
         </div>
-    </form>
-    <form action="../vista/eventos/calendario.php" method="post" accept-charset="utf-8">
-        <div class="row">
-            <button type="submit" class="btn btn-info mb-2">Ver calendario</button>
+        <!-- Botón Reportes -->
+        <div class="col-md-6 col-12 mx-auto"> <!-- Agregamos la clase mx-auto -->
+            <form action="../reportes/reporteEventos.php" method="post" accept-charset="utf-8">
+                <button type="submit" class="custom-button" name="reporte">
+                    <img src="https://w7.pngwing.com/pngs/837/174/png-transparent-paper-notebook-computer-icons-notebook-miscellaneous-angle-text.png" alt="Eventos" class="custom-button-image">
+                    <span class="custom-button-text">Generar Reporte</span>
+                </button>
+            </form>
         </div>
-    </form>  
+    </div>
+
 </div>
     </div>
 </body>

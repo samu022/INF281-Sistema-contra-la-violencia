@@ -47,5 +47,50 @@
         body {
             background-color: #66ccff; /* Puedes cambiar el color a tu preferencia */
         }
+        #eventos {
+            background-color: #99ccff; /* Color de fondo que desees */
+        }
+        #eventos h1 {
+            font-size: 90px; /* Tamaño de fuente */
+            color: #ffffff; /* Color del texto */
+            text-align: center; /* Alineación del texto */
+            margin-bottom: 20px; /* Margen inferior para separar el título del contenido */
+        }
+        /* Estilos para los botones personalizados */
+        /* Estilo para los botones */
+        /* Contenedor de botones */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Espacio entre las filas de botones */
+        }
+
+        /* Filas de botones */
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 5px; /* Espacio entre los botones en la misma fila */
+        }
+
+        /* Estilo para los botones */
+        .custom-button {
+            background-color: #007bff;
+            border: none;
+            padding: 10px; /* Ajusta el tamaño del botón */
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.9); /* Sombra tipo 3D */
+        }
+
+        .custom-button-image {
+            width: 180px; /* Tamaño de la imagen */
+            height: 140px; /* Tamaño de la imagen */
+            margin-bottom: 5px; /* Espaciado entre la imagen y el texto */
+        }
     </style>
 </head>
